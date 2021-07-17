@@ -1,0 +1,22 @@
+{
+    "sourceFile": "client-app/src/components/login/login.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1626548838862,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1626548944826,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n   styleUrls: ['./login.component.scss']\n })\n export class LoginComponent implements OnInit {\n \n-  fg: FormGroup;\n+  fg!: FormGroup;\n   constructor(private loginFormGroup: LoginFormGroup,\n     private store$: Store) { }\n \n   ngOnInit(): void {\n"
+                }
+            ],
+            "date": 1626548838862,
+            "name": "Commit-0",
+            "content": "import { Component, OnInit } from '@angular/core';\nimport { Store } from '@ngrx/store';\nimport { FormGroup } from '@angular/forms';\nimport { LoginFormGroup } from '../../form-groups/login.service';\nimport { AppActions } from '../../store/app.action';\n\n@Component({\n  selector: 'app-login',\n  templateUrl: './login.component.html',\n  styleUrls: ['./login.component.scss']\n})\nexport class LoginComponent implements OnInit {\n\n  fg: FormGroup;\n  constructor(private loginFormGroup: LoginFormGroup,\n    private store$: Store) { }\n\n  ngOnInit(): void {\n    this.fg = this.loginFormGroup.getFormGroup();\n  }\n\n  onSubmit() {\n    this.store$.dispatch(AppActions.login(this.loginFormGroup.getValueFromFormGroup(this.fg)));\n  }\n\n}\n"
+        }
+    ]
+}

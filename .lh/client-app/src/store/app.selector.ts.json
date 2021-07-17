@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client-app/src/store/app.selector.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1626549455114,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1626549455114,
+            "name": "Commit-0",
+            "content": "import { createFeatureSelector, createSelector } from '@ngrx/store';\r\n\r\nimport { STATE, AppState } from './app.state';\r\n\r\nexport const featureSelector = createFeatureSelector<AppState>(STATE);\r\n\r\nexport const getBugsList = createSelector(\r\n  featureSelector,\r\n  (state) => state.bugs\r\n);\r\n\r\nexport const getErrorsList = createSelector(\r\n  featureSelector,\r\n  (state) => state.errors\r\n);"
+        }
+    ]
+}

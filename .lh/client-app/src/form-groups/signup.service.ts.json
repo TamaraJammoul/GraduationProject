@@ -1,0 +1,22 @@
+{
+    "sourceFile": "client-app/src/form-groups/signup.service.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1626548574619,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1626548718833,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,12 +18,13 @@\n         }\r\n         );\r\n     }\r\n \r\n-    getValueFromFormGroup(fg: FormGroup) {\r\n+    getValueFromFormGroup(fg: FormGroup):Signup {\r\n         return {\r\n-            firstName: fg.controls.firstName.value,\r\n-            lastName: fg.controls.lastName.value,\r\n+            name: fg.controls.name.value,\r\n+            password: fg.controls.password.value,\r\n             email: fg.controls.email.value,\r\n+            phone: fg.controls.phone.value,\r\n         };\r\n     }\r\n }\r\n"
+                }
+            ],
+            "date": 1626548574619,
+            "name": "Commit-0",
+            "content": "import { FormGroup, Validators, FormBuilder } from '@angular/forms';\r\nimport { Injectable } from '@angular/core';\r\nimport { Signup } from '../models/signup.model';\r\n\r\n@Injectable({\r\n    providedIn: 'root',\r\n})\r\n\r\nexport class SignUpFormGroup {\r\n    constructor(private fb: FormBuilder) { }\r\n\r\n    getFormGroup(user?: Signup): FormGroup {\r\n        return this.fb.group({\r\n            name: [user?.name, [Validators.required, Validators.maxLength(100), Validators.minLength(1)]],\r\n            password: [user?.password, [Validators.maxLength(50), Validators.minLength(6)]],\r\n            phone: [user?.phone, [Validators.maxLength(50), Validators.minLength(6)]],\r\n            email: [user?.email, [Validators.required, Validators.minLength(10), Validators.maxLength(50)]],\r\n        }\r\n        );\r\n    }\r\n\r\n    getValueFromFormGroup(fg: FormGroup) {\r\n        return {\r\n            firstName: fg.controls.firstName.value,\r\n            lastName: fg.controls.lastName.value,\r\n            email: fg.controls.email.value,\r\n        };\r\n    }\r\n}\r\n"
+        }
+    ]
+}

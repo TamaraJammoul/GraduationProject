@@ -1,0 +1,26 @@
+{
+    "sourceFile": "client-app/src/components/dashboard/dashboard.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1626457813880,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1626458827355,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,8 @@\n \n @Component({\n   selector: 'app-dashboard',\n   templateUrl: './dashboard.component.html',\n-  styleUrls: ['./dashboard.component.scss']\n })\n export class DashboardComponent implements OnInit {\n \n   constructor() { }\n"
+                },
+                {
+                    "date": 1626549507578,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,24 @@\n import { Component, OnInit } from '@angular/core';\n+import { Store } from '@ngrx/store';\n+import { AppActions } from '../../store/app.action';\n+import { Bug } from '../../models/bug.model';\n+import { getBugsList } from '../../store/app.selector';\n \n @Component({\n   selector: 'app-dashboard',\n   templateUrl: './dashboard.component.html',\n })\n export class DashboardComponent implements OnInit {\n+  bugs: Bug[] = [];\n+  constructor(private store$: Store) { }\n \n-  constructor() { }\n-\n   ngOnInit(): void {\n+    this.store$.dispatch(AppActions.fetchBugs());\n+    this.store$.select(getBugsList).subscribe(data => {\n+      if (data) {\n+        this.bugs = data;\n+      }\n+    })\n   }\n \n }\n"
+                }
+            ],
+            "date": 1626457813880,
+            "name": "Commit-0",
+            "content": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-dashboard',\n  templateUrl: './dashboard.component.html',\n  styleUrls: ['./dashboard.component.scss']\n})\nexport class DashboardComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n"
+        }
+    ]
+}

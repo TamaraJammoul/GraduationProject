@@ -1,0 +1,42 @@
+{
+    "sourceFile": "client-app/src/assets/scss/1-pages/_dashboard.component.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1626461275114,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1626461320396,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,22 +1,19 @@\n-.mat-figure {\r\n-    display: block !important;\r\n-  }\r\n   .error-list-cards {\r\n     padding: 30px 20px;\r\n+\r\n     .error-list-cards-wrapper {\r\n-      > * {\r\n+      >* {\r\n         // flex: 0 0 31%;\r\n         margin-bottom: 20px;\r\n       }\r\n-      .mat-card {\r\n-          // height: 100%;\r\n-      }\r\n     }\r\n+\r\n     .paginations {\r\n-        text-align: center;\r\n+      text-align: center;\r\n     }\r\n   }\r\n\\ No newline at end of file\n-  .navbar{\r\n+\r\n+  .navbar {\r\n     margin-top: 50px;\r\n     margin-bottom: 50px;\r\n-  }\n+  }\r\n"
+                },
+                {
+                    "date": 1626462585542,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,8 @@\n     padding: 30px 20px;\r\n \r\n     .error-list-cards-wrapper {\r\n       >* {\r\n-        // flex: 0 0 31%;\r\n         margin-bottom: 20px;\r\n       }\r\n     }\r\n \r\n@@ -12,8 +11,8 @@\n       text-align: center;\r\n     }\r\n   }\r\n \r\n-  .navbar {\r\n+  .navbar-container {\r\n     margin-top: 50px;\r\n     margin-bottom: 50px;\r\n\\ No newline at end of file\n-  }\n+  }\r\n"
+                },
+                {
+                    "date": 1626462867278,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,5 +14,6 @@\n \r\n   .navbar-container {\r\n     margin-top: 50px;\r\n     margin-bottom: 50px;\r\n-  }\n\\ No newline at end of file\n+    padding: 0.5rem 1rem;\r\n+  }\r\n"
+                },
+                {
+                    "date": 1626462985760,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,6 +14,6 @@\n \r\n   .navbar-container {\r\n     margin-top: 50px;\r\n     margin-bottom: 50px;\r\n-    padding: 0.5rem 1rem;\r\n+    padding: 0rem 1rem;\r\n   }\r\n"
+                },
+                {
+                    "date": 1626463102250,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,6 +14,6 @@\n \r\n   .navbar-container {\r\n     margin-top: 50px;\r\n     margin-bottom: 50px;\r\n-    padding: 0rem 1rem;\r\n+    padding: 0rem 0rem;\r\n   }\r\n"
+                },
+                {
+                    "date": 1626463158073,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,6 +14,6 @@\n \r\n   .navbar-container {\r\n     margin-top: 50px;\r\n     margin-bottom: 50px;\r\n-    padding: 0rem 0rem;\r\n+    padding: 0rem 1rem;\r\n   }\r\n"
+                }
+            ],
+            "date": 1626461275114,
+            "name": "Commit-0",
+            "content": ".mat-figure {\r\n    display: block !important;\r\n  }\r\n  .error-list-cards {\r\n    padding: 30px 20px;\r\n    .error-list-cards-wrapper {\r\n      > * {\r\n        // flex: 0 0 31%;\r\n        margin-bottom: 20px;\r\n      }\r\n      .mat-card {\r\n          // height: 100%;\r\n      }\r\n    }\r\n    .paginations {\r\n        text-align: center;\r\n    }\r\n  }\r\n  .navbar{\r\n    margin-top: 50px;\r\n    margin-bottom: 50px;\r\n  }"
+        }
+    ]
+}

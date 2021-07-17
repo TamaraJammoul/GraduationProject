@@ -1,0 +1,27 @@
+<app-action-bar-wrapper>
+    <app-action-bar-item alignment="left" >
+      <app-labeld-button (click)="onBackClicked()" label="{{ prevLinkText | translate }}" iconPosition="left">
+        <img src="assets/icons/filters/chevron-right.svg" alt="back" />
+      </app-labeld-button>
+    </app-action-bar-item>
+    <app-action-bar-item alignment="left" >
+      <app-labeld-button (click)="onNextClicked()" label="{{ nextLinkText | translate }}">
+        <img src="assets/icons/filters/chevron-right.svg" alt="advance" />
+      </app-labeld-button>
+    </app-action-bar-item>
+  
+    <app-action-bar-item alignment="right" *ngIf="doShowSearch">
+      <app-action-bar-search-by-text classes="action-bar-action-wrapper flex-shrink flex-basis-30"
+        [title]="'general.actions.search' | translate" appearance="outline"
+        style="flex-basis: 30%" (changed)="onSearch($event)">
+      </app-action-bar-search-by-text>
+    </app-action-bar-item>
+  
+    <app-action-bar-item alignment="right" *ngIf="doShowSave">
+      <app-labeld-button [disabled]="!isValidForm" appFormValidationTrigger (buttonClicked)="onSaveClicked()"
+        label="{{ 'venues-app.content-manager.edit-venues-additional-information.save-changes' | translate }}"
+        class="labeld-button-success-outlined" [isSaveButton]="true">
+      </app-labeld-button>
+    </app-action-bar-item>
+  </app-action-bar-wrapper>
+  

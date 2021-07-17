@@ -1,0 +1,22 @@
+{
+    "sourceFile": "client-app/src/services/bugs.service.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1626517274755,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1626517317589,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n import { HttpClient, HttpHeaders } from '@angular/common/http';\r\n import { Bug } from '../models/bug.model';\r\n \r\n @Injectable({ providedIn: 'root' })\r\n-export class ErrorsService {\r\n+export class BugsService {\r\n     httpOptions = {\r\n         headers: new HttpHeaders({\r\n             'Content-Type': 'application/json'\r\n         }),\r\n"
+                }
+            ],
+            "date": 1626517274755,
+            "name": "Commit-0",
+            "content": "import { Observable } from 'rxjs';\r\nimport { map } from 'rxjs/operators';\r\nimport { Injectable } from '@angular/core';\r\nimport { environment } from '../environment';\r\nimport { HttpClient, HttpHeaders } from '@angular/common/http';\r\nimport { Bug } from '../models/bug.model';\r\n\r\n@Injectable({ providedIn: 'root' })\r\nexport class ErrorsService {\r\n    httpOptions = {\r\n        headers: new HttpHeaders({\r\n            'Content-Type': 'application/json'\r\n        }),\r\n    };\r\n    endpointUrl = `${environment.apiUrl}/Bugs`;\r\n\r\n    constructor(private httpClient: HttpClient) { }\r\n    fetchBugs(): Observable<Bug[]> {\r\n    return this.httpClient.get<Bug[]>(this.endpointUrl, this.httpOptions).pipe(\r\n            map(data => data)\r\n        );\r\n    }\r\n\r\n    markBugAsError(bugId: string): Observable<any> {\r\n        return this.httpClient.patch<any>(this.endpointUrl,bugId, this.httpOptions).pipe(\r\n            map(data => data)\r\n        );\r\n    }\r\n}\r\n"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client-app/src/store/app.reducer.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1626516152362,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1626516152362,
+            "name": "Commit-0",
+            "content": "import { createReducer, ActionReducerMap, on } from '@ngrx/store';\r\nimport { AppActions } from './app.action';\r\nimport { AppState } from './app.state';\r\nimport { Error } from '../models/error.model';\r\nimport { Bug } from '../models/bug.model';\r\n\r\nexport const bugsReducer = createReducer(\r\n  [] as Bug[],\r\n  on(AppActions.fetchBugsSuccess, (_, { bugs }) => bugs)\r\n);\r\n\r\nexport const errorsReducer = createReducer(\r\n  [] as Error[],\r\n  on(AppActions.fetchErrorsSuccess, (_, { error }) => error)\r\n);\r\n\r\nexport const reducers: ActionReducerMap<AppState> = {\r\n  bugs: bugsReducer,\r\n  errors: errorsReducer\r\n}\r\n"
+        }
+    ]
+}

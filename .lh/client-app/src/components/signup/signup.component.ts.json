@@ -1,0 +1,22 @@
+{
+    "sourceFile": "client-app/src/components/signup/signup.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1626548843343,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1626548932951,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   templateUrl: './signup.component.html',\n   styleUrls: ['./signup.component.scss']\n })\n export class SignupComponent implements OnInit {\n-  fg: FormGroup;\n+  fg!: FormGroup;\n   constructor(private signUpFormGroup: SignUpFormGroup,\n     private store$: Store) { }\n \n   ngOnInit(): void {\n"
+                }
+            ],
+            "date": 1626548843343,
+            "name": "Commit-0",
+            "content": "import { Component, OnInit } from '@angular/core';\nimport { Store } from '@ngrx/store';\nimport { FormGroup } from '@angular/forms';\nimport { SignUpFormGroup } from '../../form-groups/signup.service';\nimport { AppActions } from '../../store/app.action';\n\n@Component({\n  selector: 'app-signup',\n  templateUrl: './signup.component.html',\n  styleUrls: ['./signup.component.scss']\n})\nexport class SignupComponent implements OnInit {\n  fg: FormGroup;\n  constructor(private signUpFormGroup: SignUpFormGroup,\n    private store$: Store) { }\n\n  ngOnInit(): void {\n    this.fg = this.signUpFormGroup.getFormGroup();\n  }\n\n  onSubmit() {\n    this.store$.dispatch(AppActions.login(this.signUpFormGroup.getValueFromFormGroup(this.fg)));\n  }\n}\n"
+        }
+    ]
+}

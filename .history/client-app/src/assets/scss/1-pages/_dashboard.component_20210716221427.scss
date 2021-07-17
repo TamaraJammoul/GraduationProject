@@ -1,0 +1,19 @@
+  .error-list-cards {
+    padding: 30px 20px;
+
+    .error-list-cards-wrapper {
+      >* {
+        margin-bottom: 20px;
+      }
+    }
+
+    .paginations {
+      text-align: center;
+    }
+  }
+
+  .navbar-container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 0.5rem 1rem;
+  }

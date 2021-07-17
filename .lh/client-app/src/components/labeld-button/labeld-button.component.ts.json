@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client-app/src/components/labeld-button/labeld-button.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1626460393833,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1626460393833,
+            "name": "Commit-0",
+            "content": "import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-labeld-button',\r\n  templateUrl: './labeld-button.component.html',\r\n  styleUrls: ['./labeld-button.component.scss'],\r\n  changeDetection: ChangeDetectionStrategy.OnPush\r\n})\r\nexport class LabeldButtonComponent implements OnInit {\r\n\r\n  @Output() buttonClicked: EventEmitter<any> = new EventEmitter();\r\n  @Input() label: string = '';\r\n  @Input() iconPosition = 'right';\r\n  @Input() disabled: boolean = false;\r\n  @Input() isSaveButton = false;\r\n  @Input() classes = '';\r\n\r\n  constructor() { }\r\n\r\n  ngOnInit(): void {\r\n  }\r\n\r\n  onClick() {\r\n    this.buttonClicked.emit();\r\n  }\r\n\r\n  getClasses() {\r\n    return 'labeld-button-container ' + this.classes;\r\n  }\r\n}\r\n"
+        }
+    ]
+}

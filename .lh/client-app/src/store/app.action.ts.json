@@ -1,0 +1,26 @@
+{
+    "sourceFile": "client-app/src/store/app.action.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1626515986012,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1626516918889,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,28 +1,52 @@\n import { createAction } from '@ngrx/store';\r\n import { Error } from '../models/error.model';\r\n import { Bug } from '../models/bug.model';\r\n+import { Login } from '../models/login.model';\r\n+import { Signup } from '../models/signup.model';\r\n \r\n const fetchErrors = createAction(\r\n-    '[error] Fetch Errors',\r\n+    '[app] Fetch Errors',\r\n );\r\n \r\n const fetchErrorsSuccess = createAction(\r\n-    '[error] Fetch Errors Success',\r\n+    '[app] Fetch Errors Success',\r\n     (error: Error[]) => ({ error })\r\n );\r\n \r\n const fetchBugs = createAction(\r\n-    '[error] Fetch Bugs',\r\n+    '[app] Fetch Bugs',\r\n );\r\n \r\n const fetchBugsSuccess = createAction(\r\n-    '[error] Fetch Bugs Success',\r\n+    '[app] Fetch Bugs Success',\r\n     (bugs: Bug[]) => ({ bugs })\r\n );\r\n \r\n+const login = createAction(\r\n+    '[app] Login',\r\n+    (data: Login) => ({ data })\r\n+);\r\n+\r\n+const loginSuccess = createAction(\r\n+    '[app] Login Success'\r\n+);\r\n+\r\n+const signUp = createAction(\r\n+    '[app] SignUp',\r\n+    (data: Signup) => ({ data })\r\n+);\r\n+\r\n+const signUpSuccess = createAction(\r\n+    '[app] SignUp Success'\r\n+);\r\n+\r\n export const AppActions = {\r\n     fetchErrors,\r\n     fetchErrorsSuccess,\r\n     fetchBugs,\r\n-    fetchBugsSuccess\r\n+    fetchBugsSuccess,\r\n+    login,\r\n+    loginSuccess,\r\n+    signUp,\r\n+    signUpSuccess\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1626517012696,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,14 +39,25 @@\n const signUpSuccess = createAction(\r\n     '[app] SignUp Success'\r\n );\r\n \r\n+const deleteError = createAction(\r\n+    '[app] delete Error',\r\n+    (errorId: string) => ({ errorId })\r\n+);\r\n+\r\n+const deleteErrorSuccess = createAction(\r\n+    '[app] delete Error Success'\r\n+);\r\n+\r\n export const AppActions = {\r\n     fetchErrors,\r\n     fetchErrorsSuccess,\r\n     fetchBugs,\r\n     fetchBugsSuccess,\r\n     login,\r\n     loginSuccess,\r\n     signUp,\r\n-    signUpSuccess\r\n+    signUpSuccess,\r\n+    deleteError,\r\n+    deleteErrorSuccess\r\n }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1626515986012,
+            "name": "Commit-0",
+            "content": "import { createAction } from '@ngrx/store';\r\nimport { Error } from '../models/error.model';\r\nimport { Bug } from '../models/bug.model';\r\n\r\nconst fetchErrors = createAction(\r\n    '[error] Fetch Errors',\r\n);\r\n\r\nconst fetchErrorsSuccess = createAction(\r\n    '[error] Fetch Errors Success',\r\n    (error: Error[]) => ({ error })\r\n);\r\n\r\nconst fetchBugs = createAction(\r\n    '[error] Fetch Bugs',\r\n);\r\n\r\nconst fetchBugsSuccess = createAction(\r\n    '[error] Fetch Bugs Success',\r\n    (bugs: Bug[]) => ({ bugs })\r\n);\r\n\r\nexport const AppActions = {\r\n    fetchErrors,\r\n    fetchErrorsSuccess,\r\n    fetchBugs,\r\n    fetchBugsSuccess\r\n}"
+        }
+    ]
+}

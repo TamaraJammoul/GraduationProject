@@ -1,0 +1,22 @@
+{
+    "sourceFile": "client-app/src/services/errors.service.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1626517187472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1626517223824,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     endpointUrl = `${environment.apiUrl}/Errors`;\r\n \r\n     constructor(private httpClient: HttpClient) { }\r\n     fetchErrors(): Observable<Error[]> {\r\n-        return this.httpClient.get<any>(this.endpointUrl, this.httpOptions).pipe(\r\n+        return this.httpClient.get<Error[]>(this.endpointUrl, this.httpOptions).pipe(\r\n             map(data => data)\r\n         );\r\n     }\r\n \r\n"
+                }
+            ],
+            "date": 1626517187472,
+            "name": "Commit-0",
+            "content": "import { Observable } from 'rxjs';\r\nimport { map } from 'rxjs/operators';\r\nimport { Injectable } from '@angular/core';\r\nimport { environment } from '../environment';\r\nimport { HttpClient, HttpHeaders } from '@angular/common/http';\r\nimport { Error } from '../models/error.model';\r\n\r\n@Injectable({ providedIn: 'root' })\r\nexport class ErrorsService {\r\n    httpOptions = {\r\n        headers: new HttpHeaders({\r\n            'Content-Type': 'application/json'\r\n        }),\r\n    };\r\n    endpointUrl = `${environment.apiUrl}/Errors`;\r\n\r\n    constructor(private httpClient: HttpClient) { }\r\n    fetchErrors(): Observable<Error[]> {\r\n        return this.httpClient.get<any>(this.endpointUrl, this.httpOptions).pipe(\r\n            map(data => data)\r\n        );\r\n    }\r\n\r\n    deleteError(errorId: string): Observable<any> {\r\n        return this.httpClient.patch<any>(this.endpointUrl,errorId, this.httpOptions).pipe(\r\n            map(data => data)\r\n        );\r\n    }\r\n}\r\n"
+        }
+    ]
+}

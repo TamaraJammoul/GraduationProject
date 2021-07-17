@@ -1,0 +1,22 @@
+{
+    "sourceFile": "client-app/src/models/bug.model.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1626465777024,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1626515880648,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-export interface Bud {\r\n+export interface Bug {\r\n     id: string;\r\n     status: string;\r\n     isTested: boolean;\r\n     name: string;\r\n"
+                }
+            ],
+            "date": 1626465777024,
+            "name": "Commit-0",
+            "content": "export interface Bud {\r\n    id: string;\r\n    status: string;\r\n    isTested: boolean;\r\n    name: string;\r\n    column: number;\r\n    row: number;\r\n    fileName: string;\r\n    path: string;\r\n    description: string;\r\n    title: string;\r\n    submissionTime: string;\r\n}\r\n"
+        }
+    ]
+}

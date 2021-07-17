@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client-app/src/form-groups/login.service.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1626548832924,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1626548832924,
+            "name": "Commit-0",
+            "content": "import { FormGroup, Validators, FormBuilder } from '@angular/forms';\r\nimport { Injectable } from '@angular/core';\r\nimport { Login } from '../models/login.model';\r\n\r\n@Injectable({\r\n    providedIn: 'root',\r\n})\r\n\r\nexport class LoginFormGroup {\r\n    constructor(private fb: FormBuilder) { }\r\n\r\n    getFormGroup(user?: Login): FormGroup {\r\n        return this.fb.group({\r\n            password: [user?.password, [Validators.maxLength(50), Validators.minLength(6)]],\r\n            email: [user?.email, [Validators.required, Validators.minLength(10), Validators.maxLength(50)]],\r\n        }\r\n        );\r\n    }\r\n\r\n    getValueFromFormGroup(fg: FormGroup): Login {\r\n        return {\r\n            password: fg.controls.password.value,\r\n            email: fg.controls.email.value,\r\n        };\r\n    }\r\n}\r\n"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+.mat-figure {
+    display: block !important;
+  }
+  .error-list-cards {
+    padding: 30px 20px;
+    .error-list-cards-wrapper {
+      > * {
+        // flex: 0 0 31%;
+        margin-bottom: 20px;
+      }
+      .mat-card {
+          // height: 100%;
+      }
+    }
+    .paginations {
+        text-align: center;
+    }
+  }

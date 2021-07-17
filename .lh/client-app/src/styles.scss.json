@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client-app/src/styles.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1626462743092,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1626462743092,
+            "name": "Commit-0",
+            "content": "/* Importing Bootstrap SCSS file. */\n@import '~bootstrap/scss/bootstrap';\n@import \"~@angular/material/theming\";\n@include mat-core();\n\n@import \"assets/scss/themes/theme.scss\";                  \n@import \"assets/scss/themes/custom-component-themes.scss\";  \n@import 'assets/scss/main';\n\n@include angular-material-theme($theming-material-components-theme);\n@include custom-components-theme($theming-material-components-theme, $notifications-theme, $typography); \n\n\n.dark-theme {\n  @include angular-material-color($dark-theme);\n//   @include custom-components-theme($dark-theme, $notifications-theme);\n}\n\n.theme-blue-grey {\n  @include angular-material-color($theming-blue-gray-theme);\n  //   @include custom-components-theme($theming-blue-gray-theme, $notifications-theme);\n}\n\n.theme-dark-blue-light-grey {\n  @include angular-material-color($theming-dark-blue-light-gray-theme);\n}\n// // Override typography for all Angular Material, including mat-base-typography and all components.\n@include angular-material-typography($typography);\n\nhtml,\nbody {\n  height: 100%;\n}\nbody {\n  margin: 0;\n  font-family: $regular-font-family, \"Helvetica Neue\", sans-serif;\n}\n\n"
+        }
+    ]
+}

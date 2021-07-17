@@ -1,0 +1,38 @@
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+@import "~@angular/material/theming";
+@include mat-core();
+
+@import "assets/scss/themes/theme.scss";                  
+@import "assets/scss/themes/custom-component-themes.scss";  
+@import 'assets/scss/main';
+
+@include angular-material-theme($theming-material-components-theme);
+@include custom-components-theme($theming-material-components-theme, $notifications-theme, $typography); 
+
+
+.dark-theme {
+  @include angular-material-color($dark-theme);
+//   @include custom-components-theme($dark-theme, $notifications-theme);
+}
+
+.theme-blue-grey {
+  @include angular-material-color($theming-blue-gray-theme);
+  //   @include custom-components-theme($theming-blue-gray-theme, $notifications-theme);
+}
+
+.theme-dark-blue-light-grey {
+  @include angular-material-color($theming-dark-blue-light-gray-theme);
+}
+// // Override typography for all Angular Material, including mat-base-typography and all components.
+@include angular-material-typography($typography);
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: $regular-font-family, "Helvetica Neue", sans-serif;
+}
+

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client-app/src/assets/scss/1-pages/_error-card.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1626463054098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1626463054098,
+            "name": "Commit-0",
+            "content": ".error-card.mat-card {\r\n    background: linear-gradient(-180deg, rgba(196, 196, 196, 0) 0%, $danger 100%);\r\n    padding-bottom: 0;\r\n    transition: all 0.5s ease-in-out;\r\n    padding-bottom: 45px;\r\n    box-sizing: border-box;\r\n    height: 100%;\r\n    // margin-bottom: 20px;\r\n    .img-container {\r\n      position: relative;\r\n      height: 200px;\r\n      // width: 100%;\r\n      background-position: center center;\r\n      background-repeat: no-repeat;\r\n      background-size: cover;\r\n      /* margin: 0; */\r\n      // margin-left: 0;\r\n      // margin-right: 0;\r\n      .completion-rate {\r\n        position: absolute;\r\n        bottom: 10px;\r\n        right: 10px;\r\n      }\r\n    }\r\n    border-radius: $border-radius-xs;\r\n    overflow: hidden;\r\n    .card-title {\r\n      margin-bottom: 8px;\r\n    }\r\n    .card-subtitle {\r\n      color: $primary;\r\n      align-items: flex-start;\r\n      .icon, .mat-icon {\r\n        width: 14px;\r\n        vertical-align: text-bottom;\r\n        flex: 0 0 18px;\r\n        margin-inline-end: 5px;\r\n      }\r\n      .icon {\r\n        svg {\r\n          width: 1rem;\r\n          height: 1.3rem;\r\n          fill: $primary;\r\n        }\r\n      }\r\n    }\r\n    .mat-card-actions {\r\n      padding-bottom: 0 !important;\r\n      width: calc(100% + 32px);\r\n      margin: 0 -16px 0 -16px !important;\r\n      position: absolute;\r\n      bottom: 0;\r\n      width: 100%;\r\n    \r\n      button {\r\n        border-radius: 0 !important;\r\n        width: 100%;\r\n        height: 100%;\r\n  \r\n      }\r\n      &:last-child {\r\n        margin-bottom: 0 ;\r\n      }\r\n    }\r\n    .card-address {\r\n      .mat-icon {\r\n        margin-right: 7px;\r\n        width: 18px;\r\n      }\r\n    }\r\n    &:hover {\r\n      box-shadow: 0px 6px 12px -6px rgba(var(--color-dark-shade-rgb), 0.12), 0px 8px 24px -4px rgba(var(--color-dark-shade-rgb), 0.08);\r\n      filter: drop-shadow(0px 2px 10px rgba(0, 100, 175, 0.53));\r\n  \r\n    }\r\n  }\r\n  .mat-card-strech-section {\r\n    width: calc(100% + 32px);\r\n    margin: 0 -16px 16px -16px;\r\n  }"
+        }
+    ]
+}
