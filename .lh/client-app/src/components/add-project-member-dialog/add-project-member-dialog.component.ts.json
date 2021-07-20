@@ -1,0 +1,22 @@
+{
+    "sourceFile": "client-app/src/components/add-project-member-dialog/add-project-member-dialog.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1626807834712,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1626808021871,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,7 +15,7 @@\n   ngOnInit(): void {\n   }\n \n   onSubmit() {\n-    this.store$.dispatch(AppActions.addTeamMember(this.control.value));\n+    this.store$.dispatch(AppActions.addProjectTeamMember(this.control.value));\n   }\n }\n"
+                }
+            ],
+            "date": 1626807834712,
+            "name": "Commit-0",
+            "content": "import { Component, OnInit } from '@angular/core';\nimport { Store } from '@ngrx/store';\nimport { FormControl } from '@angular/forms';\nimport { AppActions } from '../../store/app.action';\n@Component({\n  selector: 'app-add-project-member-dialog',\n  templateUrl: './add-project-member-dialog.component.html',\n  styleUrls: ['./add-project-member-dialog.component.scss']\n})\nexport class AddProjectMemberDialogComponent implements OnInit {\n   control = new FormControl();\n\n  constructor(private store$: Store) { }\n\n  ngOnInit(): void {\n  }\n\n  onSubmit() {\n    this.store$.dispatch(AppActions.addTeamMember(this.control.value));\n  }\n}\n"
+        }
+    ]
+}

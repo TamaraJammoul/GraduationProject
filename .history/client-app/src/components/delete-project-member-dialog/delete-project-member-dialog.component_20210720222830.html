@@ -1,0 +1,10 @@
+<p class="center col-xs-12 mat-display-1 text-primary title">Delete Member</p>
+<div class="row no-margin full-width pt12" *ngFor="let item of data">
+  <div class="col-xs-8">
+    <h3>item</h3>
+  </div>
+  <div class="col-xs-4 center">
+    <button class="p5 mb4 border-radius-xs full-width background-danger center text-white border-white"
+      (click)="onSubmit(item)">Delete</button>
+  </div>
+</div>

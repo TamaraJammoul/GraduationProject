@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1626795158954,
@@ -16,6 +16,10 @@
                 {
                     "date": 1626795579446,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,9 @@\n })\n export class AddMemberDialogComponent implements OnInit {\n    control = new FormControl();\n \n-  constructor(\n-    private store$: Store) { }\n+  constructor(private store$: Store) { }\n \n   ngOnInit(): void {\n   }\n \n"
+                },
+                {
+                    "date": 1626809452961,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,15 +7,19 @@\n   templateUrl: './add-member-dialog.component.html',\n   styleUrls: ['./add-member-dialog.component.scss']\n })\n export class AddMemberDialogComponent implements OnInit {\n-   control = new FormControl();\n-\n+  control = new FormControl();\n+  members: string[] = [];\n   constructor(private store$: Store) { }\n \n   ngOnInit(): void {\n   }\n \n-  onSubmit() {\n+  onAdd() {\n     this.store$.dispatch(AppActions.addTeamMember(this.control.value));\n   }\n+\n+  onDelete(email: string) {\n+    this.store$.dispatch(AppActions.deleteTeamMember(email));\n+  }\n }\n"
                 }
             ],
             "date": 1626795158954,

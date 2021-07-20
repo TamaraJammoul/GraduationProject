@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 4,
+            "activePatchIndex": 6,
             "patches": [
                 {
                     "date": 1626516152362,
@@ -24,6 +24,14 @@
                 {
                     "date": 1626617546397,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,10 @@\n     const newState: Project[] = [...state];\r\n     newState.push(project);\r\n     return newState;\r\n   }),\r\n-  on(AppActions.deleteProject, (state, { projectId }) => state.filter(e => e.id !== projectId))\r\n+  on(AppActions.deleteProject, (state, { projectId }) => state.filter(e => e.id !== projectId)),\r\n+  on(AppActions.getProjectSuccess, (_, { projects }) => projects)\r\n );\r\n \r\n export const reducers: ActionReducerMap<AppState> = {\r\n   bugs: BugsReducer,\r\n"
+                },
+                {
+                    "date": 1626811060880,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,20 @@\n     newState.push(project);\r\n     return newState;\r\n   }),\r\n   on(AppActions.deleteProject, (state, { projectId }) => state.filter(e => e.id !== projectId)),\r\n-  on(AppActions.getProjectSuccess, (_, { projects }) => projects)\r\n+  on(AppActions.getProjectSuccess, (_, { projects }) => projects),\r\n+  on(AppActions.renameProjectSuccess, (state, { projectId, projectName }) => {\r\n+    let newState = [...state];\r\n+    const id: number = newState.findIndex(e => {\r\n+      if (e.id === projectId) {\r\n+        return true;\r\n+      }\r\n+      return false;\r\n+      );\r\n+    newState[id].name = projectName;\r\n+    return newState;\r\n+  }),\r\n );\r\n \r\n export const reducers: ActionReducerMap<AppState> = {\r\n   bugs: BugsReducer,\r\n"
+                },
+                {
+                    "date": 1626811126924,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,14 +35,9 @@\n   on(AppActions.deleteProject, (state, { projectId }) => state.filter(e => e.id !== projectId)),\r\n   on(AppActions.getProjectSuccess, (_, { projects }) => projects),\r\n   on(AppActions.renameProjectSuccess, (state, { projectId, projectName }) => {\r\n     let newState = [...state];\r\n-    const id: number = newState.findIndex(e => {\r\n-      if (e.id === projectId) {\r\n-        return true;\r\n-      }\r\n-      return false;\r\n-      );\r\n+    const id: number = newState.findIndex(e => e.id === projectId);\r\n     newState[id].name = projectName;\r\n     return newState;\r\n   }),\r\n );\r\n"
                 }
             ],
             "date": 1626516152362,

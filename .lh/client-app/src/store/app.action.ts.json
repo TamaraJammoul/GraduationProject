@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 5,
+            "activePatchIndex": 8,
             "patches": [
                 {
                     "date": 1626515986012,
@@ -28,6 +28,18 @@
                 {
                     "date": 1626617516866,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -112,8 +112,18 @@\n \r\n const deleteProjectTeamMemberSuccess = createAction(\r\n     '[app] delete Project TeamMember Success'\r\n );\r\n+\r\n+const getProject = createAction(\r\n+    '[app] get Project',\r\n+);\r\n+\r\n+const getProjectSuccess = createAction(\r\n+    '[app] get Project Success',\r\n+    (projects: Project[]) => ({ projects })\r\n+);\r\n+\r\n export const AppActions = {\r\n     fetchErrors,\r\n     fetchErrorsSuccess,\r\n     fetchBugs,\r\n@@ -136,6 +146,8 @@\n     deleteTeamMemberSuccess,\r\n     addTeamMember,\r\n     addTeamMemberSuccess,\r\n     addProject,\r\n-    addProjectSuccess\r\n+    addProjectSuccess,\r\n+    getProject,\r\n+    getProjectSuccess\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1626809816542,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -122,8 +122,17 @@\n     '[app] get Project Success',\r\n     (projects: Project[]) => ({ projects })\r\n );\r\n \r\n+const renameProject = createAction(\r\n+    '[app] rename Project ',\r\n+    (projectId: string) => ({ projectId })\r\n+);\r\n+\r\n+const renameProjectSuccess = createAction(\r\n+    '[app] rename Project Success',\r\n+    (projectId: string) => ({ projectId })\r\n+);\r\n export const AppActions = {\r\n     fetchErrors,\r\n     fetchErrorsSuccess,\r\n     fetchBugs,\r\n@@ -148,6 +157,8 @@\n     addTeamMemberSuccess,\r\n     addProject,\r\n     addProjectSuccess,\r\n     getProject,\r\n-    getProjectSuccess\r\n+    getProjectSuccess,\r\n+    renameProject,\r\n+    renameProjectSuccess\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1626810745635,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -129,9 +129,9 @@\n );\r\n \r\n const renameProjectSuccess = createAction(\r\n     '[app] rename Project Success',\r\n-    (projectId: string) => ({ projectId })\r\n+    (projectId: string, projectName: string) => ({ projectId, projectName })\r\n );\r\n export const AppActions = {\r\n     fetchErrors,\r\n     fetchErrorsSuccess,\r\n"
+                },
+                {
+                    "date": 1626810875350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -124,9 +124,9 @@\n );\r\n \r\n const renameProject = createAction(\r\n     '[app] rename Project ',\r\n-    (projectId: string) => ({ projectId })\r\n+    (projectId: string, projectName: string) => ({ projectId, projectName })\r\n );\r\n \r\n const renameProjectSuccess = createAction(\r\n     '[app] rename Project Success',\r\n"
                 }
             ],
             "date": 1626515986012,

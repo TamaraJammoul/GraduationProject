@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 28,
+            "activePatchIndex": 31,
             "patches": [
                 {
                     "date": 1626457872125,
@@ -120,6 +120,18 @@
                 {
                     "date": 1626788574931,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,10 @@\n import { NavBarComponent } from '../components/navbar/navbar.component';\n import { LabeldButtonComponent } from '../components/labeld-button/labeld-button.component';\n import { PagingComponent } from '../components/paging/paging.component';\n import { BugCardComponent } from '../components/bug-card/bug-card.component';\n-import {CardImagePlaceholderDirective } from '../components/card-placeholder-image/card-image-placeholder.component';\n+import { CardImagePlaceholderDirective } from '../components/card-placeholder-image/card-image-placeholder.component';\n+import { BaseComponent } from '../components/base-component/base-component';\n \n \n @NgModule({\n   declarations: [\n@@ -36,9 +37,10 @@\n     NavBarComponent,\n     LabeldButtonComponent,\n     PagingComponent,\n     BugCardComponent,\n-    CardImagePlaceholderDirective\n+    CardImagePlaceholderDirective,\n+    BaseComponent\n   ],\n   imports: [\n     CommonModule,\n     HttpClientModule,\n@@ -46,9 +48,9 @@\n     AppRoutingModule,\n     MaterialModule,\n     ReactiveFormsModule,\n     EffectsModule.forRoot([AppEffects]),\n-    StoreModule.forRoot( reducers),\n+    StoreModule.forRoot(reducers),\n     BrowserAnimationsModule,\n     NgbModule,\n     StoreDevtoolsModule.instrument({}),\n   ],\n"
+                },
+                {
+                    "date": 1626804228178,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,8 +23,9 @@\n import { PagingComponent } from '../components/paging/paging.component';\n import { BugCardComponent } from '../components/bug-card/bug-card.component';\n import { CardImagePlaceholderDirective } from '../components/card-placeholder-image/card-image-placeholder.component';\n import { BaseComponent } from '../components/base-component/base-component';\n+import { SidenavComponent } from '../components/sidenav/sidenav.component';\n \n \n @NgModule({\n   declarations: [\n@@ -38,9 +39,10 @@\n     LabeldButtonComponent,\n     PagingComponent,\n     BugCardComponent,\n     CardImagePlaceholderDirective,\n-    BaseComponent\n+    BaseComponent,\n+    SidenavComponent\n   ],\n   imports: [\n     CommonModule,\n     HttpClientModule,\n"
+                },
+                {
+                    "date": 1626808101416,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,12 +24,16 @@\n import { BugCardComponent } from '../components/bug-card/bug-card.component';\n import { CardImagePlaceholderDirective } from '../components/card-placeholder-image/card-image-placeholder.component';\n import { BaseComponent } from '../components/base-component/base-component';\n import { SidenavComponent } from '../components/sidenav/sidenav.component';\n+import { DeleteProjectMemberDialogComponent } from '../components/delete-project-member-dialog/delete-project-member-dialog.component';\n+import { AddProjectMemberDialogComponent } from '../components/add-project-member-dialog/add-project-member-dialog.component';\n \n \n @NgModule({\n   declarations: [\n+    DeleteProjectMemberDialogComponent,\n+    AddProjectMemberDialogComponent,\n     AppComponent,\n     LoginComponent,\n     SignupComponent,\n     DashboardComponent,\n@@ -58,9 +62,12 @@\n   ],\n   providers: [],\n   exports: [MaterialModule],\n   bootstrap: [AppComponent],\n-  entryComponents: [AddMemberDialogComponent],\n+  entryComponents: [\n+    AddMemberDialogComponent,\n+    DeleteProjectMemberDialogComponent,\n+    AddProjectMemberDialogComponent,],\n   schemas: [\n     CUSTOM_ELEMENTS_SCHEMA\n   ],\n })\n"
+                },
+                {
+                    "date": 1626811697165,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,14 +26,16 @@\n import { BaseComponent } from '../components/base-component/base-component';\n import { SidenavComponent } from '../components/sidenav/sidenav.component';\n import { DeleteProjectMemberDialogComponent } from '../components/delete-project-member-dialog/delete-project-member-dialog.component';\n import { AddProjectMemberDialogComponent } from '../components/add-project-member-dialog/add-project-member-dialog.component';\n+import { RenameProjectDialogComponent } from '../components/rename-project-dialog/rename-project-dialog.component';\n \n \n @NgModule({\n   declarations: [\n     DeleteProjectMemberDialogComponent,\n     AddProjectMemberDialogComponent,\n+    RenameProjectDialogComponent,\n     AppComponent,\n     LoginComponent,\n     SignupComponent,\n     DashboardComponent,\n@@ -65,9 +67,11 @@\n   bootstrap: [AppComponent],\n   entryComponents: [\n     AddMemberDialogComponent,\n     DeleteProjectMemberDialogComponent,\n-    AddProjectMemberDialogComponent,],\n+    AddProjectMemberDialogComponent,\n+    RenameProjectDialogComponent\n+  ],\n   schemas: [\n     CUSTOM_ELEMENTS_SCHEMA\n   ],\n })\n"
                 }
             ],
             "date": 1626457872125,

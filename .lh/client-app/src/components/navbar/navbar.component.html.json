@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 16,
+            "activePatchIndex": 19,
             "patches": [
                 {
                     "date": 1626459245919,
@@ -72,6 +72,18 @@
                 {
                     "date": 1626794562689,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,8 @@\n \r\n \r\n   <div class=\"col-sm-3 no-margin no-padding d-flex justify-content-end\">\r\n     <app-labeld-button appFormValidationTrigger label=\"Add Team Member\" class=\" mr4 labeld-button-success-outlined\"\r\n-      [isSaveButton]=\"true\">\r\n+      [isSaveButton]=\"true\" (click)=\"addTeamMember()\">\r\n     </app-labeld-button>\r\n   </div>\r\n </div>\r\n"
+                },
+                {
+                    "date": 1626806148935,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,13 +3,8 @@\n     <app-labeld-button label=\"Change View\" iconPosition=\"left\">\r\n       <img src=\"../../assets/images/chevron-right.svg\" alt=\"advance\" />\r\n     </app-labeld-button>\r\n   </div>\r\n-  <div class=\"col-sm-3\">\r\n-    <app-labeld-button label=\"nextLinkText\">\r\n-      <img src=\"../../assets/images/chevron-right.svg\" alt=\"advance\" />\r\n-    </app-labeld-button>\r\n-  </div>\r\n \r\n \r\n   <div class=\"col-sm-3 no-margin no-padding d-flex justify-content-end\">\r\n     <app-labeld-button appFormValidationTrigger label=\"Add Team Member\" class=\" mr4 labeld-button-success-outlined\"\r\n"
+                },
+                {
+                    "date": 1626806164751,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n   </div>\r\n \r\n \r\n   <div class=\"col-sm-3 no-margin no-padding d-flex justify-content-end\">\r\n-    <app-labeld-button appFormValidationTrigger label=\"Add Team Member\" class=\" mr4 labeld-button-success-outlined\"\r\n+    <app-labeld-button appFormValidationTrigger label=\"Team Members\" class=\" mr4 labeld-button-success-outlined\"\r\n       [isSaveButton]=\"true\" (click)=\"addTeamMember()\">\r\n     </app-labeld-button>\r\n   </div>\r\n </div>\r\n"
+                },
+                {
+                    "date": 1626806212986,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n     </app-labeld-button>\r\n   </div>\r\n \r\n \r\n-  <div class=\"col-sm-3 no-margin no-padding d-flex justify-content-end\">\r\n+  <div class=\"col-sm-6 no-margin no-padding d-flex justify-content-end\">\r\n     <app-labeld-button appFormValidationTrigger label=\"Team Members\" class=\" mr4 labeld-button-success-outlined\"\r\n       [isSaveButton]=\"true\" (click)=\"addTeamMember()\">\r\n     </app-labeld-button>\r\n   </div>\r\n"
                 }
             ],
             "date": 1626459245919,

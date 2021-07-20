@@ -1,0 +1,34 @@
+{
+    "sourceFile": "client-app/src/components/sidenav/sidenav.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1626804118845,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1626808298126,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,8 @@\n import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';\r\n+import { MatDialog } from '@angular/material/dialog';\r\n+import { AddProjectMemberDialogComponent } from '../add-project-member-dialog/add-project-member-dialog.component';\r\n+import { DeleteProjectMemberDialogComponent } from '../delete-project-member-dialog/delete-project-member-dialog.component'\r\n \r\n @Component({\r\n   selector: 'app-sidenav',\r\n   templateUrl: './sidenav.component.html',\r\n@@ -7,10 +10,22 @@\n   changeDetection: ChangeDetectionStrategy.OnPush\r\n })\r\n export class SidenavComponent implements OnInit {\r\n \r\n-  constructor() { }\r\n+  constructor(private dialog: MatDialog) { }\r\n \r\n   ngOnInit(): void {\r\n   }\r\n \r\n+  addProjectTeamMember() {\r\n+    this.dialog.open(AddProjectMemberDialogComponent, {\r\n+      width: '40%',\r\n+    });\r\n+  }\r\n+\r\n+  deleteProjectTeamMember(projectId: string) {\r\n+    this.dialog.open(DeleteProjectMemberDialogComponent, {\r\n+      width: '40%',\r\n+      data: projectId\r\n+    });\r\n+  }\r\n }\r\n"
+                },
+                {
+                    "date": 1626809822660,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,8 @@\n import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';\r\n import { MatDialog } from '@angular/material/dialog';\r\n+import { Store } from '@ngrx/store';\r\n+import { AppActions } from '../../store/app.action';\r\n import { AddProjectMemberDialogComponent } from '../add-project-member-dialog/add-project-member-dialog.component';\r\n import { DeleteProjectMemberDialogComponent } from '../delete-project-member-dialog/delete-project-member-dialog.component'\r\n \r\n @Component({\r\n@@ -10,9 +12,10 @@\n   changeDetection: ChangeDetectionStrategy.OnPush\r\n })\r\n export class SidenavComponent implements OnInit {\r\n \r\n-  constructor(private dialog: MatDialog) { }\r\n+  constructor(private dialog: MatDialog,\r\n+    private store$: Store,) { }\r\n \r\n   ngOnInit(): void {\r\n   }\r\n \r\n@@ -27,5 +30,15 @@\n       width: '40%',\r\n       data: projectId\r\n     });\r\n   }\r\n+\r\n+  deleteProject(projectId: string){\r\n+    this.store$.dispatch(AppActions.deleteProject(projectId));\r\n+\r\n+  }\r\n+\r\n+  renameProject(projectId: string){\r\n+    this.store$.dispatch(AppActions.deleteProject(projectId));\r\n+\r\n+  }\r\n }\r\n"
+                },
+                {
+                    "date": 1626811623195,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n import { Store } from '@ngrx/store';\r\n import { AppActions } from '../../store/app.action';\r\n import { AddProjectMemberDialogComponent } from '../add-project-member-dialog/add-project-member-dialog.component';\r\n import { DeleteProjectMemberDialogComponent } from '../delete-project-member-dialog/delete-project-member-dialog.component'\r\n+import { RenameProjectDialogComponent } from '../rename-project-dialog/rename-project-dialog.component'\r\n \r\n @Component({\r\n   selector: 'app-sidenav',\r\n   templateUrl: './sidenav.component.html',\r\n@@ -31,14 +32,16 @@\n       data: projectId\r\n     });\r\n   }\r\n \r\n-  deleteProject(projectId: string){\r\n+  deleteProject(projectId: string) {\r\n     this.store$.dispatch(AppActions.deleteProject(projectId));\r\n \r\n   }\r\n \r\n-  renameProject(projectId: string){\r\n-    this.store$.dispatch(AppActions.deleteProject(projectId));\r\n-\r\n+  renameProject(projectId: string) {\r\n+    this.dialog.open(RenameProjectDialogComponent, {\r\n+      width: '40%',\r\n+      data: projectId\r\n+    });\r\n   }\r\n }\r\n"
+                },
+                {
+                    "date": 1626811636002,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,8 @@\n   }\r\n \r\n   deleteProject(projectId: string) {\r\n     this.store$.dispatch(AppActions.deleteProject(projectId));\r\n-\r\n   }\r\n \r\n   renameProject(projectId: string) {\r\n     this.dialog.open(RenameProjectDialogComponent, {\r\n"
+                }
+            ],
+            "date": 1626804118845,
+            "name": "Commit-0",
+            "content": "import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-sidenav',\r\n  templateUrl: './sidenav.component.html',\r\n  styleUrls: ['./sidenav.component.scss'],\r\n  changeDetection: ChangeDetectionStrategy.OnPush\r\n})\r\nexport class SidenavComponent implements OnInit {\r\n\r\n  constructor() { }\r\n\r\n  ngOnInit(): void {\r\n  }\r\n\r\n}\r\n"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client-app/src/services/team.service.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1626810386705,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1626810386705,
+            "name": "Commit-0",
+            "content": "import { Observable } from 'rxjs';\r\nimport { map } from 'rxjs/operators';\r\nimport { Injectable } from '@angular/core';\r\nimport { environment } from '../environment';\r\nimport { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';\r\n\r\n@Injectable({ providedIn: 'root' })\r\nexport class TeamService {\r\n\r\n    endpointUrl = `${environment.apiUrl}/Errors`;\r\n\r\n    constructor(private httpClient: HttpClient) { }\r\n\r\n    addTeamMember(memberEmail: String): Observable<any> {\r\n        const httpOptions = {\r\n            headers: new HttpHeaders({\r\n                'Content-Type': 'application/json'\r\n            }),\r\n            params: new HttpParams()\r\n                .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n        };\r\n        return this.httpClient.post<any>(this.endpointUrl, memberEmail, httpOptions).pipe(\r\n            map(data => data)\r\n        );\r\n    }\r\n\r\n    deleteTeamMember(memberEmail: string): Observable<any> {\r\n        const httpOptions = {\r\n            headers: new HttpHeaders({\r\n                'Content-Type': 'application/json'\r\n            }),\r\n            params: new HttpParams()\r\n                .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n                .set('memberEmail', memberEmail)\r\n        };\r\n        return this.httpClient.delete<any>(this.endpointUrl, httpOptions).pipe(\r\n            map(data => data)\r\n        );\r\n    }\r\n}\r\n"
+        }
+    ]
+}

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1626459347145,
@@ -20,6 +20,10 @@
                 {
                     "date": 1626794873933,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,21 +22,4 @@\n       width: '40%',\n     });\n   }\n }\n-import { Component, OnInit, Output, EventEmitter } from '@angular/core';\n-\n-@Component({\n-  selector: 'app-navbar',\n-  templateUrl: './navbar.component.html',\n-})\n-export class NavBarComponent implements OnInit {\n-  @Output() changeView = new EventEmitter<boolean>();\n-  constructor() { }\n-\n-  ngOnInit(): void {\n-  }\n-\n-  onChangeView(){\n-    this.changeView.emit(true)\n-  }\n-}\n"
+                },
+                {
+                    "date": 1626808303674,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n     this.changeView.emit(true)\n   }\n \n   addTeamMember() {\n-    const dialogRef = this.dialog.open(AddMemberDialogComponent, {\n+    this.dialog.open(AddMemberDialogComponent, {\n       width: '40%',\n     });\n   }\n }\n"
                 }
             ],
             "date": 1626459347145,
