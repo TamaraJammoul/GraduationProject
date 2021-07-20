@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1626548574619,
@@ -12,6 +12,10 @@
                 {
                     "date": 1626548718833,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,12 +18,13 @@\n         }\r\n         );\r\n     }\r\n \r\n-    getValueFromFormGroup(fg: FormGroup) {\r\n+    getValueFromFormGroup(fg: FormGroup):Signup {\r\n         return {\r\n-            firstName: fg.controls.firstName.value,\r\n-            lastName: fg.controls.lastName.value,\r\n+            name: fg.controls.name.value,\r\n+            password: fg.controls.password.value,\r\n             email: fg.controls.email.value,\r\n+            phone: fg.controls.phone.value,\r\n         };\r\n     }\r\n }\r\n"
+                },
+                {
+                    "date": 1626617322022,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,17 +14,21 @@\n             name: [user?.name, [Validators.required, Validators.maxLength(100), Validators.minLength(1)]],\r\n             password: [user?.password, [Validators.maxLength(50), Validators.minLength(6)]],\r\n             phone: [user?.phone, [Validators.maxLength(50), Validators.minLength(6)]],\r\n             email: [user?.email, [Validators.required, Validators.minLength(10), Validators.maxLength(50)]],\r\n+            initProjectName: [user?.initProjectName, [Validators.maxLength(50), Validators.minLength(6)]],\r\n+            teamName: [user?.teamName, [Validators.required, Validators.minLength(10), Validators.maxLength(50)]],\r\n         }\r\n         );\r\n     }\r\n \r\n-    getValueFromFormGroup(fg: FormGroup):Signup {\r\n+    getValueFromFormGroup(fg: FormGroup): Signup {\r\n         return {\r\n             name: fg.controls.name.value,\r\n             password: fg.controls.password.value,\r\n             email: fg.controls.email.value,\r\n             phone: fg.controls.phone.value,\r\n+            initProjectName: fg.controls.initProjectName.value,\r\n+            teamName: fg.controls.teamName.value\r\n         };\r\n     }\r\n }\r\n"
                 }
             ],
             "date": 1626548574619,

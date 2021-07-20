@@ -1,0 +1,10 @@
+<form class="row no-margin full-width pt12">
+    <p class="center col-xs-12 mat-display-1 text-primary title">Add Team Member</p>
+    <mat-form-field appearance="outline" [floatLabel]="'always'" class="col-xs-6 mb4">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="control" placeholder="enter member email" required type="text"/>
+    </mat-form-field>
+    <div class="col-xs-6 submit-button center">
+      <button class="btn-lg full-width background-primary center text-white border-white" (click)="onSubmit()">Login</button>
+    </div>
+  </form>

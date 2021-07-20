@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 9,
+            "activePatchIndex": 18,
             "patches": [
                 {
                     "date": 1626458451617,
@@ -44,6 +44,42 @@
                 {
                     "date": 1626549804682,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n             <span class=\"mat-caption\" >add</span>\n           </button>\n         </span>\n         <span class=\"col-xs-6 no-padding theme-dark-blue-light-grey\">\n-          <button mat-raised-button color=\"danger\" class=\"text-white\" >\n+          <button mat-raised-button color=\"danger\" class=\"text-white\" (click)=\"onDelete(bug.id)\" >\n             <span class=\"mat-caption\" >Delete</span>\n             <mat-icon class=\"ml5\">delete_outline</mat-icon>\n           </button>\n         </span>\n"
+                },
+                {
+                    "date": 1626617801405,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,13 +6,13 @@\n     </div>\n   \n     <mat-card-content class=\"mat-typography no-margin\">\n       <div class=\"card-title\">\n-        {{bug.name}}\n+        {{error.name}}\n       </div>\n   \n       <p class=\"card-address row flex-nowrap card-subtitle\">\n-        <span>{{bug.description}} </span>\n+        <span>{{error.description}} </span>\n       </p>\n     </mat-card-content>\n     <mat-card-actions>\n       <div class=\"row\">\n@@ -21,9 +21,9 @@\n             <span class=\"mat-caption\" >add</span>\n           </button>\n         </span>\n         <span class=\"col-xs-6 no-padding theme-dark-blue-light-grey\">\n-          <button mat-raised-button color=\"danger\" class=\"text-white\" (click)=\"onDelete(bug.id)\" >\n+          <button mat-raised-button color=\"danger\" class=\"text-white\" (click)=\"onDelete(error.id)\" >\n             <span class=\"mat-caption\" >Delete</span>\n             <mat-icon class=\"ml5\">delete_outline</mat-icon>\n           </button>\n         </span>\n"
+                },
+                {
+                    "date": 1626618053850,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,14 @@\n-<mat-card class=\"error-card mat-typography\">\n+<mat-card class=\"error-card mat-typography error\">\n     <div\n       mat-card-image\n       class=\"img-container mat-card-strech-section\"\n     >\n     </div>\n   \n     <mat-card-content class=\"mat-typography no-margin\">\n       <div class=\"card-title\">\n-        {{error.name}}\n+        {{error.description}}\n       </div>\n   \n       <p class=\"card-address row flex-nowrap card-subtitle\">\n         <span>{{error.description}} </span>\n"
+                },
+                {
+                    "date": 1626618092088,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,14 +15,9 @@\n       </p>\n     </mat-card-content>\n     <mat-card-actions>\n       <div class=\"row\">\n-        <span class=\"col-xs-6 no-padding\">\n-          <button mat-raised-button color=\"accent\" >\n-            <span class=\"mat-caption\" >add</span>\n-          </button>\n-        </span>\n-        <span class=\"col-xs-6 no-padding theme-dark-blue-light-grey\">\n+        <span class=\"col-xs-12 no-padding theme-dark-blue-light-grey\">\n           <button mat-raised-button color=\"danger\" class=\"text-white\" (click)=\"onDelete(error.id)\" >\n             <span class=\"mat-caption\" >Delete</span>\n             <mat-icon class=\"ml5\">delete_outline</mat-icon>\n           </button>\n"
+                },
+                {
+                    "date": 1626787488439,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     </div>\n   \n     <mat-card-content class=\"mat-typography no-margin\">\n       <div class=\"card-title\">\n-        {{error.description}}\n+        {{error.fileName}}\n       </div>\n   \n       <p class=\"card-address row flex-nowrap card-subtitle\">\n         <span>{{error.description}} </span>\n"
+                },
+                {
+                    "date": 1626787770368,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n <mat-card class=\"error-card mat-typography error\">\n     <div\n       mat-card-image\n       class=\"img-container mat-card-strech-section\"\n+      [appCardImagePlaceHolder]=\"../../assets/images/logo.png\"\n     >\n     </div>\n   \n     <mat-card-content class=\"mat-typography no-margin\">\n"
+                },
+                {
+                    "date": 1626789493575,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <mat-card class=\"error-card mat-typography error\">\n     <div\n       mat-card-image\n       class=\"img-container mat-card-strech-section\"\n-      [appCardImagePlaceHolder]=\"../../assets/images/logo.png\"\n+      [appCardImagePlaceHolder]=\"'../../assets/images/logo.png'\"\n     >\n     </div>\n   \n     <mat-card-content class=\"mat-typography no-margin\">\n"
+                },
+                {
+                    "date": 1626793128131,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,10 @@\n       class=\"img-container mat-card-strech-section\"\n       [appCardImagePlaceHolder]=\"'../../assets/images/logo.png'\"\n     >\n     </div>\n-  \n+    <div class=\"error\"></div>\n+\n     <mat-card-content class=\"mat-typography no-margin\">\n       <div class=\"card-title\">\n         {{error.fileName}}\n       </div>\n"
+                },
+                {
+                    "date": 1626793215847,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-<mat-card class=\"error-card mat-typography error\">\n+<mat-card class=\"error-card mat-typography\">\n     <div\n       mat-card-image\n       class=\"img-container mat-card-strech-section\"\n       [appCardImagePlaceHolder]=\"'../../assets/images/logo.png'\"\n"
+                },
+                {
+                    "date": 1626794139731,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,10 @@\n       mat-card-image\n       class=\"img-container mat-card-strech-section\"\n       [appCardImagePlaceHolder]=\"'../../assets/images/logo.png'\"\n     >\n+    <div class=\"error\"></div>\n     </div>\n-    <div class=\"error\"></div>\n \n     <mat-card-content class=\"mat-typography no-margin\">\n       <div class=\"card-title\">\n         {{error.fileName}}\n"
                 }
             ],
             "date": 1626458451617,

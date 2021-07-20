@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client-app/src/models/project.model.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1626616944352,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1626616944352,
+            "name": "Commit-0",
+            "content": "export interface Project {\r\n    id: string;\r\n    members: string[],\r\n    name: string;\r\n}\r\n"
+        }
+    ]
+}

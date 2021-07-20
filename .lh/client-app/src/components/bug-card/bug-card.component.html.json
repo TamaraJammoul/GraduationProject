@@ -1,0 +1,26 @@
+{
+    "sourceFile": "client-app/src/components/bug-card/bug-card.component.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1626617767856,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1626618029142,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-<mat-card class=\"error-card mat-typography\">\n+<mat-card class=\"error-card mat-typography bug\">\n     <div\n       mat-card-image\n       class=\"img-container mat-card-strech-section\"\n     >\n"
+                },
+                {
+                    "date": 1626618078671,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,14 +15,9 @@\n       </p>\n     </mat-card-content>\n     <mat-card-actions>\n       <div class=\"row\">\n-        <span class=\"col-xs-6 no-padding\">\n-          <button mat-raised-button color=\"accent\" >\n-            <span class=\"mat-caption\" >add</span>\n-          </button>\n-        </span>\n-        <span class=\"col-xs-6 no-padding theme-dark-blue-light-grey\">\n+        <span class=\"col-xs-12 no-padding theme-dark-blue-light-grey\">\n           <button mat-raised-button color=\"danger\" class=\"text-white\" (click)=\"onResolve(bug.id)\" >\n             <span class=\"mat-caption\" >Resolve</span>\n             <mat-icon class=\"ml5\">delete_outline</mat-icon>\n           </button>\n"
+                }
+            ],
+            "date": 1626617767856,
+            "name": "Commit-0",
+            "content": "<mat-card class=\"error-card mat-typography\">\n    <div\n      mat-card-image\n      class=\"img-container mat-card-strech-section\"\n    >\n    </div>\n  \n    <mat-card-content class=\"mat-typography no-margin\">\n      <div class=\"card-title\">\n        {{bug.name}}\n      </div>\n  \n      <p class=\"card-address row flex-nowrap card-subtitle\">\n        <span>{{bug.description}} </span>\n      </p>\n    </mat-card-content>\n    <mat-card-actions>\n      <div class=\"row\">\n        <span class=\"col-xs-6 no-padding\">\n          <button mat-raised-button color=\"accent\" >\n            <span class=\"mat-caption\" >add</span>\n          </button>\n        </span>\n        <span class=\"col-xs-6 no-padding theme-dark-blue-light-grey\">\n          <button mat-raised-button color=\"danger\" class=\"text-white\" (click)=\"onResolve(bug.id)\" >\n            <span class=\"mat-caption\" >Resolve</span>\n            <mat-icon class=\"ml5\">delete_outline</mat-icon>\n          </button>\n        </span>\n      </div>\n    </mat-card-actions>\n  </mat-card>\n  "
+        }
+    ]
+}

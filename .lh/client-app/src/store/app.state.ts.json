@@ -3,11 +3,19 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1626516045999,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1626616408904,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n import { Bug } from '../models/bug.model';\r\n \r\n export interface AppState {\r\n     bugs: Bug[],\r\n-    errors: Error[]\r\n+    errors: Error[],\r\n+    members: string[]\r\n }\r\n \r\n export const STATE = 'state';\r\n"
+                },
+                {
+                    "date": 1626616966635,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,12 @@\n import { Error } from '../models/error.model';\r\n import { Bug } from '../models/bug.model';\r\n+import { Project } from '../models/project.model';\r\n \r\n export interface AppState {\r\n     bugs: Bug[],\r\n     errors: Error[],\r\n-    members: string[]\r\n+    members: string[],\r\n+    projects: Project[]\r\n }\r\n \r\n export const STATE = 'state';\r\n"
                 }
             ],
             "date": 1626516045999,

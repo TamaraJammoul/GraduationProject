@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client-app/src/environment.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1626724476778,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1626724476778,
+            "name": "Commit-0",
+            "content": "export const environment = {\r\n  apiUrl: 'https://projectfifthyear.herokuapp.com',\r\n};\r\n"
+        }
+    ]
+}

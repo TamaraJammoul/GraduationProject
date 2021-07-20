@@ -1,0 +1,25 @@
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddMemberDialogComponent } from '../add-member-dialog/add-member-dialog.component';
+@Component({
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+})
+export class NavBarComponent implements OnInit {
+  @Output() changeView = new EventEmitter<boolean>();
+  constructor(private dialog: MatDialog
+  ) { }
+
+  ngOnInit(): void {
+  }
+
+  onChangeView() {
+    this.changeView.emit(true)
+  }
+
+  addTeamMember() {
+    const dialogRef = this.dialog.open(AddMemberDialogComponent, {
+      width: '40%',
+    });
+  }
+}

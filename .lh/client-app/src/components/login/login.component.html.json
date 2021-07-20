@@ -3,11 +3,19 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1626549163890,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1626722545750,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,13 +6,13 @@\n         <p class=\"center col-xs-12 mat-display-1 text-primary title\">Login</p>\n         <p class=\"center col-xs-12 mt3 mat-body-1\">Welcome Back</p>\n         <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-12 mb4\">\n           <mat-label>Email</mat-label>\n-          <input matInput formControlName=\"noOfItems\" required type=\"email\"/>\n+          <input matInput formControlName=\"email\" required type=\"email\"/>\n         </mat-form-field>\n         <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-12 mb4\">\n           <mat-label>Password</mat-label>\n-          <input matInput formControlName=\"noOfItems\" required type=\"password\" />\n+          <input matInput formControlName=\"password\" required type=\"password\" />\n         </mat-form-field>\n         <div class=\"col-xs-12 submit-button center\">\n           <button class=\"btn-lg full-width background-primary center text-white border-white\">Login</button>\n         </div>\n"
+                },
+                {
+                    "date": 1626724266060,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n           <mat-label>Password</mat-label>\n           <input matInput formControlName=\"password\" required type=\"password\" />\n         </mat-form-field>\n         <div class=\"col-xs-12 submit-button center\">\n-          <button class=\"btn-lg full-width background-primary center text-white border-white\">Login</button>\n+          <button class=\"btn-lg full-width background-primary center text-white border-white\" (click)=\"onSubmit()\">Login</button>\n         </div>\n       </form>\n     </div>\n   </div>\n"
                 }
             ],
             "date": 1626549163890,

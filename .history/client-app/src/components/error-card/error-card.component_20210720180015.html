@@ -1,0 +1,30 @@
+<mat-card class="error-card mat-typography">
+    <div
+      mat-card-image
+      class="img-container mat-card-strech-section"
+      [appCardImagePlaceHolder]="'../../assets/images/logo.png'"
+    >
+    </div>
+    <div class="error"></div>
+
+    <mat-card-content class="mat-typography no-margin">
+      <div class="card-title">
+        {{error.fileName}}
+      </div>
+  
+      <p class="card-address row flex-nowrap card-subtitle">
+        <span>{{error.description}} </span>
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="row">
+        <span class="col-xs-12 no-padding theme-dark-blue-light-grey">
+          <button mat-raised-button color="danger" class="text-white" (click)="onDelete(error.id)" >
+            <span class="mat-caption" >Delete</span>
+            <mat-icon class="ml5">delete_outline</mat-icon>
+          </button>
+        </span>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+  

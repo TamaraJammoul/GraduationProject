@@ -1,0 +1,22 @@
+{
+    "sourceFile": "client-app/src/libs/material.module.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1626618292591,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1626618541704,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n import { MatSnackBarModule } from '@angular/material/snack-bar';\r\n import { MatExpansionModule } from '@angular/material/expansion';\r\n import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';\r\n import { MatProgressBarModule } from '@angular/material/progress-bar';\r\n-import {MatStepperModule} from '@angular/material/stepper';\r\n+import { MatStepperModule } from '@angular/material/stepper';\r\n \r\n const materialComponents = [\r\n   MatInputModule,\r\n   MatGridListModule,\r\n"
+                }
+            ],
+            "date": 1626618292591,
+            "name": "Commit-0",
+            "content": "import { NgModule } from '@angular/core';\r\nimport { MatGridListModule } from '@angular/material/grid-list';\r\nimport { MatSidenavModule } from '@angular/material/sidenav';\r\nimport { MatBadgeModule } from '@angular/material/badge';\r\nimport { MatButtonModule } from '@angular/material/button';\r\nimport { MatIconModule } from '@angular/material/icon';\r\nimport { MatCardModule } from '@angular/material/card';\r\nimport { MatInputModule } from '@angular/material/input';\r\nimport { MatTableModule } from '@angular/material/table';\r\nimport { MatSortModule } from '@angular/material/sort';\r\nimport { MatFormFieldModule } from '@angular/material/form-field';\r\nimport { MatMenuModule } from '@angular/material/menu';\r\nimport { MatDividerModule } from '@angular/material/divider';\r\nimport { MatChipsModule } from '@angular/material/chips';\r\nimport { MatSelectModule } from '@angular/material/select';\r\nimport { MatSlideToggleModule } from '@angular/material/slide-toggle';\r\nimport { MatButtonToggleModule } from '@angular/material/button-toggle';\r\nimport { MatCheckboxModule } from '@angular/material/checkbox';\r\nimport { MatTooltipModule } from '@angular/material/tooltip';\r\nimport { MatRadioModule } from '@angular/material/radio';\r\nimport { MatDatepickerModule } from '@angular/material/datepicker';\r\nimport { MatNativeDateModule } from '@angular/material/core';\r\nimport { MatDialogModule } from '@angular/material/dialog';\r\nimport { MatSnackBarModule } from '@angular/material/snack-bar';\r\nimport { MatExpansionModule } from '@angular/material/expansion';\r\nimport { MatProgressSpinnerModule } from '@angular/material/progress-spinner';\r\nimport { MatProgressBarModule } from '@angular/material/progress-bar';\r\nimport {MatStepperModule} from '@angular/material/stepper';\r\n\r\nconst materialComponents = [\r\n  MatInputModule,\r\n  MatGridListModule,\r\n  MatSidenavModule,\r\n  MatBadgeModule,\r\n  MatButtonModule,\r\n  MatIconModule,\r\n  MatCardModule,\r\n  MatTableModule,\r\n  MatSortModule,\r\n  MatFormFieldModule,\r\n  MatMenuModule,\r\n  MatDividerModule,\r\n  MatChipsModule,\r\n  MatSelectModule,\r\n  MatSlideToggleModule,\r\n  MatSelectModule,\r\n  MatButtonToggleModule,\r\n  MatCheckboxModule,\r\n  MatTooltipModule,\r\n  MatRadioModule,\r\n  MatDatepickerModule,\r\n  MatNativeDateModule,\r\n  MatDialogModule,\r\n  MatSnackBarModule,\r\n  MatExpansionModule,\r\n  MatProgressSpinnerModule,\r\n  MatProgressBarModule,\r\n  MatStepperModule\r\n];\r\n\r\n@NgModule({\r\n  imports: [materialComponents],\r\n  exports: [materialComponents],\r\n})\r\nexport class MaterialModule {\r\n}\r\n"
+        }
+    ]
+}

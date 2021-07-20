@@ -1,0 +1,46 @@
+{
+    "sourceFile": "client-app/src/components/add-member-dialog/add-member-dialog.component.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1626795223833,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1626795238446,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n <form class=\"row no-margin full-width pt12 login-div component-main-container\">\n-    <p class=\"center col-xs-12 mat-display-1 text-primary title\">Add Team Member</p>\n+    <p class=\"center col-xs-6 mat-display-1 text-primary title\">Add Team Member</p>\n     <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-12 mb4\">\n       <mat-label>Email</mat-label>\n       <input matInput formControlName=\"control\" placeholder=\"enter member email\" required type=\"text\"/>\n     </mat-form-field>\n-    <div class=\"col-xs-12 submit-button center\">\n+    <div class=\"col-xs-6 submit-button center\">\n       <button class=\"btn-lg full-width background-primary center text-white border-white\" (click)=\"onSubmit()\">Login</button>\n     </div>\n   </form>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1626795286919,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n-<form class=\"row no-margin full-width pt12 login-div component-main-container\">\n-    <p class=\"center col-xs-6 mat-display-1 text-primary title\">Add Team Member</p>\n-    <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-12 mb4\">\n+<form class=\"row no-margin full-width pt12\">\n+    <p class=\"center col-xs-12 mat-display-1 text-primary title\">Add Team Member</p>\n+    <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-6 mb4\">\n       <mat-label>Email</mat-label>\n       <input matInput formControlName=\"control\" placeholder=\"enter member email\" required type=\"text\"/>\n     </mat-form-field>\n     <div class=\"col-xs-6 submit-button center\">\n"
+                },
+                {
+                    "date": 1626795316768,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n <form class=\"row no-margin full-width pt12\">\n     <p class=\"center col-xs-12 mat-display-1 text-primary title\">Add Team Member</p>\n-    <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-6 mb4\">\n+    <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-8\">\n       <mat-label>Email</mat-label>\n       <input matInput formControlName=\"control\" placeholder=\"enter member email\" required type=\"text\"/>\n     </mat-form-field>\n-    <div class=\"col-xs-6 submit-button center\">\n+    <div class=\"col-xs-4 submit-button center\">\n       <button class=\"btn-lg full-width background-primary center text-white border-white\" (click)=\"onSubmit()\">Login</button>\n     </div>\n   </form>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1626795452657,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,8 @@\n     <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-8\">\n       <mat-label>Email</mat-label>\n       <input matInput formControlName=\"control\" placeholder=\"enter member email\" required type=\"text\"/>\n     </mat-form-field>\n-    <div class=\"col-xs-4 submit-button center\">\n-      <button class=\"btn-lg full-width background-primary center text-white border-white\" (click)=\"onSubmit()\">Login</button>\n+    <div class=\"col-xs-4 center\">\n+      <button class=\"p5 mb4 full-width background-primary center text-white border-white\" (click)=\"onSubmit()\">Login</button>\n     </div>\n   </form>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1626795501422,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,7 +4,7 @@\n       <mat-label>Email</mat-label>\n       <input matInput formControlName=\"control\" placeholder=\"enter member email\" required type=\"text\"/>\n     </mat-form-field>\n     <div class=\"col-xs-4 center\">\n-      <button class=\"p5 mb4 full-width background-primary center text-white border-white\" (click)=\"onSubmit()\">Login</button>\n+      <button class=\"p5 mb4 border-radius-xs full-width background-primary center text-white border-white\" (click)=\"onSubmit()\">Login</button>\n     </div>\n   </form>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1626795537334,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <form class=\"row no-margin full-width pt12\">\n     <p class=\"center col-xs-12 mat-display-1 text-primary title\">Add Team Member</p>\n     <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-8\">\n       <mat-label>Email</mat-label>\n-      <input matInput formControlName=\"control\" placeholder=\"enter member email\" required type=\"text\"/>\n+      <input matInput formControlName=\"control\" placeholder=\"Enter Member Email\" required type=\"text\"/>\n     </mat-form-field>\n     <div class=\"col-xs-4 center\">\n       <button class=\"p5 mb4 border-radius-xs full-width background-primary center text-white border-white\" (click)=\"onSubmit()\">Login</button>\n     </div>\n"
+                },
+                {
+                    "date": 1626795542984,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <form class=\"row no-margin full-width pt12\">\n     <p class=\"center col-xs-12 mat-display-1 text-primary title\">Add Team Member</p>\n     <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-8\">\n       <mat-label>Email</mat-label>\n-      <input matInput formControlName=\"control\" placeholder=\"Enter Member Email\" required type=\"text\"/>\n+      <input matInput formControlName=\"control\" placeholder=\"Enter Member Email\" required type=\"email\"/>\n     </mat-form-field>\n     <div class=\"col-xs-4 center\">\n       <button class=\"p5 mb4 border-radius-xs full-width background-primary center text-white border-white\" (click)=\"onSubmit()\">Login</button>\n     </div>\n"
+                }
+            ],
+            "date": 1626795223833,
+            "name": "Commit-0",
+            "content": "<form class=\"row no-margin full-width pt12 login-div component-main-container\">\n    <p class=\"center col-xs-12 mat-display-1 text-primary title\">Add Team Member</p>\n    <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-12 mb4\">\n      <mat-label>Email</mat-label>\n      <input matInput formControlName=\"control\" placeholder=\"enter member email\" required type=\"text\"/>\n    </mat-form-field>\n    <div class=\"col-xs-12 submit-button center\">\n      <button class=\"btn-lg full-width background-primary center text-white border-white\" (click)=\"onSubmit()\">Login</button>\n    </div>\n  </form>"
+        }
+    ]
+}

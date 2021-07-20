@@ -1,0 +1,17 @@
+@import "~@angular/material/theming";
+
+@mixin mat-card-custom-typography($theme, $typography) {
+    // $config: mat-get-color-config(theme);
+    // @include mat-card-typography($typography);
+    .card-image-placeholder {
+        background-size: auto !important;
+        background-position: center !important;
+        background-color: $secondary3;
+    }
+
+    .card-image {
+        background-size: cover;
+        background-position: center center;
+        background-color: $secondary3;
+    }
+}

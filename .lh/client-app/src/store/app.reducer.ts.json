@@ -3,11 +3,27 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1626516152362,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1626616690094,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,18 @@\n   [] as Error[],\r\n   on(AppActions.fetchErrorsSuccess, (_, { error }) => error)\r\n );\r\n \r\n+export const MembersReducer = createReducer(\r\n+  [] as string[],\r\n+  on(AppActions.addTeamMember, (state, { email }) => {\r\n+    const newState: string[] = [...state];\r\n+    newState.push(email);\r\n+    return newState;\r\n+  })\r\n+);\r\n+\r\n export const reducers: ActionReducerMap<AppState> = {\r\n   bugs: bugsReducer,\r\n-  errors: errorsReducer\r\n+  errors: errorsReducer,\r\n+  members: MembersReducer\r\n }\r\n"
+                },
+                {
+                    "date": 1626616751591,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,10 @@\n   on(AppActions.addTeamMember, (state, { email }) => {\r\n     const newState: string[] = [...state];\r\n     newState.push(email);\r\n     return newState;\r\n-  })\r\n+  }),\r\n+  on(AppActions.deleteTeamMember, (state, { email }) => state.filter(e => e !== email))\r\n );\r\n \r\n export const reducers: ActionReducerMap<AppState> = {\r\n   bugs: bugsReducer,\r\n"
+                },
+                {
+                    "date": 1626617204695,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,15 +2,16 @@\n import { AppActions } from './app.action';\r\n import { AppState } from './app.state';\r\n import { Error } from '../models/error.model';\r\n import { Bug } from '../models/bug.model';\r\n+import { Project } from '../models/project.model';\r\n \r\n-export const bugsReducer = createReducer(\r\n+export const BugsReducer = createReducer(\r\n   [] as Bug[],\r\n   on(AppActions.fetchBugsSuccess, (_, { bugs }) => bugs)\r\n );\r\n \r\n-export const errorsReducer = createReducer(\r\n+export const ErrorsReducer = createReducer(\r\n   [] as Error[],\r\n   on(AppActions.fetchErrorsSuccess, (_, { error }) => error)\r\n );\r\n \r\n@@ -23,9 +24,20 @@\n   }),\r\n   on(AppActions.deleteTeamMember, (state, { email }) => state.filter(e => e !== email))\r\n );\r\n \r\n+export const ProjectReducer = createReducer(\r\n+  [] as Project[],\r\n+  on(AppActions.addProjectSuccess, (state, { project }) => {\r\n+    const newState: Project[] = [...state];\r\n+    newState.push(project);\r\n+    return newState;\r\n+  }),\r\n+  on(AppActions.deleteProject, (state, { projectId }) => state.filter(e => e.id !== projectId))\r\n+);\r\n+\r\n export const reducers: ActionReducerMap<AppState> = {\r\n-  bugs: bugsReducer,\r\n-  errors: errorsReducer,\r\n-  members: MembersReducer\r\n+  bugs: BugsReducer,\r\n+  errors: ErrorsReducer,\r\n+  members: MembersReducer,\r\n+  projects: ProjectReducer\r\n }\r\n"
+                },
+                {
+                    "date": 1626617546397,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,10 @@\n     const newState: Project[] = [...state];\r\n     newState.push(project);\r\n     return newState;\r\n   }),\r\n-  on(AppActions.deleteProject, (state, { projectId }) => state.filter(e => e.id !== projectId))\r\n+  on(AppActions.deleteProject, (state, { projectId }) => state.filter(e => e.id !== projectId)),\r\n+  on(AppActions.getProjectSuccess, (_, { projects }) => projects)\r\n );\r\n \r\n export const reducers: ActionReducerMap<AppState> = {\r\n   bugs: BugsReducer,\r\n"
                 }
             ],
             "date": 1626516152362,

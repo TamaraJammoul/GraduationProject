@@ -1,0 +1,30 @@
+{
+    "sourceFile": "client-app/src/components/base-component/base-component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1626788770262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1626789230469,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,7 @@\n import { OnDestroy, Directive } from '@angular/core';\r\n import { Subscription } from 'rxjs';\r\n import { isEmpty } from '../../services/utils.services';\r\n-@Directive()\r\n-// eslint-disable-next-line @angular-eslint/directive-class-suffix\r\n export class BaseComponent implements OnDestroy {\r\n   protected subscriptions = new Subscription();\r\n \r\n   ngOnDestroy(): void {\r\n"
+                },
+                {
+                    "date": 1626789305260,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,9 @@\n import { OnDestroy, Directive } from '@angular/core';\r\n import { Subscription } from 'rxjs';\r\n import { isEmpty } from '../../services/utils.services';\r\n+@Directive()\r\n+// eslint-disable-next-line @angular-eslint/directive-class-suffix\r\n export class BaseComponent implements OnDestroy {\r\n   protected subscriptions = new Subscription();\r\n \r\n   ngOnDestroy(): void {\r\n"
+                },
+                {
+                    "date": 1626789464406,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,10 @@\n import { OnDestroy, Directive } from '@angular/core';\r\n import { Subscription } from 'rxjs';\r\n import { isEmpty } from '../../services/utils.services';\r\n-@Directive()\r\n+@Directive({\r\n+  selector: '[BaseComponent]'\r\n+})\r\n // eslint-disable-next-line @angular-eslint/directive-class-suffix\r\n export class BaseComponent implements OnDestroy {\r\n   protected subscriptions = new Subscription();\r\n \r\n"
+                }
+            ],
+            "date": 1626788770262,
+            "name": "Commit-0",
+            "content": "import { OnDestroy, Directive } from '@angular/core';\r\nimport { Subscription } from 'rxjs';\r\nimport { isEmpty } from '../../services/utils.services';\r\n@Directive()\r\n// eslint-disable-next-line @angular-eslint/directive-class-suffix\r\nexport class BaseComponent implements OnDestroy {\r\n  protected subscriptions = new Subscription();\r\n\r\n  ngOnDestroy(): void {\r\n    this.subscriptions.unsubscribe();\r\n    if(Array.isArray(this.subscriptions)) {\r\n      this.subscriptions.forEach(s => s.unsubscribe());\r\n    }\r\n  }\r\n\r\n  isEmpty(data: any) {\r\n    return isEmpty(data);\r\n  }\r\n}\r\n"
+        }
+    ]
+}

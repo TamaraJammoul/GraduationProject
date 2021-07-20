@@ -3,11 +3,23 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1626459347145,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1626794279436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,17 @@\n-import { Component, OnInit } from '@angular/core';\n+import { Component, OnInit, Output, EventEmitter } from '@angular/core';\n \n @Component({\n   selector: 'app-navbar',\n   templateUrl: './navbar.component.html',\n })\n export class NavBarComponent implements OnInit {\n-\n+  @Output() changeView = new EventEmitter<boolean>();\n   constructor() { }\n \n   ngOnInit(): void {\n   }\n \n+  onChangeView(){\n+    this.changeView.emit(true)\n+  }\n }\n"
+                },
+                {
+                    "date": 1626794851594,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,25 @@\n+import { Component, OnInit, Output, EventEmitter } from '@angular/core';\n+import { MatDialog } from '@angular/material/dialog';\n+import { AddMemberDialogComponent } from '../add-member-dialog/add-member-dialog.component';\n+@Component({\n+  selector: 'app-navbar',\n+  templateUrl: './navbar.component.html',\n+})\n+export class NavBarComponent implements OnInit {\n+  @Output() changeView = new EventEmitter<boolean>();\n+  constructor(private dialog: MatDialog\n+  ) { }\n+\n+  ngOnInit(): void {\n+  }\n+\n+  onChangeView() {\n+    this.changeView.emit(true)\n+  }\n+\n+  addTeamMember() {\n+    const dialogRef = this.dialog.open(AddMemberDialogComponent, {\n+      width: '40%',\n+    });\n+  }\n+}\n"
+                },
+                {
+                    "date": 1626794873933,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,21 +22,4 @@\n       width: '40%',\n     });\n   }\n }\n-import { Component, OnInit, Output, EventEmitter } from '@angular/core';\n-\n-@Component({\n-  selector: 'app-navbar',\n-  templateUrl: './navbar.component.html',\n-})\n-export class NavBarComponent implements OnInit {\n-  @Output() changeView = new EventEmitter<boolean>();\n-  constructor() { }\n-\n-  ngOnInit(): void {\n-  }\n-\n-  onChangeView(){\n-    this.changeView.emit(true)\n-  }\n-}\n"
                 }
             ],
             "date": 1626459347145,

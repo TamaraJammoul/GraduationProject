@@ -1,0 +1,26 @@
+{
+    "sourceFile": "client-app/src/components/add-member-dialog/add-member-dialog.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1626795158954,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1626795570443,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,7 +16,7 @@\n   ngOnInit(): void {\n   }\n \n   onSubmit() {\n-    this.store$.dispatch(AppActions.login(this.control.value));\n+    this.store$.dispatch(AppActions.addTeamMember(this.control.value));\n   }\n }\n"
+                },
+                {
+                    "date": 1626795579446,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,9 @@\n })\n export class AddMemberDialogComponent implements OnInit {\n    control = new FormControl();\n \n-  constructor(\n-    private store$: Store) { }\n+  constructor(private store$: Store) { }\n \n   ngOnInit(): void {\n   }\n \n"
+                }
+            ],
+            "date": 1626795158954,
+            "name": "Commit-0",
+            "content": "import { Component, OnInit } from '@angular/core';\nimport { Store } from '@ngrx/store';\nimport { FormControl } from '@angular/forms';\nimport { AppActions } from '../../store/app.action';\n@Component({\n  selector: 'app-add-member-dialog',\n  templateUrl: './add-member-dialog.component.html',\n  styleUrls: ['./add-member-dialog.component.scss']\n})\nexport class AddMemberDialogComponent implements OnInit {\n   control = new FormControl();\n\n  constructor(\n    private store$: Store) { }\n\n  ngOnInit(): void {\n  }\n\n  onSubmit() {\n    this.store$.dispatch(AppActions.login(this.control.value));\n  }\n}\n"
+        }
+    ]
+}

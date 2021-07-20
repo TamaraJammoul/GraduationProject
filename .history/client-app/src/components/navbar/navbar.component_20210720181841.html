@@ -1,0 +1,18 @@
+<div class="row full-width no-margin">
+  <div class="col-sm-6" (click)="onChangeView()">
+    <app-labeld-button label="onChangeView" iconPosition="left">
+    </app-labeld-button>
+  </div>
+  <div class="col-sm-3">
+    <app-labeld-button label="nextLinkText">
+      <img src="../../assets/images/chevron-right.svg" alt="advance" />
+    </app-labeld-button>
+  </div>
+
+
+  <div class="col-sm-3 no-margin no-padding d-flex justify-content-end">
+    <app-labeld-button appFormValidationTrigger label="save" class=" mr4 labeld-button-success-outlined"
+      [isSaveButton]="true">
+    </app-labeld-button>
+  </div>
+</div>
