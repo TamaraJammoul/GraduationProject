@@ -1,0 +1,26 @@
+{
+    "sourceFile": "client-app/src/services/auth.service.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1626812556869,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1627165150248,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,16 +16,16 @@\n     \r\n     constructor(private httpClient: HttpClient) { }\r\n     signUp(info: Signup): Observable<any> {\r\n         const endpointUrl = `${environment.authUrl}/signup`;\r\n-        return this.httpClient.post<any>(endpointUrl,info, this.httpOptions).pipe(\r\n+        return this.httpClient.post<any>(endpointUrl,info).pipe(\r\n             map(data => data)\r\n         );\r\n     }\r\n \r\n     login(info: Login): Observable<any> {\r\n         const endpointUrl = `${environment.authUrl}/login`;\r\n-        return this.httpClient.post<any>(endpointUrl,info, this.httpOptions).pipe(\r\n+        return this.httpClient.post<any>(endpointUrl,info).pipe(\r\n             map(data => data)\r\n         );\r\n     }\r\n }\r\n"
+                },
+                {
+                    "date": 1627165220619,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,16 +16,16 @@\n     \r\n     constructor(private httpClient: HttpClient) { }\r\n     signUp(info: Signup): Observable<any> {\r\n         const endpointUrl = `${environment.authUrl}/signup`;\r\n-        return this.httpClient.post<any>(endpointUrl,info).pipe(\r\n+        return this.httpClient.post<any>(endpointUrl,info, this.httpOptions).pipe(\r\n             map(data => data)\r\n         );\r\n     }\r\n \r\n     login(info: Login): Observable<any> {\r\n         const endpointUrl = `${environment.authUrl}/login`;\r\n-        return this.httpClient.post<any>(endpointUrl,info).pipe(\r\n+        return this.httpClient.post<any>(endpointUrl,info, this.httpOptions).pipe(\r\n             map(data => data)\r\n         );\r\n     }\r\n }\r\n"
+                }
+            ],
+            "date": 1626812556869,
+            "name": "Commit-0",
+            "content": "import { Observable } from 'rxjs';\r\nimport { map } from 'rxjs/operators';\r\nimport { Injectable } from '@angular/core';\r\nimport { environment } from '../environment';\r\nimport { HttpClient, HttpHeaders } from '@angular/common/http';\r\nimport { Signup } from '../models/signup.model';\r\nimport { Login } from '../models/login.model';\r\n\r\n@Injectable({ providedIn: 'root' })\r\nexport class AuthService {\r\n    httpOptions = {\r\n        headers: new HttpHeaders({\r\n            'Content-Type': 'application/json'\r\n        }),\r\n    };\r\n    \r\n    constructor(private httpClient: HttpClient) { }\r\n    signUp(info: Signup): Observable<any> {\r\n        const endpointUrl = `${environment.authUrl}/signup`;\r\n        return this.httpClient.post<any>(endpointUrl,info, this.httpOptions).pipe(\r\n            map(data => data)\r\n        );\r\n    }\r\n\r\n    login(info: Login): Observable<any> {\r\n        const endpointUrl = `${environment.authUrl}/login`;\r\n        return this.httpClient.post<any>(endpointUrl,info, this.httpOptions).pipe(\r\n            map(data => data)\r\n        );\r\n    }\r\n}\r\n"
+        }
+    ]
+}

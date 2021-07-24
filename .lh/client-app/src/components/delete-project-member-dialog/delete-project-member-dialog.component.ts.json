@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1626807964115,
@@ -16,6 +16,14 @@
                 {
                     "date": 1626809097523,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,6 @@\n import { Component, OnInit, Inject } from '@angular/core';\n import { Store } from '@ngrx/store';\n-import { FormControl } from '@angular/forms';\n import { AppActions } from '../../store/app.action';\n import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';\n \n @Component({\n@@ -9,17 +8,16 @@\n   templateUrl: './delete-project-member-dialog.component.html',\n   styleUrls: ['./delete-project-member-dialog.component.scss']\n })\n export class DeleteProjectMemberDialogComponent implements OnInit {\n-  control = new FormControl();\n \n   constructor(private store$: Store,\n     public dialogRef: MatDialogRef<DeleteProjectMemberDialogComponent>,\n     @Inject(MAT_DIALOG_DATA) public data: string[]) { }\n \n   ngOnInit(): void {\n   }\n \n-  onSubmit() {\n-    this.store$.dispatch(AppActions.deleteProjectTeamMember(this.control.value));\n+  onSubmit(email: string) {\n+    this.store$.dispatch(AppActions.deleteProjectTeamMember(email));\n   }\n }\n"
+                },
+                {
+                    "date": 1627164434836,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { Component, OnInit, Inject } from '@angular/core';\n import { Store } from '@ngrx/store';\n import { AppActions } from '../../store/app.action';\n import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';\n-\n+import { Project } from '../../models/project.model';\n @Component({\n   selector: 'app-delete-project-member-dialog',\n   templateUrl: './delete-project-member-dialog.component.html',\n   styleUrls: ['./delete-project-member-dialog.component.scss']\n@@ -11,13 +11,13 @@\n export class DeleteProjectMemberDialogComponent implements OnInit {\n \n   constructor(private store$: Store,\n     public dialogRef: MatDialogRef<DeleteProjectMemberDialogComponent>,\n-    @Inject(MAT_DIALOG_DATA) public data: string[]) { }\n+    @Inject(MAT_DIALOG_DATA) public data: Project) { }\n \n   ngOnInit(): void {\n   }\n \n-  onSubmit(email: string) {\n-    this.store$.dispatch(AppActions.deleteProjectTeamMember(email));\n+  onSubmit(id: string) {\n+    this.store$.dispatch(AppActions.deleteProjectTeamMember(id, this.data.id));\n   }\n }\n"
+                },
+                {
+                    "date": 1627164727793,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n import { Store } from '@ngrx/store';\n import { AppActions } from '../../store/app.action';\n import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';\n import { Project } from '../../models/project.model';\n+\n @Component({\n   selector: 'app-delete-project-member-dialog',\n   templateUrl: './delete-project-member-dialog.component.html',\n   styleUrls: ['./delete-project-member-dialog.component.scss']\n"
                 }
             ],
             "date": 1626807964115,

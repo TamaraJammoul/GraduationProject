@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1626795158954,
@@ -20,6 +20,10 @@
                 {
                     "date": 1626809452961,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,15 +7,19 @@\n   templateUrl: './add-member-dialog.component.html',\n   styleUrls: ['./add-member-dialog.component.scss']\n })\n export class AddMemberDialogComponent implements OnInit {\n-   control = new FormControl();\n-\n+  control = new FormControl();\n+  members: string[] = [];\n   constructor(private store$: Store) { }\n \n   ngOnInit(): void {\n   }\n \n-  onSubmit() {\n+  onAdd() {\n     this.store$.dispatch(AppActions.addTeamMember(this.control.value));\n   }\n+\n+  onDelete(email: string) {\n+    this.store$.dispatch(AppActions.deleteTeamMember(email));\n+  }\n }\n"
+                },
+                {
+                    "date": 1627165585764,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,19 +1,24 @@\n import { Component, OnInit } from '@angular/core';\n import { Store } from '@ngrx/store';\n import { FormControl } from '@angular/forms';\n import { AppActions } from '../../store/app.action';\n+import { getMembersList } from '../../store/app.selector';\n+import { User } from '../../models/user.model';\n @Component({\n   selector: 'app-add-member-dialog',\n   templateUrl: './add-member-dialog.component.html',\n   styleUrls: ['./add-member-dialog.component.scss']\n })\n export class AddMemberDialogComponent implements OnInit {\n   control = new FormControl();\n-  members: string[] = [];\n+  members: User[] = [];\n   constructor(private store$: Store) { }\n \n   ngOnInit(): void {\n+    this.store$.dispatch(AppActions.getTeamMembers());\n+    this.store$.select(getMembersList).subscribe(data => this.members = data);\n+\n   }\n \n   onAdd() {\n     this.store$.dispatch(AppActions.addTeamMember(this.control.value));\n"
                 }
             ],
             "date": 1626795158954,

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 4,
+            "activePatchIndex": 6,
             "patches": [
                 {
                     "date": 1626804118845,
@@ -24,6 +24,14 @@
                 {
                     "date": 1626811636002,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,8 @@\n   }\r\n \r\n   deleteProject(projectId: string) {\r\n     this.store$.dispatch(AppActions.deleteProject(projectId));\r\n-\r\n   }\r\n \r\n   renameProject(projectId: string) {\r\n     this.dialog.open(RenameProjectDialogComponent, {\r\n"
+                },
+                {
+                    "date": 1627114876315,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,21 +4,25 @@\n import { AppActions } from '../../store/app.action';\r\n import { AddProjectMemberDialogComponent } from '../add-project-member-dialog/add-project-member-dialog.component';\r\n import { DeleteProjectMemberDialogComponent } from '../delete-project-member-dialog/delete-project-member-dialog.component'\r\n import { RenameProjectDialogComponent } from '../rename-project-dialog/rename-project-dialog.component'\r\n+import { Project } from '../../models/project.model';\r\n+import { getProjectsList } from '../../store/app.selector';\r\n \r\n @Component({\r\n   selector: 'app-sidenav',\r\n   templateUrl: './sidenav.component.html',\r\n   styleUrls: ['./sidenav.component.scss'],\r\n   changeDetection: ChangeDetectionStrategy.OnPush\r\n })\r\n export class SidenavComponent implements OnInit {\r\n-\r\n+  projects: Project[] = [];\r\n   constructor(private dialog: MatDialog,\r\n     private store$: Store,) { }\r\n \r\n   ngOnInit(): void {\r\n+    this.store$.dispatch(AppActions.getProject());\r\n+    this.store$.select(getProjectsList).subscribe(data => this.projects = data);\r\n   }\r\n \r\n   addProjectTeamMember() {\r\n     this.dialog.open(AddProjectMemberDialogComponent, {\r\n"
+                },
+                {
+                    "date": 1627164648951,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,11 +23,12 @@\n     this.store$.dispatch(AppActions.getProject());\r\n     this.store$.select(getProjectsList).subscribe(data => this.projects = data);\r\n   }\r\n \r\n-  addProjectTeamMember() {\r\n+  addProjectTeamMember(projectId: string) {\r\n     this.dialog.open(AddProjectMemberDialogComponent, {\r\n       width: '40%',\r\n+      data: projectId\r\n     });\r\n   }\r\n \r\n   deleteProjectTeamMember(projectId: string) {\r\n"
                 }
             ],
             "date": 1626804118845,

@@ -1,0 +1,40 @@
+  .error-list-cards {
+    padding: 30px 20px;
+
+    .error-list-cards-wrapper {
+      >* {
+        margin-bottom: 20px;
+      }
+    }
+
+    .paginations {
+      text-align: center;
+    }
+  }
+
+  .navbar-container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 0rem 1rem;
+  }
+
+  .drawer {
+    width: 20%;
+  }
+
+  .drawer-content {
+    margin-left: 20% !important;
+    overflow-x: hidden !important;
+  }
+
+  .drawer-container {
+    height: 100vh;
+  }
+
+  .material-icons:hover {
+    color: $primary;
+  }
+
+  .dashboard{
+    font-weight: 700;
+  }

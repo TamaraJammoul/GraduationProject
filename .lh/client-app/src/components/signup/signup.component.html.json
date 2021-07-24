@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 21,
+            "activePatchIndex": 22,
             "patches": [
                 {
                     "date": 1626549037693,
@@ -92,6 +92,10 @@
                 {
                     "date": 1626724229052,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n               <input matInput formControlName=\"name\" required type=\"text\" />\n             </mat-form-field>\n             <div class=\"row col-xs-12 no-margin justify-content-between\">\n               <button mat-button matStepperPrevious class=\"col-sm-5 btn-lg full-width background-primary center text-white border-white\">Back</button>\n-              <button mat-button matStepperNext class=\"col-sm-5 btn-lg full-width background-primary center text-white border-white\">SignUp</button>\n+              <button mat-button matStepperNext (click)=\"onSubmit()\" class=\"col-sm-5 btn-lg full-width background-primary center text-white border-white\">SignUp</button>\n             </div>\n           </form>\n         </mat-step>\n       </mat-horizontal-stepper>\n"
+                },
+                {
+                    "date": 1626812634520,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,13 +32,13 @@\n         <mat-step [stepControl]=\"fg\" label=\"Team Details\">\n           <form [formGroup]=\"fg\" class=\"row no-margin full-width pt12\">\n             <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-12 mb4\">\n               <mat-label>Team Name</mat-label>\n-              <input matInput formControlName=\"name\" required type=\"text\" />\n+              <input matInput formControlName=\"teamName\" required type=\"text\" />\n             </mat-form-field>\n             <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-12 mb4\">\n               <mat-label>Project Name</mat-label>\n-              <input matInput formControlName=\"name\" required type=\"text\" />\n+              <input matInput formControlName=\"projectName\" required type=\"text\" />\n             </mat-form-field>\n             <div class=\"row col-xs-12 no-margin justify-content-between\">\n               <button mat-button matStepperPrevious class=\"col-sm-5 btn-lg full-width background-primary center text-white border-white\">Back</button>\n               <button mat-button matStepperNext (click)=\"onSubmit()\" class=\"col-sm-5 btn-lg full-width background-primary center text-white border-white\">SignUp</button>\n"
                 }
             ],
             "date": 1626549037693,

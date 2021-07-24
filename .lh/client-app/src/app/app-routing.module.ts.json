@@ -3,11 +3,15 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 1,
             "patches": [
                 {
                     "date": 1626458195734,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1626955472512,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,13 +13,18 @@\n import { DashboardComponent } from '../components/dashboard/dashboard.component';\n import { LoginComponent } from '../components/login/login.component';\n import { SignupComponent } from '../components/signup/signup.component';\n import { CommonModule } from '@angular/common';\n+import { HomeComponent } from '../components/home-page/home-page.component';\n \n \n const routes: Routes = [\n   {\n     path: '',\n+    component: HomeComponent,\n+  },\n+  {\n+    path: 'dashboard',\n     component: DashboardComponent,\n   },\n   {\n     path: 'login',\n"
                 }
             ],
             "date": 1626458195733,

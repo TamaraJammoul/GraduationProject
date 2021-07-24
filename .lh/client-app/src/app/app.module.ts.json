@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 31,
+            "activePatchIndex": 32,
             "patches": [
                 {
                     "date": 1626457872125,
@@ -132,6 +132,10 @@
                 {
                     "date": 1626811697165,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,14 +26,16 @@\n import { BaseComponent } from '../components/base-component/base-component';\n import { SidenavComponent } from '../components/sidenav/sidenav.component';\n import { DeleteProjectMemberDialogComponent } from '../components/delete-project-member-dialog/delete-project-member-dialog.component';\n import { AddProjectMemberDialogComponent } from '../components/add-project-member-dialog/add-project-member-dialog.component';\n+import { RenameProjectDialogComponent } from '../components/rename-project-dialog/rename-project-dialog.component';\n \n \n @NgModule({\n   declarations: [\n     DeleteProjectMemberDialogComponent,\n     AddProjectMemberDialogComponent,\n+    RenameProjectDialogComponent,\n     AppComponent,\n     LoginComponent,\n     SignupComponent,\n     DashboardComponent,\n@@ -65,9 +67,11 @@\n   bootstrap: [AppComponent],\n   entryComponents: [\n     AddMemberDialogComponent,\n     DeleteProjectMemberDialogComponent,\n-    AddProjectMemberDialogComponent,],\n+    AddProjectMemberDialogComponent,\n+    RenameProjectDialogComponent\n+  ],\n   schemas: [\n     CUSTOM_ELEMENTS_SCHEMA\n   ],\n })\n"
+                },
+                {
+                    "date": 1626955381553,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,8 +27,9 @@\n import { SidenavComponent } from '../components/sidenav/sidenav.component';\n import { DeleteProjectMemberDialogComponent } from '../components/delete-project-member-dialog/delete-project-member-dialog.component';\n import { AddProjectMemberDialogComponent } from '../components/add-project-member-dialog/add-project-member-dialog.component';\n import { RenameProjectDialogComponent } from '../components/rename-project-dialog/rename-project-dialog.component';\n+import { HomeComponent } from '../components/home-page/home-page.component';\n \n \n @NgModule({\n   declarations: [\n@@ -46,9 +47,10 @@\n     PagingComponent,\n     BugCardComponent,\n     CardImagePlaceholderDirective,\n     BaseComponent,\n-    SidenavComponent\n+    SidenavComponent,\n+    HomeComponent\n   ],\n   imports: [\n     CommonModule,\n     HttpClientModule,\n"
                 }
             ],
             "date": 1626457872125,

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 8,
+            "activePatchIndex": 17,
             "patches": [
                 {
                     "date": 1626515986012,
@@ -40,6 +40,42 @@
                 {
                     "date": 1626810875350,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -124,9 +124,9 @@\n );\r\n \r\n const renameProject = createAction(\r\n     '[app] rename Project ',\r\n-    (projectId: string) => ({ projectId })\r\n+    (projectId: string, projectName: string) => ({ projectId, projectName })\r\n );\r\n \r\n const renameProjectSuccess = createAction(\r\n     '[app] rename Project Success',\r\n"
+                },
+                {
+                    "date": 1627162625418,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,19 @@\n import { Bug } from '../models/bug.model';\r\n import { Login } from '../models/login.model';\r\n import { Signup } from '../models/signup.model';\r\n import { Project } from '../models/project.model';\r\n+import { User } from '../models/user.model';\r\n \r\n+const getTeamMembers = createAction(\r\n+    '[app] Get Team Members',\r\n+);\r\n+\r\n+const getTeamMembersSuccess = createAction(\r\n+    '[app] Get Team Members Success',\r\n+    (users: User[]) => ({ users })\r\n+);\r\n+\r\n const fetchErrors = createAction(\r\n     '[app] Fetch Errors',\r\n );\r\n \r\n@@ -159,6 +169,8 @@\n     addProjectSuccess,\r\n     getProject,\r\n     getProjectSuccess,\r\n     renameProject,\r\n-    renameProjectSuccess\r\n+    renameProjectSuccess,\r\n+    getTeamMembers,\r\n+    getTeamMembersSuccess\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1627162928830,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -93,9 +93,10 @@\n     (email: string) => ({ email })\r\n );\r\n \r\n const addTeamMemberSuccess = createAction(\r\n-    '[app] add TeamMember Success'\r\n+    '[app] add TeamMember Success',\r\n+    (user: User) => ({ user })\r\n );\r\n \r\n const deleteTeamMember = createAction(\r\n     '[app] delete TeamMember',\r\n"
+                },
+                {
+                    "date": 1627162977514,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -99,9 +99,9 @@\n );\r\n \r\n const deleteTeamMember = createAction(\r\n     '[app] delete TeamMember',\r\n-    (email: string) => ({ email })\r\n+    (id: string) => ({ id })\r\n );\r\n \r\n const deleteTeamMemberSuccess = createAction(\r\n     '[app] delete TeamMember Success'\r\n"
+                },
+                {
+                    "date": 1627163433218,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -117,9 +117,9 @@\n );\r\n \r\n const deleteProjectTeamMember = createAction(\r\n     '[app] delete Project TeamMember',\r\n-    (email: string) => ({ email })\r\n+    (userId: string, projectId: string) => ({ userId, projectId })\r\n );\r\n \r\n const deleteProjectTeamMemberSuccess = createAction(\r\n     '[app] delete Project TeamMember Success'\r\n"
+                },
+                {
+                    "date": 1627163570468,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -108,13 +108,14 @@\n );\r\n \r\n const addProjectTeamMember = createAction(\r\n     '[app] add Project TeamMember',\r\n-    (email: string) => ({ email })\r\n+    (id: string) => ({ id })\r\n );\r\n \r\n const addProjectTeamMemberSuccess = createAction(\r\n-    '[app] add Project TeamMember Success'\r\n+    '[app] add Project TeamMember Success',\r\n+    (user: User) => ({ user })\r\n );\r\n \r\n const deleteProjectTeamMember = createAction(\r\n     '[app] delete Project TeamMember',\r\n"
+                },
+                {
+                    "date": 1627163670321,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -108,14 +108,14 @@\n );\r\n \r\n const addProjectTeamMember = createAction(\r\n     '[app] add Project TeamMember',\r\n-    (id: string) => ({ id })\r\n+    (id: string, projectId: string) => ({ id, projectId })\r\n );\r\n \r\n const addProjectTeamMemberSuccess = createAction(\r\n     '[app] add Project TeamMember Success',\r\n-    (user: User) => ({ user })\r\n+    (user: User, projectId: string) => ({ user, projectId })\r\n );\r\n \r\n const deleteProjectTeamMember = createAction(\r\n     '[app] delete Project TeamMember',\r\n"
+                },
+                {
+                    "date": 1627163917339,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -99,9 +99,9 @@\n );\r\n \r\n const deleteTeamMember = createAction(\r\n     '[app] delete TeamMember',\r\n-    (id: string) => ({ id })\r\n+    (id: string, projectId: string) => ({ id, projectId })\r\n );\r\n \r\n const deleteTeamMemberSuccess = createAction(\r\n     '[app] delete TeamMember Success'\r\n"
+                },
+                {
+                    "date": 1627164786080,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -99,9 +99,9 @@\n );\r\n \r\n const deleteTeamMember = createAction(\r\n     '[app] delete TeamMember',\r\n-    (id: string, projectId: string) => ({ id, projectId })\r\n+    (id: string) => ({ id })\r\n );\r\n \r\n const deleteTeamMemberSuccess = createAction(\r\n     '[app] delete TeamMember Success'\r\n"
+                },
+                {
+                    "date": 1627164862110,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -118,9 +118,9 @@\n );\r\n \r\n const deleteProjectTeamMember = createAction(\r\n     '[app] delete Project TeamMember',\r\n-    (userId: string, projectId: string) => ({ userId, projectId })\r\n+    (id: string, projectId: string) => ({ id, projectId })\r\n );\r\n \r\n const deleteProjectTeamMemberSuccess = createAction(\r\n     '[app] delete Project TeamMember Success'\r\n"
                 }
             ],
             "date": 1626515986012,

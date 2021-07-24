@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 17,
+            "activePatchIndex": 21,
             "patches": [
                 {
                     "date": 1626458571602,
@@ -76,6 +76,22 @@
                 {
                     "date": 1626804137497,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <mat-drawer-container class=\"drawer-container\">\n-  <mat-drawer mode=\"side\" class=\"drawer\" opened>Drawer content</mat-drawer>\n+  <mat-drawer mode=\"side\" class=\"drawer\" opened><app-sidenav></app-sidenav></mat-drawer>\n   <mat-drawer-content class=\"drawer-content\">\n     <div class=\"container\">\n       <app-navbar class=\"navbar-container\" (changeView)=\"changeView()\"></app-navbar>\n       <div class=\"error-list-cards action-bar-container\" *ngIf=\"!isBugListView\">\n"
+                },
+                {
+                    "date": 1626812087006,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,12 @@\n <mat-drawer-container class=\"drawer-container\">\n-  <mat-drawer mode=\"side\" class=\"drawer\" opened><app-sidenav></app-sidenav></mat-drawer>\n+  <mat-drawer mode=\"side\" class=\"drawer\" opened>\n+    <app-sidenav></app-sidenav>\n+  </mat-drawer>\n   <mat-drawer-content class=\"drawer-content\">\n     <div class=\"container\">\n-      <app-navbar class=\"navbar-container\" (changeView)=\"changeView()\"></app-navbar>\n+      <app-navbar class=\"navbar-container\" [label]=\"isBugListView?'Bugs':'Errors'\" (changeView)=\"changeView()\">\n+      </app-navbar>\n       <div class=\"error-list-cards action-bar-container\" *ngIf=\"!isBugListView\">\n         <div class=\"error-list-cards-wrapper row align-items-strech\">\n           <error-card class=\"col-lg-3 col-md-4 col-sm-6 col-xs-12\" *ngFor=\"let item of errors\" [error]=\"item\">\n           </error-card>\n"
+                },
+                {
+                    "date": 1626812109262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n   <mat-drawer mode=\"side\" class=\"drawer\" opened>\n     <app-sidenav></app-sidenav>\n   </mat-drawer>\n   <mat-drawer-content class=\"drawer-content\">\n+    <h1>Dashboard</h1>\n     <div class=\"container\">\n       <app-navbar class=\"navbar-container\" [label]=\"isBugListView?'Bugs':'Errors'\" (changeView)=\"changeView()\">\n       </app-navbar>\n       <div class=\"error-list-cards action-bar-container\" *ngIf=\"!isBugListView\">\n"
+                },
+                {
+                    "date": 1626812141480,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   <mat-drawer mode=\"side\" class=\"drawer\" opened>\n     <app-sidenav></app-sidenav>\n   </mat-drawer>\n   <mat-drawer-content class=\"drawer-content\">\n-    <h1>Dashboard</h1>\n+    <h1 class=\"ml4 dashboard\">Dashboard</h1>\n     <div class=\"container\">\n       <app-navbar class=\"navbar-container\" [label]=\"isBugListView?'Bugs':'Errors'\" (changeView)=\"changeView()\">\n       </app-navbar>\n       <div class=\"error-list-cards action-bar-container\" *ngIf=\"!isBugListView\">\n"
+                },
+                {
+                    "date": 1626812362698,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   <mat-drawer mode=\"side\" class=\"drawer\" opened>\n     <app-sidenav></app-sidenav>\n   </mat-drawer>\n   <mat-drawer-content class=\"drawer-content\">\n-    <h1 class=\"ml4 dashboard\">Dashboard</h1>\n+    <h1 class=\"dashboard\">Dashboard</h1>\n     <div class=\"container\">\n       <app-navbar class=\"navbar-container\" [label]=\"isBugListView?'Bugs':'Errors'\" (changeView)=\"changeView()\">\n       </app-navbar>\n       <div class=\"error-list-cards action-bar-container\" *ngIf=\"!isBugListView\">\n"
                 }
             ],
             "date": 1626458571602,

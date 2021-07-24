@@ -1,0 +1,16 @@
+<div class="row full-width no-margin">
+  <div class="col-sm-6" (click)="onChangeView()">
+    <app-labeld-button label="Change View" iconPosition="left">
+      <span class="material-icons text-primary">
+        grid_view
+      </span>
+    </app-labeld-button>
+  </div>
+
+
+  <div class="col-sm-6 no-margin no-padding d-flex justify-content-end">
+    <app-labeld-button appFormValidationTrigger label="Team Members" class=" mr4 labeld-button-success-outlined"
+      [isSaveButton]="true" (click)="addTeamMember()">
+    </app-labeld-button>
+  </div>
+</div>

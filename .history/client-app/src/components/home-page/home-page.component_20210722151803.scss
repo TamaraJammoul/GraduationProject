@@ -1,0 +1,28 @@
+.hero{
+    background-image: url(../../assets/images/profile-img.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 600px;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.msg--right:after {
+    background: var(--orange-100);
+    transform: scaleX(-1);
+    right: 0;
+    left: auto;
+}
+
+.msg--left:after, .msg--right:after {
+    clip-path: polygon(18px 0, 32px 0, 0 40px, 0 38px, 0 0, 18px 0);
+    background: var(--blue-100);
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 99%;
+    left: 0;
+    display: block;
+    content: '';
+    border-radius: 0 5px 0;
+}

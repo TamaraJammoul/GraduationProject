@@ -1,0 +1,50 @@
+{
+    "sourceFile": "client-app/src/components/home-page/home-page.component.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1626955408061,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1626955564953,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,6 @@\n+.hero{\r\n+    background-image: url(../../assets/images/profile-img.png);\r\n+    background-repeat: no-repeat;\r\n+    background-size: cover;\r\n+    background-attachment: fixed;\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1626955585854,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,5 +2,6 @@\n     background-image: url(../../assets/images/profile-img.png);\r\n     background-repeat: no-repeat;\r\n     background-size: cover;\r\n     background-attachment: fixed;\r\n+    height: 400px;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1626955605220,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,6 +2,7 @@\n     background-image: url(../../assets/images/profile-img.png);\r\n     background-repeat: no-repeat;\r\n     background-size: cover;\r\n     background-attachment: fixed;\r\n-    height: 400px;\r\n+    height: 600px;\r\n+    overflow: hidden;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1626955628977,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,6 +3,7 @@\n     background-repeat: no-repeat;\r\n     background-size: cover;\r\n     background-attachment: fixed;\r\n     height: 600px;\r\n-    overflow: hidden;\r\n+    overflow-x: hidden;\r\n+    width: 100%;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1626955717331,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n .hero{\r\n     background-image: url(../../assets/images/profile-img.png);\r\n     background-repeat: no-repeat;\r\n-    background-size: cover;\r\n     background-attachment: fixed;\r\n     height: 600px;\r\n     overflow-x: hidden;\r\n     width: 100%;\r\n"
+                },
+                {
+                    "date": 1626955913891,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n-.hero{\r\n-    background-image: url(../../assets/images/profile-img.png);\r\n-    background-repeat: no-repeat;\r\n-    background-attachment: fixed;\r\n-    height: 600px;\r\n-    overflow-x: hidden;\r\n-    width: 100%;\r\n-}\n\\ No newline at end of file\n+.hero {\r\n+  background: linear-gradient(180deg, var(--black-800) 0%, var(--black-600) 130%);\r\n+  background-repeat: no-repeat;\r\n+  background-attachment: fixed;\r\n+  height: 600px;\r\n+  overflow-x: hidden;\r\n+  width: 100%;\r\n+}\r\n"
+                },
+                {
+                    "date": 1626955949143,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n-.hero {\r\n-  background: linear-gradient(180deg, var(--black-800) 0%, var(--black-600) 130%);\r\n-  background-repeat: no-repeat;\r\n-  background-attachment: fixed;\r\n-  height: 600px;\r\n-  overflow-x: hidden;\r\n-  width: 100%;\r\n-}\r\n+.hero{\r\n+    background-image: url(../../assets/images/profile-img.png);\r\n+    background-repeat: no-repeat;\r\n+    background-attachment: fixed;\r\n+    height: 600px;\r\n+    overflow-x: hidden;\r\n+    width: 100%;\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1626956283668,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,5 +4,25 @@\n     background-attachment: fixed;\r\n     height: 600px;\r\n     overflow-x: hidden;\r\n     width: 100%;\r\n+}\r\n+\r\n+.msg--right:after {\r\n+    background: var(--orange-100);\r\n+    transform: scaleX(-1);\r\n+    right: 0;\r\n+    left: auto;\r\n+}\r\n+\r\n+.msg--left:after, .msg--right:after {\r\n+    clip-path: polygon(18px 0, 32px 0, 0 40px, 0 38px, 0 0, 18px 0);\r\n+    background: var(--blue-100);\r\n+    width: 32px;\r\n+    height: 32px;\r\n+    position: absolute;\r\n+    top: 99%;\r\n+    left: 0;\r\n+    display: block;\r\n+    content: '';\r\n+    border-radius: 0 5px 0;\r\n }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1626955408061,
+            "name": "Commit-0",
+            "content": ""
+        }
+    ]
+}

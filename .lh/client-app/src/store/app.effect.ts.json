@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 6,
+            "activePatchIndex": 11,
             "patches": [
                 {
                     "date": 1626537131377,
@@ -32,6 +32,26 @@
                 {
                     "date": 1626810897145,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -95,8 +95,19 @@\n             )\r\n         )\r\n     );\r\n \r\n+    renameProjectMember$ = createEffect(() =>\r\n+        this.actions$.pipe(\r\n+            ofType(AppActions.renameProject),\r\n+            switchMap(action =>\r\n+                this.projectService.renameProjectMember(action.projectId, action.projectName).pipe(\r\n+                    map(() => AppActions.renameProjectSuccess(action.projectId, action.projectName)),\r\n+                )\r\n+            )\r\n+        )\r\n+    );\r\n+\r\n     deleteProjectMember$ = createEffect(() =>\r\n         this.actions$.pipe(\r\n             ofType(AppActions.deleteProjectTeamMember),\r\n             switchMap(action =>\r\n"
+                },
+                {
+                    "date": 1627114352692,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -106,8 +106,19 @@\n             )\r\n         )\r\n     );\r\n \r\n+    getProjects$ = createEffect(() =>\r\n+        this.actions$.pipe(\r\n+            ofType(AppActions.getProject),\r\n+            switchMap(() =>\r\n+                this.projectService.getProjects().pipe(\r\n+                    map((res) => AppActions.getProjectSuccess(res)),\r\n+                )\r\n+            )\r\n+        )\r\n+    );\r\n+\r\n     deleteProjectMember$ = createEffect(() =>\r\n         this.actions$.pipe(\r\n             ofType(AppActions.deleteProjectTeamMember),\r\n             switchMap(action =>\r\n"
+                },
+                {
+                    "date": 1627163074904,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -144,9 +144,9 @@\n         this.actions$.pipe(\r\n             ofType(AppActions.addTeamMember),\r\n             switchMap(action =>\r\n                 this.teamService.addTeamMember(action.email).pipe(\r\n-                    map(() => AppActions.addTeamMemberSuccess()),\r\n+                    map((res) => AppActions.addTeamMemberSuccess(res)),\r\n                 )\r\n             )\r\n         )\r\n     );\r\n@@ -154,9 +154,9 @@\n     deleteTeamMember$ = createEffect(() =>\r\n         this.actions$.pipe(\r\n             ofType(AppActions.deleteTeamMember),\r\n             switchMap(action =>\r\n-                this.teamService.deleteTeamMember(action.email).pipe(\r\n+                this.teamService.deleteTeamMember(action.id).pipe(\r\n                     map(() => AppActions.deleteTeamMemberSuccess()),\r\n                 )\r\n             )\r\n         )\r\n"
+                },
+                {
+                    "date": 1627163462002,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -121,9 +121,9 @@\n     deleteProjectMember$ = createEffect(() =>\r\n         this.actions$.pipe(\r\n             ofType(AppActions.deleteProjectTeamMember),\r\n             switchMap(action =>\r\n-                this.projectService.deleteProjectMember(action.email).pipe(\r\n+                this.projectService.deleteProjectMember(action.userId, action.projectId).pipe(\r\n                     map(() => AppActions.deleteProjectTeamMemberSuccess()),\r\n                 )\r\n             )\r\n         )\r\n"
+                },
+                {
+                    "date": 1627163812906,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -132,10 +132,10 @@\n     addProjectMember$ = createEffect(() =>\r\n         this.actions$.pipe(\r\n             ofType(AppActions.addProjectTeamMember),\r\n             switchMap(action =>\r\n-                this.projectService.addProjectMember(action.email).pipe(\r\n-                    map(() => AppActions.addProjectTeamMemberSuccess()),\r\n+                this.projectService.addProjectMember(action.id, action.projectId).pipe(\r\n+                    map((res) => AppActions.addProjectTeamMemberSuccess(res, action.projectId)),\r\n                 )\r\n             )\r\n         )\r\n     );\r\n"
+                },
+                {
+                    "date": 1627164889679,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -121,9 +121,9 @@\n     deleteProjectMember$ = createEffect(() =>\r\n         this.actions$.pipe(\r\n             ofType(AppActions.deleteProjectTeamMember),\r\n             switchMap(action =>\r\n-                this.projectService.deleteProjectMember(action.userId, action.projectId).pipe(\r\n+                this.projectService.deleteProjectMember(action.id, action.projectId).pipe(\r\n                     map(() => AppActions.deleteProjectTeamMemberSuccess()),\r\n                 )\r\n             )\r\n         )\r\n"
                 }
             ],
             "date": 1626537131377,

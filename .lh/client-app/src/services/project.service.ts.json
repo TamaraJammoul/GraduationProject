@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 9,
             "patches": [
                 {
                     "date": 1626809968407,
@@ -16,6 +16,34 @@
                 {
                     "date": 1626810820692,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -63,5 +63,20 @@\n         return this.httpClient.delete<any>(this.endpointUrl, httpOptions).pipe(\r\n             map(data => data)\r\n         );\r\n     }\r\n+\r\n+    renameProjectMember(projectId: string, projectName: string): Observable<any> {\r\n+        const httpOptions = {\r\n+            headers: new HttpHeaders({\r\n+                'Content-Type': 'application/json'\r\n+            }),\r\n+            params: new HttpParams()\r\n+                .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n+                .set('projectId', projectId)\r\n+                .set('projectName', projectName)\r\n+        };\r\n+        return this.httpClient.patch<any>(this.endpointUrl, httpOptions).pipe(\r\n+            map(data => data)\r\n+        );\r\n+    }\r\n }\r\n"
+                },
+                {
+                    "date": 1627114118006,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,22 @@\n \r\n     endpointUrl = `${environment.apiUrl}/Errors`;\r\n \r\n     constructor(private httpClient: HttpClient) { }\r\n+\r\n+        gteProjects(): Observable<Project[]> {\r\n+        const httpOptions = {\r\n+            headers: new HttpHeaders({\r\n+                'Content-Type': 'application/json'\r\n+            }),\r\n+            params: new HttpParams()\r\n+                .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n+        };\r\n+        return this.httpClient.get<Project[]>(this.endpointUrl, httpOptions).pipe(\r\n+            map(data => data)\r\n+        );\r\n+    }\r\n+\r\n     addProject(name: String): Observable<Project> {\r\n         const httpOptions = {\r\n             headers: new HttpHeaders({\r\n                 'Content-Type': 'application/json'\r\n"
+                },
+                {
+                    "date": 1627114253518,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n     endpointUrl = `${environment.apiUrl}/Errors`;\r\n \r\n     constructor(private httpClient: HttpClient) { }\r\n \r\n-        gteProjects(): Observable<Project[]> {\r\n+        getProjects(): Observable<Project[]> {\r\n         const httpOptions = {\r\n             headers: new HttpHeaders({\r\n                 'Content-Type': 'application/json'\r\n             }),\r\n"
+                },
+                {
+                    "date": 1627114378628,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \r\n @Injectable({ providedIn: 'root' })\r\n export class ProjectService {\r\n \r\n-    endpointUrl = `${environment.apiUrl}/Errors`;\r\n+    endpointUrl = `${environment.apiUrl}/Projects`;\r\n \r\n     constructor(private httpClient: HttpClient) { }\r\n \r\n         getProjects(): Observable<Project[]> {\r\n"
+                },
+                {
+                    "date": 1627114604204,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n     endpointUrl = `${environment.apiUrl}/Projects`;\r\n \r\n     constructor(private httpClient: HttpClient) { }\r\n \r\n-        getProjects(): Observable<Project[]> {\r\n+    getProjects(): Observable<Project[]> {\r\n         const httpOptions = {\r\n             headers: new HttpHeaders({\r\n                 'Content-Type': 'application/json'\r\n             }),\r\n@@ -51,17 +51,17 @@\n             map(data => data)\r\n         );\r\n     }\r\n \r\n-    addProjectMember(memberEmail: String): Observable<any> {\r\n+    addProjectMember(memberEmail: string): Observable<any> {\r\n         const httpOptions = {\r\n             headers: new HttpHeaders({\r\n                 'Content-Type': 'application/json'\r\n             }),\r\n             params: new HttpParams()\r\n                 .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n         };\r\n-        return this.httpClient.post<any>(this.endpointUrl, memberEmail, httpOptions).pipe(\r\n+        return this.httpClient.post<any>(this.endpointUrl + 'users', memberEmail, httpOptions).pipe(\r\n             map(data => data)\r\n         );\r\n     }\r\n \r\n@@ -73,9 +73,9 @@\n             params: new HttpParams()\r\n                 .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n                 .set('memberEmail', memberEmail)\r\n         };\r\n-        return this.httpClient.delete<any>(this.endpointUrl, httpOptions).pipe(\r\n+        return this.httpClient.delete<any>(this.endpointUrl + 'users', httpOptions).pipe(\r\n             map(data => data)\r\n         );\r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1627163114050,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n import { Injectable } from '@angular/core';\r\n import { environment } from '../environment';\r\n import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';\r\n import { Project } from '../models/project.model';\r\n+import { User } from '../models/user.model';\r\n \r\n @Injectable({ providedIn: 'root' })\r\n export class ProjectService {\r\n \r\n@@ -51,17 +52,17 @@\n             map(data => data)\r\n         );\r\n     }\r\n \r\n-    addProjectMember(memberEmail: string): Observable<any> {\r\n+    addProjectMember(memberEmail: string): Observable<User> {\r\n         const httpOptions = {\r\n             headers: new HttpHeaders({\r\n                 'Content-Type': 'application/json'\r\n             }),\r\n             params: new HttpParams()\r\n                 .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n         };\r\n-        return this.httpClient.post<any>(this.endpointUrl + 'users', memberEmail, httpOptions).pipe(\r\n+        return this.httpClient.post<User>(this.endpointUrl + 'users', memberEmail, httpOptions).pipe(\r\n             map(data => data)\r\n         );\r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1627163393007,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,16 +65,17 @@\n             map(data => data)\r\n         );\r\n     }\r\n \r\n-    deleteProjectMember(memberEmail: string): Observable<any> {\r\n+    deleteProjectMember(userId: string, projectId: string): Observable<any> {\r\n         const httpOptions = {\r\n             headers: new HttpHeaders({\r\n                 'Content-Type': 'application/json'\r\n             }),\r\n             params: new HttpParams()\r\n                 .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n-                .set('memberEmail', memberEmail)\r\n+                .set('userId', userId)\r\n+                .set('projectId', projectId)\r\n         };\r\n         return this.httpClient.delete<any>(this.endpointUrl + 'users', httpOptions).pipe(\r\n             map(data => data)\r\n         );\r\n"
+                },
+                {
+                    "date": 1627163755255,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,17 +52,19 @@\n             map(data => data)\r\n         );\r\n     }\r\n \r\n-    addProjectMember(memberEmail: string): Observable<User> {\r\n+    addProjectMember(userId: string, projectId: string): Observable<User> {\r\n         const httpOptions = {\r\n             headers: new HttpHeaders({\r\n                 'Content-Type': 'application/json'\r\n             }),\r\n             params: new HttpParams()\r\n                 .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n+                .set('projectId', projectId)\r\n+                .set('userId', userId)\r\n         };\r\n-        return this.httpClient.post<User>(this.endpointUrl + 'users', memberEmail, httpOptions).pipe(\r\n+        return this.httpClient.post<User>(this.endpointUrl + 'users', httpOptions).pipe(\r\n             map(data => data)\r\n         );\r\n     }\r\n \r\n"
                 }
             ],
             "date": 1626809968407,

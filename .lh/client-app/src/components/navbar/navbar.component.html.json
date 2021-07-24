@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 19,
+            "activePatchIndex": 21,
             "patches": [
                 {
                     "date": 1626459245919,
@@ -84,6 +84,14 @@
                 {
                     "date": 1626806212986,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n     </app-labeld-button>\r\n   </div>\r\n \r\n \r\n-  <div class=\"col-sm-3 no-margin no-padding d-flex justify-content-end\">\r\n+  <div class=\"col-sm-6 no-margin no-padding d-flex justify-content-end\">\r\n     <app-labeld-button appFormValidationTrigger label=\"Team Members\" class=\" mr4 labeld-button-success-outlined\"\r\n       [isSaveButton]=\"true\" (click)=\"addTeamMember()\">\r\n     </app-labeld-button>\r\n   </div>\r\n"
+                },
+                {
+                    "date": 1626811979912,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,10 @@\n <div class=\"row full-width no-margin\">\r\n   <div class=\"col-sm-6\" (click)=\"onChangeView()\">\r\n     <app-labeld-button label=\"Change View\" iconPosition=\"left\">\r\n-      <img src=\"../../assets/images/chevron-right.svg\" alt=\"advance\" />\r\n+      <span class=\"material-icons text-primary\">\r\n+        grid_view\r\n+      </span>\r\n     </app-labeld-button>\r\n   </div>\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1626812041851,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <div class=\"row full-width no-margin\">\r\n   <div class=\"col-sm-6\" (click)=\"onChangeView()\">\r\n-    <app-labeld-button label=\"Change View\" iconPosition=\"left\">\r\n+    <app-labeld-button [label]=\"label\" iconPosition=\"left\">\r\n       <span class=\"material-icons text-primary\">\r\n         grid_view\r\n       </span>\r\n     </app-labeld-button>\r\n"
                 }
             ],
             "date": 1626459245919,
