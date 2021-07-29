@@ -3,11 +3,15 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 1,
             "patches": [
                 {
                     "date": 1626807996237,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1627523590998,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <form class=\"row no-margin full-width pt12\">\n     <p class=\"center col-xs-12 mat-display-1 text-primary title\">Add Member</p>\n     <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-8\">\n       <mat-label>Email</mat-label>\n-      <input matInput formControlName=\"control\" placeholder=\"Enter Member Email\" required type=\"email\"/>\n+      <input matInput [formControl]=\"control\" placeholder=\"Enter Member Email\" required type=\"email\"/>\n     </mat-form-field>\n     <div class=\"col-xs-4 center\">\n       <button class=\"p5 mb4 border-radius-xs full-width background-primary center text-white border-white\" (click)=\"onSubmit()\">Add</button>\n     </div>\n"
                 }
             ],
             "date": 1626807996237,
