@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 10,
+            "activePatchIndex": 11,
             "patches": [
                 {
                     "date": 1626795223833,
@@ -48,6 +48,10 @@
                 {
                     "date": 1627165558005,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,11 +10,11 @@\n   </div>\n </form>\n <div class=\"row no-margin full-width pt12\" *ngFor=\"let item of members\">\n   <div class=\"col-xs-8\">\n-    <h3>item</h3>\n+    <h3>{{item.name}}</h3>\n   </div>\n   <div class=\"col-xs-4 center\">\n     <button class=\"p5 mb4 border-radius-xs full-width background-danger center text-white border-white\"\n-      (click)=\"onDelete(item)\">Delete Member</button>\n+      (click)=\"onDelete(item.id)\">Delete Member</button>\n   </div>\n </div>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1627508042004,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <form class=\"row no-margin full-width pt12\">\n   <p class=\"center col-xs-12 mat-display-1 text-primary title\">Team Members</p>\n   <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-8\">\n     <mat-label>Email</mat-label>\n-    <input matInput formControlName=\"control\" placeholder=\"Enter Member Email\" required type=\"email\" />\n+    <input matInput [formControl]=\"control\" placeholder=\"Enter Member Email\" required type=\"email\" />\n   </mat-form-field>\n   <div class=\"col-xs-4 center\">\n     <button class=\"p5 mb4 border-radius-xs full-width background-primary center text-white border-white\"\n       (click)=\"onAdd()\">Add Member</button>\n"
                 }
             ],
             "date": 1626795223833,

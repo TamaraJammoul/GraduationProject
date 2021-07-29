@@ -1,0 +1,18 @@
+<!-- <app-venue-navigation-list></app-venue-navigation-list> -->
+<mat-accordion>
+<div class="sidebar-navigation" *ngIf="navList">
+  <h2 class="sidebar-navigation-title">{{navList.title  }}</h2>
+  <ul class="sidebar-navigation-menu">
+    <app-navigation-list-item *ngFor="let navItem of navList.navListItems" [title]="navItem.title" [active]="navItem.is_active"
+      [link]="navItem.link" [count]="navItem.count" [children]="navItem.children || []" [expanded]="navItem?.expanded"
+      [rule]="navItem?.rule"
+      >
+    </app-navigation-list-item>
+  </ul>
+
+  <button [routerLink]="navList.backLink" mat-stroked-button color="accent" class="sidebar-navigation-back" *ngIf="navList.backLink?.length > 0">
+    <mat-icon>arrow_back</mat-icon>
+    <span translate>Back</span>
+  </button>
+</div>
+</mat-accordion>

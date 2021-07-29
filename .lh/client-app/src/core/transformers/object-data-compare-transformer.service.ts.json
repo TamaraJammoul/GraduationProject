@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client-app/src/core/transformers/object-data-compare-transformer.service.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1627517528326,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1627517528326,
+            "name": "Commit-0",
+            "content": "import { Injectable } from '@angular/core';\r\nimport { MergeReferenceDataTransformer } from '@core/transformers/merge-reference-data-transformer.service';\r\nimport * as _ from 'lodash';\r\n\r\n@Injectable({\r\n    providedIn: 'root'\r\n})\r\n\r\nexport class ObjectDataCompareTransformer implements\r\n    MergeReferenceDataTransformer<any, any, any> {\r\n    transform(tReference: any, dataToTransform: any ): any {\r\n        const changedObjectProps: any = {};\r\n        Object.keys(tReference).forEach((key: string) => {\r\n            if(!_.isEqual(tReference[key], dataToTransform[key])) {\r\n                changedObjectProps[key] = tReference[key];\r\n            }\r\n        });\r\n        return changedObjectProps;\r\n    }\r\n}\r\n"
+        }
+    ]
+}

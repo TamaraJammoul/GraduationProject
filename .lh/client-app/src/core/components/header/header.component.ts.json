@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client-app/src/core/components/header/header.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1627517528675,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1627517528675,
+            "name": "Commit-0",
+            "content": "import {  getUserClaims } from '@core/store/core.selectors';\r\nimport { Component, OnInit, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';\r\nimport { BaseComponent } from '@libs/shared/components/base-component/base-component';\r\nimport { FormControl } from '@angular/forms';\r\nimport { Observable } from 'rxjs';\r\nimport { select, Store } from '@ngrx/store';\r\nimport { TranslationService } from '@core/services/translation.service';\r\nimport { coreActions } from '@core/store/core.actions';\r\nimport { getUserEmail } from '@core/store/core.selectors';\r\nimport { filter } from 'rxjs/operators';\r\nimport { Router, ActivationStart } from '@angular/router';\r\n@Component({\r\n  selector: 'app-header',\r\n  templateUrl: './header.component.html',\r\n  styleUrls: ['./header.component.scss'],\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class HeaderComponent extends BaseComponent implements OnInit {\r\n\r\n  @Input() sideContentOpened: boolean;\r\n  appTitle: string[];\r\n  langCtrl: FormControl;\r\n  userEmail$: Observable<string>;\r\n  userName: string;\r\n  userPhoto = 'assets/icons/header/default-user.svg';\r\n  mainLinks: any;\r\n  userSubMenuLinks = [\r\n    // { label: 'Profile', path: '/' },\r\n    // { label: 'Invite users', path: '/' },\r\n    { label: 'Log out', path: '/', action: () => this.store.dispatch(coreActions.logout())}\r\n  ];\r\n  constructor(private store: Store,\r\n    private translationService: TranslationService,\r\n    private cdr: ChangeDetectorRef,\r\n    private router: Router) {\r\n    super();\r\n  }\r\n\r\n  ngOnInit(): void {\r\n    this.langCtrl = new FormControl(this.translationService.getCurrentLang());\r\n    this.userEmail$ = this.store.pipe(\r\n      select(getUserEmail),\r\n      filter(email => !!email)\r\n    );\r\n    this.subscriptions.add(this.langCtrl.valueChanges.subscribe(value => this.translationService.use(value)));\r\n    this.subscriptions.add(this.store.select(getUserClaims)\r\n    .subscribe(user => (!!user) ? this.userName = `${user.givenName}  ${user.familyName}` : null));\r\n\r\n    this.router.events.subscribe(e => {\r\n      if (e instanceof ActivationStart) {\r\n        this.appTitle = [''];\r\n        this.cdr.detectChanges();\r\n      }\r\n    });\r\n  }\r\n\r\n  logout(): void {\r\n    this.store.dispatch(coreActions.logout());\r\n  }\r\n\r\n}\r\n"
+        }
+    ]
+}

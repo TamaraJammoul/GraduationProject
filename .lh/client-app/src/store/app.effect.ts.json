@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 11,
+            "activePatchIndex": 14,
             "patches": [
                 {
                     "date": 1626537131377,
@@ -52,6 +52,18 @@
                 {
                     "date": 1627164889679,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -121,9 +121,9 @@\n     deleteProjectMember$ = createEffect(() =>\r\n         this.actions$.pipe(\r\n             ofType(AppActions.deleteProjectTeamMember),\r\n             switchMap(action =>\r\n-                this.projectService.deleteProjectMember(action.userId, action.projectId).pipe(\r\n+                this.projectService.deleteProjectMember(action.id, action.projectId).pipe(\r\n                     map(() => AppActions.deleteProjectTeamMemberSuccess()),\r\n                 )\r\n             )\r\n         )\r\n"
+                },
+                {
+                    "date": 1627508420031,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,16 +5,17 @@\n     ofType\r\n } from '@ngrx/effects';\r\n import {\r\n     map,\r\n-    switchMap,\r\n+    switchMap, catchError, exhaustMap,\r\n } from 'rxjs/operators';\r\n import { AuthService } from '../services/auth.service';\r\n import { AppActions } from './app.action';\r\n import { BugsService } from '../services/bugs.service';\r\n import { ErrorsService } from '../services/errors.service';\r\n import { ProjectService } from '../services/project.service';\r\n import { TeamService } from '../services/team.service';\r\n+import { of } from 'rxjs';\r\n \r\n \r\n @Injectable()\r\n export class AppEffects {\r\n@@ -98,11 +99,12 @@\n \r\n     renameProjectMember$ = createEffect(() =>\r\n         this.actions$.pipe(\r\n             ofType(AppActions.renameProject),\r\n-            switchMap(action =>\r\n+            exhaustMap(action =>\r\n                 this.projectService.renameProjectMember(action.projectId, action.projectName).pipe(\r\n                     map(() => AppActions.renameProjectSuccess(action.projectId, action.projectName)),\r\n+                    catchError(() => of(AppActions.renameProject(action.projectId, action.projectName)))\r\n                 )\r\n             )\r\n         )\r\n     );\r\n@@ -128,8 +130,9 @@\n             )\r\n         )\r\n     );\r\n \r\n+\r\n     addProjectMember$ = createEffect(() =>\r\n         this.actions$.pipe(\r\n             ofType(AppActions.addProjectTeamMember),\r\n             switchMap(action =>\r\n"
+                },
+                {
+                    "date": 1627508499861,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,17 +5,16 @@\n     ofType\r\n } from '@ngrx/effects';\r\n import {\r\n     map,\r\n-    switchMap, catchError, exhaustMap,\r\n+    switchMap,\r\n } from 'rxjs/operators';\r\n import { AuthService } from '../services/auth.service';\r\n import { AppActions } from './app.action';\r\n import { BugsService } from '../services/bugs.service';\r\n import { ErrorsService } from '../services/errors.service';\r\n import { ProjectService } from '../services/project.service';\r\n import { TeamService } from '../services/team.service';\r\n-import { of } from 'rxjs';\r\n \r\n \r\n @Injectable()\r\n export class AppEffects {\r\n@@ -99,12 +98,11 @@\n \r\n     renameProjectMember$ = createEffect(() =>\r\n         this.actions$.pipe(\r\n             ofType(AppActions.renameProject),\r\n-            exhaustMap(action =>\r\n+            switchMap(action =>\r\n                 this.projectService.renameProjectMember(action.projectId, action.projectName).pipe(\r\n                     map(() => AppActions.renameProjectSuccess(action.projectId, action.projectName)),\r\n-                    catchError(() => of(AppActions.renameProject(action.projectId, action.projectName)))\r\n                 )\r\n             )\r\n         )\r\n     );\r\n"
+                },
+                {
+                    "date": 1627513570906,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -84,8 +84,19 @@\n             )\r\n         )\r\n     );\r\n \r\n+    getProjectUsers$ = createEffect(() =>\r\n+        this.actions$.pipe(\r\n+            ofType(AppActions.fetchProjectUsers),\r\n+            switchMap(action =>\r\n+                this.projectService.getProjectUsers(action.projectId).pipe(\r\n+                    map((res) => AppActions.fetchProjectUsersSuccess(res)),\r\n+                )\r\n+            )\r\n+        )\r\n+    );\r\n+\r\n     deleteProject$ = createEffect(() =>\r\n         this.actions$.pipe(\r\n             ofType(AppActions.deleteProject),\r\n             switchMap(action =>\r\n"
                 }
             ],
             "date": 1626537131377,

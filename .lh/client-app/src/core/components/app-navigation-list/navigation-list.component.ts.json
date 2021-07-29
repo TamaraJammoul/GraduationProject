@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client-app/src/core/components/app-navigation-list/navigation-list.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1627517528678,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1627517528678,
+            "name": "Commit-0",
+            "content": "import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';\r\nimport { NavList } from '@core/models/nav-list.model';\r\n\r\n@Component({\r\n  selector: 'app-navigation-list',\r\n  templateUrl: './navigation-list.component.html',\r\n  styleUrls: ['./navigation-list.component.scss'],\r\n  changeDetection: ChangeDetectionStrategy.OnPush\r\n})\r\nexport class AppNavigationListComponent implements OnInit {\r\n  @Input() navList: NavList;\r\n\r\n\r\n  ngOnInit(): void {\r\n  }\r\n\r\n}\r\n"
+        }
+    ]
+}

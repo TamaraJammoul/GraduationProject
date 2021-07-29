@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client-app/src/core/components/spinner/spinner.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1627517528673,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1627517528673,
+            "name": "Commit-0",
+            "content": "import { Component, ChangeDetectionStrategy, OnInit, ChangeDetectorRef } from '@angular/core';\r\nimport { Store } from '@ngrx/store';\r\nimport { getIsSpinning, getUserClaims } from '@core/store/core.selectors';\r\nimport { Observable } from 'rxjs';\r\nimport { Router, ActivationStart } from '@angular/router';\r\nimport { coreActions } from '@core/store/core.actions';\r\nimport { UserClaims } from '@core/models/user-claims.model';\r\nimport { BaseComponent } from '@libs/shared/components/base-component/base-component';\r\n\r\n@Component({\r\n  selector: 'app-spinner',\r\n  templateUrl: './spinner.component.html',\r\n  changeDetection: ChangeDetectionStrategy.OnPush\r\n})\r\nexport class SpinnerComponent extends BaseComponent implements OnInit{\r\n  spinnerCount$: Observable<number>;\r\n  isSpinning = false;\r\n  userClaims = {} as UserClaims;\r\n  showSpinner = true;\r\n  routerContentHeight = '100vh';\r\n  constructor(public store: Store,\r\n            private router: Router,\r\n            private cdr: ChangeDetectorRef\r\n            ) {\r\n              super();\r\n            }\r\n\r\n  ngOnInit(): void {\r\n    this.getSpinnerHeight();\r\n    this.router.events.subscribe(e => {\r\n        if(e instanceof ActivationStart) {\r\n            this.store.dispatch(coreActions.clearSpinner());\r\n        }\r\n    });\r\n    this.subscriptions.add(this.store.select(getUserClaims).subscribe(\r\n      (userClaims: UserClaims) => {\r\n        this.userClaims = userClaims;\r\n        this.setShowSpinner();\r\n      }\r\n    ));\r\n    this.subscriptions.add(this.store.select(getIsSpinning).subscribe(\r\n      (isSpinning: boolean) => {\r\n        this.isSpinning = isSpinning;\r\n        this.setShowSpinner();\r\n      }\r\n    ));\r\n  }\r\n\r\n  setShowSpinner() {\r\n    this.showSpinner = this.isSpinning || this.isEmpty(this.userClaims);\r\n    this.cdr.detectChanges();\r\n  }\r\n\r\n  getSpinnerHeight(): string {\r\n    const windowHeight = window.outerHeight;\r\n    const contentHeight = document.getElementsByTagName('body')[0]?.offsetHeight || 0;\r\n    if(contentHeight > windowHeight) {\r\n      return contentHeight + 'px';\r\n    }\r\n    else {\r\n      return 100 + '%';\r\n    }\r\n  }\r\n}\r\n"
+        }
+    ]
+}

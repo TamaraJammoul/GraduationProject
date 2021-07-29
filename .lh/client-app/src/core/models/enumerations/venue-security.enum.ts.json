@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client-app/src/core/models/enumerations/venue-security.enum.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1627517528671,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1627517528671,
+            "name": "Commit-0",
+            "content": "import { FeaturesEnum } from '@core/models/enumerations/features.enum';\r\nimport { RolesEnum } from '@core/models/enumerations/roles.enum';\r\nimport { PermissionEnum } from '@core/models/enumerations/permissions.enum';\r\n\r\nexport const venueFeatureRoleDictionary = new Map<FeaturesEnum, RolesEnum[]>();\r\nvenueFeatureRoleDictionary.set(FeaturesEnum.VNUACM, [RolesEnum.AccountManager]);\r\nvenueFeatureRoleDictionary.set(FeaturesEnum.VNUBKM, [RolesEnum.BookingManager]);\r\nvenueFeatureRoleDictionary.set(FeaturesEnum.VNUCMP, [RolesEnum.CompanyInfoManager]);\r\nvenueFeatureRoleDictionary.set(FeaturesEnum.VNUVNM, [RolesEnum.ContentManager]);\r\nvenueFeatureRoleDictionary.set(FeaturesEnum.VNUEMP, [RolesEnum.EmployeesManager]);\r\n\r\nexport const venueFeaturePermissionDictionary = new Map<FeaturesEnum, PermissionEnum[]>();\r\nvenueFeaturePermissionDictionary.set(FeaturesEnum.VNUVNM, [PermissionEnum.AddVenue, PermissionEnum.VenueActivation]);\r\n"
+        }
+    ]
+}

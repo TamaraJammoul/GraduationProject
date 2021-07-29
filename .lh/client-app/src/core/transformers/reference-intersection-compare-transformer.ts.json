@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client-app/src/core/transformers/reference-intersection-compare-transformer.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1627517528326,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1627517528326,
+            "name": "Commit-0",
+            "content": "import { DataCompareTransformer } from '@core/transformers/data-compare-transformer.service';\r\nimport { BaseListingItem } from '@libs/shared/models/base-listing-item.models';\r\n\r\nexport class ReferenceInterSectionCompareTransformer implements\r\n    DataCompareTransformer<BaseListingItem, string, BaseListingItem[]> {\r\n    transform(source: BaseListingItem[], ids: string[]): BaseListingItem[] {\r\n        const data: BaseListingItem[] = [];\r\n        ids.forEach((id: string) => {\r\n            const listItem = source.find(item => item.id === id);\r\n            if (listItem) {\r\n                data.push(listItem);\r\n            }\r\n        });\r\n        return data;\r\n    }\r\n}\r\n"
+        }
+    ]
+}

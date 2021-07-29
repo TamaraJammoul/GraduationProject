@@ -1,0 +1,39 @@
+<ng-container *ngIf="toastMessages$ | async as toastMessage">
+  <span [ngSwitch]="toastMessage.toastType">
+    <ng-container *ngSwitchDefault>
+      <ngb-toast data-testid="defaultMessage" (hide)="hide()"><span translate>{{toastMessage.message}}</span>
+      </ngb-toast>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="success">
+      <ngb-toast data-testid="successMessage" (hide)="hide()">
+        <div class="d-flex align-items-center">
+          <mat-icon class="icon -done mr-2">done</mat-icon>
+          <span> {{toastMessage.message | translate}} </span>
+          <mat-icon (click)="hide()" class="icon -close ml-2">clear</mat-icon>
+        </div>
+      </ngb-toast>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="info">
+      <ngb-toast class="rounded" data-testid="infoMessage" (hide)="hide()">
+        <div class="d-flex align-items-center">
+          <mat-icon class="icon -info mr-2">info</mat-icon>
+          <span> {{toastMessage.message | translate}}</span>
+          <mat-icon (click)="hide()" class="icon -close ml-2">clear</mat-icon>
+        </div>
+      </ngb-toast>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="error">
+      <ngb-toast data-testid="errorMessage" (hide)="hide()">
+        <div class="d-flex align-items-center">
+          <mat-icon class="icon -error">clear</mat-icon>
+          <span>{{toastMessage.message | translate}}</span>
+          <mat-icon (click)="hide()" class="icon -close ml-2">clear</mat-icon>
+        </div>
+      </ngb-toast>
+    </ng-container>
+
+  </span>
+</ng-container>

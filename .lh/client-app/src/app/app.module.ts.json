@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 32,
+            "activePatchIndex": 35,
             "patches": [
                 {
                     "date": 1626457872125,
@@ -136,6 +136,18 @@
                 {
                     "date": 1626955381553,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,8 +27,9 @@\n import { SidenavComponent } from '../components/sidenav/sidenav.component';\n import { DeleteProjectMemberDialogComponent } from '../components/delete-project-member-dialog/delete-project-member-dialog.component';\n import { AddProjectMemberDialogComponent } from '../components/add-project-member-dialog/add-project-member-dialog.component';\n import { RenameProjectDialogComponent } from '../components/rename-project-dialog/rename-project-dialog.component';\n+import { HomeComponent } from '../components/home-page/home-page.component';\n \n \n @NgModule({\n   declarations: [\n@@ -46,9 +47,10 @@\n     PagingComponent,\n     BugCardComponent,\n     CardImagePlaceholderDirective,\n     BaseComponent,\n-    SidenavComponent\n+    SidenavComponent,\n+    HomeComponent\n   ],\n   imports: [\n     CommonModule,\n     HttpClientModule,\n"
+                },
+                {
+                    "date": 1627517646204,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,8 +28,9 @@\n import { DeleteProjectMemberDialogComponent } from '../components/delete-project-member-dialog/delete-project-member-dialog.component';\n import { AddProjectMemberDialogComponent } from '../components/add-project-member-dialog/add-project-member-dialog.component';\n import { RenameProjectDialogComponent } from '../components/rename-project-dialog/rename-project-dialog.component';\n import { HomeComponent } from '../components/home-page/home-page.component';\n+import {CoreModule } from '../core/core.module';\n \n \n @NgModule({\n   declarations: [\n@@ -51,8 +52,9 @@\n     SidenavComponent,\n     HomeComponent\n   ],\n   imports: [\n+    CoreModule,\n     CommonModule,\n     HttpClientModule,\n     BrowserModule,\n     AppRoutingModule,\n"
+                },
+                {
+                    "date": 1627517728779,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n import { DeleteProjectMemberDialogComponent } from '../components/delete-project-member-dialog/delete-project-member-dialog.component';\n import { AddProjectMemberDialogComponent } from '../components/add-project-member-dialog/add-project-member-dialog.component';\n import { RenameProjectDialogComponent } from '../components/rename-project-dialog/rename-project-dialog.component';\n import { HomeComponent } from '../components/home-page/home-page.component';\n-import {CoreModule } from '../core/core.module';\n+import { CoreModule } from '@core/core.module';\n \n \n @NgModule({\n   declarations: [\n"
+                },
+                {
+                    "date": 1627519677089,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,8 @@\n import { DeleteProjectMemberDialogComponent } from '../components/delete-project-member-dialog/delete-project-member-dialog.component';\n import { AddProjectMemberDialogComponent } from '../components/add-project-member-dialog/add-project-member-dialog.component';\n import { RenameProjectDialogComponent } from '../components/rename-project-dialog/rename-project-dialog.component';\n import { HomeComponent } from '../components/home-page/home-page.component';\n-import { CoreModule } from '@core/core.module';\n \n \n @NgModule({\n   declarations: [\n@@ -52,9 +51,8 @@\n     SidenavComponent,\n     HomeComponent\n   ],\n   imports: [\n-    CoreModule,\n     CommonModule,\n     HttpClientModule,\n     BrowserModule,\n     AppRoutingModule,\n"
                 }
             ],
             "date": 1626457872125,

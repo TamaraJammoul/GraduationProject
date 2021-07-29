@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client-app/src/core/components/app/app.component.spec.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1627517528680,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1627517528680,
+            "name": "Commit-0",
+            "content": "import { ComponentFixture, TestBed } from '@angular/core/testing';\r\nimport { configureTestSuite } from '@root/fakes/fakes.utils';\r\nimport { FakesModule } from '@root/fakes/fakes.module';\r\nimport { provideMockStore, MockStore } from '@ngrx/store/testing';\r\nimport { AuthenticationService } from '@core/services/authentication.service';\r\nimport { coreActions } from '@core/store/core.actions';\r\nimport { HeaderComponent } from '@core/components/header/header.component';\r\nimport { MockComponent } from 'ng-mocks';\r\nimport { spy } from 'sinon';\r\nimport { ToastComponent } from '@core/components/toast/toast.component';\r\nimport { SideBarComponent } from '@core/components/side-bar/side-bar.component';\r\nimport { AppComponent } from './app.component';\r\n\r\ndescribe(AppComponent.name, () => {\r\n  let component: AppComponent;\r\n  let fixture: ComponentFixture<AppComponent>;\r\n  let authService: AuthenticationService;\r\n  let mockStore: MockStore;\r\n\r\n  configureTestSuite(() => {\r\n    TestBed.configureTestingModule({\r\n      imports: [\r\n        FakesModule\r\n      ],\r\n      declarations: [\r\n        AppComponent,\r\n        MockComponent(HeaderComponent),\r\n        MockComponent(ToastComponent),\r\n        MockComponent(SideBarComponent)\r\n      ],\r\n      providers: [\r\n        provideMockStore()\r\n      ]\r\n    });\r\n    authService = TestBed.inject<AuthenticationService>(AuthenticationService);\r\n    mockStore = TestBed.inject(MockStore);\r\n  });\r\n\r\n  beforeEach(() => {\r\n    fixture = TestBed.createComponent(AppComponent);\r\n    component = fixture.componentInstance;\r\n  });\r\n\r\n  it('should create', () => {\r\n    fixture.detectChanges();\r\n    expect(component).toBeTruthy();\r\n  });\r\n\r\n  it('should configure authentication service when the application starts', () => {\r\n    const configureSpy = spy(authService, 'configure');\r\n    component.ngOnInit();\r\n    expect(configureSpy.calledOnce).toBeTrue();\r\n    configureSpy.restore();\r\n  });\r\n\r\n  it('should set initiateAuthenticationFn to initiateAuthentication action when configure is called', () => {\r\n    const configureSpy = spy(authService, 'configure');\r\n    const dispatchSpy = spy(mockStore, 'dispatch');\r\n    component.ngOnInit();\r\n    const initiateAuthenticationFn = configureSpy.args[0][0];\r\n    initiateAuthenticationFn();\r\n    expect(dispatchSpy.withArgs(coreActions.initiateAuthentication()).callCount).toBe(1);\r\n    configureSpy.restore();\r\n    dispatchSpy.restore();\r\n  });\r\n\r\n  // Commented because not yet implemented\r\n  // it('should set validateOidcCallbackFn to validateOidcCallback action when configure is called', () => {\r\n  //   const configureSpy = spy(authService, 'configure');\r\n  //   const dispatchSpy = spy(mockStore, 'dispatch');\r\n  //   component.ngOnInit();\r\n  //   const validateOidcCallbackFn = configureSpy.args[0][1];\r\n  //   validateOidcCallbackFn();\r\n  //   expect(dispatchSpy.withArgs(coreActions.validateOidcCallback()).callCount).toBe(1);\r\n  //   configureSpy.restore();\r\n  //   dispatchSpy.restore();\r\n  // });\r\n});\r\n"
+        }
+    ]
+}

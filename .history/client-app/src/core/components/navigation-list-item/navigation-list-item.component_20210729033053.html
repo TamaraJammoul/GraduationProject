@@ -1,0 +1,22 @@
+
+  <li *ngIf="children?.length > 0; else single" class="nested-navigation-list-item">
+    <mat-expansion-panel [expanded]="expanded" *appCanAccessFeature="rule">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{title  }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <ul *ngIf="children.length > 0">
+        <app-navigation-list-item *ngFor="let navItem of children" [title]="navItem.title" [active]="navItem.is_active"
+          [link]="navItem.link" [count]="navItem.count" [children]="navItem.children || []">
+        </app-navigation-list-item>
+      </ul>
+    </mat-expansion-panel>
+  </li>
+  
+  <ng-template #single>
+    <li  *appCanAccessFeature="rule" class="navigation-list-item" routerLinkActive="active-navigation-list-item">
+      <span [routerLink]="link" translate>{{ title }}</span>
+      <span *ngIf="count > 0">({{ count }})</span>
+    </li>
+  </ng-template>

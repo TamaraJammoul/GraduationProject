@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 4,
+            "activePatchIndex": 5,
             "patches": [
                 {
                     "date": 1626807983384,
@@ -24,6 +24,10 @@
                 {
                     "date": 1627164490029,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,20 +1,10 @@\n <p class=\"center col-xs-12 mat-display-1 text-primary title\">Delete Member</p>\n-<div class=\"row no-margin full-width pt12\" *ngFor=\"let item of data\">\n+<div class=\"row no-margin full-width pt12\" *ngFor=\"let item of data.users\">\n   <div class=\"col-xs-8\">\n-    <h3>item</h3>\n+    <h3>{{item.name}}</h3>\n   </div>\n   <div class=\"col-xs-4 center\">\n     <button class=\"p5 mb4 border-radius-xs full-width background-danger center text-white border-white\"\n-      (click)=\"onSubmit(item)\">Delete</button>\n+      (click)=\"onSubmit(item.id)\">Delete</button>\n   </div>\n </div>\n-<p class=\"center col-xs-12 mat-display-1 text-primary title\">Delete Member</p>\n-<form class=\"row no-margin full-width pt12\" *ngFor=\"let item of data\">\n-    <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-8\">\n-      <mat-label>item</mat-label>\n-      <input matInput formControlName=\"control\" placeholder=\"Enter Member Email\" required type=\"email\"/>\n-    </mat-form-field>\n-    <div class=\"col-xs-4 center\">\n\\ No newline at end of file\n-      <button class=\"p5 mb4 border-radius-xs full-width background-danger center text-white border-white\" (click)=\"onSubmit(item)\">Delete</button>\n-    </div>\n-  </form>\n"
+                },
+                {
+                    "date": 1627504300922,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <p class=\"center col-xs-12 mat-display-1 text-primary title\">Delete Member</p>\n <div class=\"row no-margin full-width pt12\" *ngFor=\"let item of data.users\">\n   <div class=\"col-xs-8\">\n-    <h3>{{item.name}}</h3>\n+    <h1>{{item.name}}</h1>\n   </div>\n   <div class=\"col-xs-4 center\">\n     <button class=\"p5 mb4 border-radius-xs full-width background-danger center text-white border-white\"\n       (click)=\"onSubmit(item.id)\">Delete</button>\n"
                 }
             ],
             "date": 1626807983384,

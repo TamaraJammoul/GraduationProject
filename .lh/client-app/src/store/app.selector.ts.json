@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1626549455114,
@@ -16,6 +16,10 @@
                 {
                     "date": 1626616994139,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,5 +16,10 @@\n \r\n export const getMembersList = createSelector(\r\n   featureSelector,\r\n   (state) => state.members\r\n+);\r\n+\r\n+export const getProjectsList = createSelector(\r\n+  featureSelector,\r\n+  (state) => state.projects\r\n );\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1627513371881,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,5 +21,11 @@\n \r\n export const getProjectsList = createSelector(\r\n   featureSelector,\r\n   (state) => state.projects\r\n-);\n\\ No newline at end of file\n+);\r\n+\r\n+export const getProjectUsersList = createSelector(\r\n+  featureSelector,\r\n+  (state) => state.projectUsers\r\n+);\r\n+\r\n"
                 }
             ],
             "date": 1626549455114,

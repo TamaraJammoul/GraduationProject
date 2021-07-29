@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client-app/src/core/components/navigation-list-item/navigation-list-item.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1627517528673,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1627517528673,
+            "name": "Commit-0",
+            "content": "import { Component, OnInit, Input } from '@angular/core';\r\nimport { NavListItem } from '@core/models/nav-list-item.model';\r\n@Component({\r\n  selector: 'app-navigation-list-item',\r\n  templateUrl: './navigation-list-item.component.html',\r\n  styleUrls: ['./navigation-list-item.component.scss'],\r\n})\r\n\r\nexport class NavigationListItemComponent implements OnInit {\r\n\r\n  @Input() title: string;\r\n  @Input() link: string;\r\n  @Input() count: number;\r\n  @Input() active: boolean;\r\n  @Input() expanded = false;\r\n  @Input() rule = '';\r\n  @Input() children: NavListItem[];\r\n\r\n  constructor() { }\r\n\r\n  ngOnInit(): void {\r\n  }\r\n\r\n}\r\n"
+        }
+    ]
+}

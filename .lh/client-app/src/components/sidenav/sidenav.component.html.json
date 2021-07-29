@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 16,
+            "activePatchIndex": 18,
             "patches": [
                 {
                     "date": 1626804181384,
@@ -72,6 +72,14 @@
                 {
                     "date": 1627164627243,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,23 +1,23 @@\n <div class=\"container sidenav-container\">\r\n   <h1 class=\"text-primary mt7 projects\">Projects</h1>\r\n-  <div class=\"row full-width\">\r\n+  <div class=\"row full-width\" *ngFor=\"let item of projects\">\r\n     <div class=\"col-sm-5\">\r\n       <h3>first Project</h3>\r\n     </div>\r\n-    <span class=\"material-icons col-sm-1 mr-3 cursor-pointer\" (click)=\"addProjectTeamMember()\">\r\n+    <span class=\"material-icons col-sm-1 mr-3 cursor-pointer\" (click)=\"addProjectTeamMember(item.id)\">\r\n       person_add\r\n     </span>\r\n \r\n-    <span class=\"material-icons col-sm-1 mr-3 cursor-pointer\" (click)=\"deleteProjectTeamMember('')\">\r\n+    <span class=\"material-icons col-sm-1 mr-3 cursor-pointer\" (click)=\"deleteProjectTeamMember(item.id)\">\r\n       person_remove\r\n     </span>\r\n \r\n-    <span class=\"material-icons col-sm-1 mr-3 cursor-pointer\" (click)=\"renameProject('')\">\r\n+    <span class=\"material-icons col-sm-1 mr-3 cursor-pointer\" (click)=\"renameProject(item.id)\">\r\n       drive_file_rename_outline\r\n     </span>\r\n \r\n-    <span class=\"material-icons col-sm-1 cursor-pointer\" (click)=\"deleteProject('')\">\r\n+    <span class=\"material-icons col-sm-1 cursor-pointer\" (click)=\"deleteProject(item.id)\">\r\n       delete\r\n     </span>\r\n   </div>\r\n \r\n"
+                },
+                {
+                    "date": 1627503807373,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <div class=\"container sidenav-container\">\r\n   <h1 class=\"text-primary mt7 projects\">Projects</h1>\r\n   <div class=\"row full-width\" *ngFor=\"let item of projects\">\r\n     <div class=\"col-sm-5\">\r\n-      <h3>first Project</h3>\r\n+      <h3>{{item.name}}</h3>\r\n     </div>\r\n     <span class=\"material-icons col-sm-1 mr-3 cursor-pointer\" (click)=\"addProjectTeamMember(item.id)\">\r\n       person_add\r\n     </span>\r\n"
+                },
+                {
+                    "date": 1627504183203,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     <span class=\"material-icons col-sm-1 mr-3 cursor-pointer\" (click)=\"addProjectTeamMember(item.id)\">\r\n       person_add\r\n     </span>\r\n \r\n-    <span class=\"material-icons col-sm-1 mr-3 cursor-pointer\" (click)=\"deleteProjectTeamMember(item.id)\">\r\n+    <span class=\"material-icons col-sm-1 mr-3 cursor-pointer\" (click)=\"deleteProjectTeamMember(item)\">\r\n       person_remove\r\n     </span>\r\n \r\n     <span class=\"material-icons col-sm-1 mr-3 cursor-pointer\" (click)=\"renameProject(item.id)\">\r\n"
                 }
             ],
             "date": 1626804181384,

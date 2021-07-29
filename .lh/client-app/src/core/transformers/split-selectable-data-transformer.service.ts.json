@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client-app/src/core/transformers/split-selectable-data-transformer.service.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1627517528324,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1627517528324,
+            "name": "Commit-0",
+            "content": "import { DataCompareTransformer, DataCompareConfigurations } from '@core/transformers/data-compare-transformer.service';\r\nimport { SelecatableSerparation } from '@core/models/selecatable-separation.model';\r\n\r\nexport class SplitSelectableDataTransformer implements\r\n    DataCompareTransformer<any, any, SelecatableSerparation> {\r\n    config: DataCompareConfigurations = {\r\n        added: false,\r\n        edited: false,\r\n        deleted: false,\r\n        attached: true,\r\n        detached: true,\r\n        baseAttr: 'isSelected'\r\n    };\r\n\r\n    baseAttr = this.config.baseAttr;\r\n\r\n    identifiableAttr = 'id';\r\n\r\n    setIdentifiableAttr(key: string) {\r\n        this.identifiableAttr = key;\r\n        return this;\r\n    }\r\n\r\n    transform(tReference: any[],\r\n        dataToTransform: any[],\r\n        config?: DataCompareConfigurations): SelecatableSerparation {\r\n\r\n        if (config) {\r\n            this.config = { ...this.config, ...config };\r\n            this.baseAttr = this.config.baseAttr;\r\n        }\r\n\r\n        if (this.baseAttr !== null) {\r\n            return this.ObjectsTransform(tReference, dataToTransform);\r\n        }\r\n        else {\r\n            return this.simpleTransform(tReference, dataToTransform);\r\n        }\r\n    }\r\n\r\n    ObjectsTransform(tReference: any, dataToTransform: any): SelecatableSerparation {\r\n        const splitResult: SelecatableSerparation = {\r\n            attached: [],\r\n            detached: []\r\n        };\r\n        tReference.forEach((item: any) => {\r\n            //Take the reference version\r\n            const oldItem = dataToTransform.find((reference: any) =>\r\n                reference.data[this.identifiableAttr] === item.data[this.identifiableAttr]);\r\n            if ((oldItem !== undefined) && oldItem[this.baseAttr] !== item[this.baseAttr]) {\r\n                if (item[this.baseAttr]) {\r\n                    splitResult.attached.push(item.data[this.identifiableAttr]);\r\n                }\r\n                else {\r\n                    splitResult.detached.push(item.data[this.identifiableAttr]);\r\n                }\r\n            }\r\n        });\r\n        return splitResult;\r\n    }\r\n\r\n    simpleTransform(tReference: any, dataToTransform: any): SelecatableSerparation {\r\n        const splitResult: SelecatableSerparation = {\r\n            attached: [],\r\n            detached: []\r\n        };\r\n        tReference.forEach((item: any) => {\r\n            if (!dataToTransform.includes(item)) {\r\n                splitResult.attached.push(item);\r\n            }\r\n        });\r\n        dataToTransform.forEach((item: any) => {\r\n            if (!tReference.includes(item)) {\r\n                splitResult.detached.push(item);\r\n            }\r\n        });\r\n        return splitResult;\r\n    }\r\n\r\n}\r\n"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client-app/src/core/services/snackbar-notification.service.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1627518152929,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1627518152929,
+            "name": "Commit-0",
+            "content": "import { Injectable } from '@angular/core';\r\nimport { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';\r\nimport { SnackbarNotificationComponent } from '@core/components/snack-bar-notification/snackbar-notification.component';\r\nimport { SnackbarStatusEnum } from '@core/models/snackbar-data.model';\r\n@Injectable({\r\n    providedIn: 'root'\r\n})\r\n\r\nexport class SnackBarNotificationService {\r\n    config: MatSnackBarConfig = {\r\n        verticalPosition: 'bottom',\r\n        horizontalPosition: 'right',\r\n        panelClass: SnackbarStatusEnum.NOTIFICATION\r\n    };\r\n\r\n    constructor(private snackBar: MatSnackBar) {\r\n        /** DI **/\r\n    }\r\n\r\n    success(message: string,\r\n        verticalPosition: string = this.config.verticalPosition,\r\n        horizontalPosition: string = this.config.horizontalPosition) {\r\n        this.open(message, SnackbarStatusEnum.SUCCESS, verticalPosition, horizontalPosition);\r\n    }\r\n\r\n    error(message: string,\r\n        verticalPosition: string = this.config.verticalPosition,\r\n        horizontalPosition: string = this.config.horizontalPosition) {\r\n        this.open(message, SnackbarStatusEnum.ERROR, verticalPosition, horizontalPosition);\r\n    }\r\n\r\n    warning(message: string,\r\n        verticalPosition: string = this.config.verticalPosition,\r\n        horizontalPosition: string = this.config.horizontalPosition) {\r\n        this.open(message, SnackbarStatusEnum.WARNING, verticalPosition, horizontalPosition);\r\n    }\r\n\r\n    info(message: string,\r\n        verticalPosition: string = this.config.verticalPosition,\r\n        horizontalPosition: string = this.config.horizontalPosition) {\r\n        this.open(message, SnackbarStatusEnum.INFO, verticalPosition, horizontalPosition);\r\n    }\r\n\r\n    notification(message: string,\r\n        verticalPosition: string = this.config.verticalPosition,\r\n        horizontalPosition: string = this.config.horizontalPosition) {\r\n        this.open(message, SnackbarStatusEnum.NOTIFICATION, verticalPosition, horizontalPosition);\r\n    }\r\n\r\n    open(message: string,\r\n        panelClass: SnackbarStatusEnum = SnackbarStatusEnum.ERROR,\r\n        verticalPosition: string = this.config.verticalPosition,\r\n        horizontalPosition: string = this.config.horizontalPosition) {\r\n        this.snackBar.openFromComponent(SnackbarNotificationComponent, {\r\n            horizontalPosition,\r\n            verticalPosition,\r\n            panelClass,\r\n            duration: 3000,\r\n            data: {\r\n                message,\r\n                status: panelClass,\r\n\r\n            }\r\n        } as MatSnackBarConfig);\r\n    }\r\n}\r\n"
+        }
+    ]
+}

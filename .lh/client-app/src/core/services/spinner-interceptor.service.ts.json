@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client-app/src/core/services/spinner-interceptor.service.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1627517528657,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1627517528657,
+            "name": "Commit-0",
+            "content": "import { Injectable } from '@angular/core';\r\nimport {\r\n  HttpRequest\r\n} from '@angular/common/http';\r\nimport { Observable } from 'rxjs';\r\nimport { SpinnerService } from '@core/services/spinner.service';\r\nimport {\r\n  HttpEvent,\r\n  HttpHandler,\r\n  HttpInterceptor\r\n} from '@angular/common/http';\r\nimport { finalize } from 'rxjs/operators';\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class SpinnerInterceptorService implements HttpInterceptor {\r\n  constructor(private spinnerService: SpinnerService) { }\r\n  intercept(\r\n    req: HttpRequest<any>,\r\n    next: HttpHandler\r\n  ): Observable<HttpEvent<any>> {\r\n\r\n    if ((req.headers.get('process') && req.headers.get('process') === 'background')\r\n      || req.urlWithParams.indexOf('connect/token') > 0) {\r\n      return next.handle(req);\r\n    }\r\n    else {\r\n      const timestamp = new Date().getTime().toString();\r\n      this.showLoader(timestamp);\r\n      return next.handle(req).pipe(finalize(() => this.onEnd(timestamp)));\r\n    }\r\n  }\r\n  private onEnd(contextId: string): void {\r\n    this.hideLoader(contextId);\r\n  }\r\n  private showLoader(contextId: string): void {\r\n    this.spinnerService.startSpinning(contextId);\r\n  }\r\n  private hideLoader(contextId: string): void {\r\n    this.spinnerService.stopSpinning(contextId);\r\n  }\r\n}\r\n"
+        }
+    ]
+}

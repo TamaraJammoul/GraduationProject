@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client-app/src/core/components/toast/toast.component.spec.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1627517528672,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1627517528672,
+            "name": "Commit-0",
+            "content": "import { ComponentFixture, TestBed } from '@angular/core/testing';\r\nimport { configureTestSuite } from '@root/fakes/fakes.utils';\r\nimport { provideMockStore, MockStore } from '@ngrx/store/testing';\r\nimport { FakeState } from '@root/fakes/fake.state';\r\nimport { FakesModule } from '@root/fakes/fakes.module';\r\nimport { ToastComponent } from '@core/components/toast/toast.component';\r\nimport { BsTestHelper } from '@root/fakes/bs-test.helper';\r\nimport { ToastType } from '@core/models/toast-type.enum';\r\nimport { ToastMessage } from '@core/models/toast-message.model';\r\n\r\ndescribe(ToastComponent.name, () => {\r\n  let fixture: ComponentFixture<ToastComponent>;\r\n  let component: ToastComponent;\r\n  let bsTestHelper: BsTestHelper<ToastComponent>;\r\n  let mockStore: MockStore;\r\n  configureTestSuite(() => {\r\n    TestBed.configureTestingModule({\r\n      imports: [\r\n        FakesModule,\r\n      ],\r\n      declarations: [ToastComponent],\r\n      providers: [\r\n        provideMockStore({\r\n          initialState: new FakeState()\r\n            .initCoreState({}).value\r\n        })\r\n      ]\r\n    });\r\n  });\r\n\r\n  beforeEach(() => {\r\n    fixture = TestBed.createComponent(ToastComponent);\r\n    bsTestHelper = new BsTestHelper(fixture);\r\n    component = fixture.componentInstance;\r\n    mockStore = TestBed.inject(MockStore);\r\n\r\n  });\r\n\r\n  it('should create', () => {\r\n    fixture.detectChanges();\r\n    expect(component).toBeTruthy();\r\n  });\r\n\r\n  it('should show default template when type is Message', () => {\r\n    const msg = { message: 'testing', toastType: ToastType.Message } as ToastMessage;\r\n    mockStore.setState(new FakeState().initCoreState({ toastMessage: msg }).value);\r\n    fixture.detectChanges();\r\n    expect(bsTestHelper.getByDataTestId('defaultMessage')).toBeTruthy();\r\n  });\r\n\r\n  it('should show success template when type is Success', () => {\r\n    const msg = { message: 'testing', toastType: ToastType.Success } as ToastMessage;\r\n    mockStore.setState(new FakeState().initCoreState({ toastMessage: msg }).value);\r\n    fixture.detectChanges();\r\n    expect(bsTestHelper.getByDataTestId('successMessage')).toBeTruthy();\r\n  });\r\n\r\n  it('should show info template when type is Info', () => {\r\n    const msg = { message: 'testing', toastType: ToastType.Info } as ToastMessage;\r\n    mockStore.setState(new FakeState().initCoreState({ toastMessage: msg }).value);\r\n    fixture.detectChanges();\r\n    expect(bsTestHelper.getByDataTestId('infoMessage')).toBeTruthy();\r\n  });\r\n\r\n  it('should show info template when type is Error', () => {\r\n    const msg = { message: 'testing', toastType: ToastType.Error } as ToastMessage;\r\n    mockStore.setState(new FakeState().initCoreState({ toastMessage: msg }).value);\r\n    fixture.detectChanges();\r\n    expect(bsTestHelper.getByDataTestId('errorMessage')).toBeTruthy();\r\n  });\r\n\r\n});\r\n"
+        }
+    ]
+}

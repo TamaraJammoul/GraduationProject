@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client-app/src/proxy.conf.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1627512264848,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1627512264848,
+            "name": "Commit-0",
+            "content": "{\r\n    \"/api/*\": {\r\n        \"target\": \"http://localhost:4200\",\r\n        \"secure\": false,\r\n        \"logLevel\": \"debug\"\r\n    }\r\n}"
+        }
+    ]
+}

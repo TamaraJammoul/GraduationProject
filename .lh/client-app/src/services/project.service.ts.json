@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 9,
+            "activePatchIndex": 15,
             "patches": [
                 {
                     "date": 1626809968407,
@@ -44,6 +44,30 @@
                 {
                     "date": 1627163755255,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,17 +52,19 @@\n             map(data => data)\r\n         );\r\n     }\r\n \r\n-    addProjectMember(memberEmail: string): Observable<User> {\r\n+    addProjectMember(userId: string, projectId: string): Observable<User> {\r\n         const httpOptions = {\r\n             headers: new HttpHeaders({\r\n                 'Content-Type': 'application/json'\r\n             }),\r\n             params: new HttpParams()\r\n                 .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n+                .set('projectId', projectId)\r\n+                .set('userId', userId)\r\n         };\r\n-        return this.httpClient.post<User>(this.endpointUrl + 'users', memberEmail, httpOptions).pipe(\r\n+        return this.httpClient.post<User>(this.endpointUrl + 'users', httpOptions).pipe(\r\n             map(data => data)\r\n         );\r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1627504430106,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,9 +62,9 @@\n                 .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n                 .set('projectId', projectId)\r\n                 .set('userId', userId)\r\n         };\r\n-        return this.httpClient.post<User>(this.endpointUrl + 'users', httpOptions).pipe(\r\n+        return this.httpClient.post<User>(`${this.endpointUrl}/users`, httpOptions).pipe(\r\n             map(data => data)\r\n         );\r\n     }\r\n \r\n@@ -77,13 +77,14 @@\n                 .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n                 .set('userId', userId)\r\n                 .set('projectId', projectId)\r\n         };\r\n-        return this.httpClient.delete<any>(this.endpointUrl + 'users', httpOptions).pipe(\r\n+        return this.httpClient.delete<any>(`${this.endpointUrl}/users`, httpOptions).pipe(\r\n             map(data => data)\r\n         );\r\n     }\r\n \r\n+\r\n     renameProjectMember(projectId: string, projectName: string): Observable<any> {\r\n         const httpOptions = {\r\n             headers: new HttpHeaders({\r\n                 'Content-Type': 'application/json'\r\n"
+                },
+                {
+                    "date": 1627506933096,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -91,9 +91,9 @@\n             }),\r\n             params: new HttpParams()\r\n                 .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n                 .set('projectId', projectId)\r\n-                .set('projectName', projectName)\r\n+                .set('name', projectName)\r\n         };\r\n         return this.httpClient.patch<any>(this.endpointUrl, httpOptions).pipe(\r\n             map(data => data)\r\n         );\r\n"
+                },
+                {
+                    "date": 1627507461784,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -93,9 +93,7 @@\n                 .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n                 .set('projectId', projectId)\r\n                 .set('name', projectName)\r\n         };\r\n-        return this.httpClient.patch<any>(this.endpointUrl, httpOptions).pipe(\r\n-            map(data => data)\r\n-        );\r\n+        return this.httpClient.patch<any>(this.endpointUrl, httpOptions);\r\n     }\r\n }\r\n"
+                },
+                {
+                    "date": 1627508802379,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -93,7 +93,9 @@\n                 .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n                 .set('projectId', projectId)\r\n                 .set('name', projectName)\r\n         };\r\n-        return this.httpClient.patch<any>(this.endpointUrl, httpOptions);\r\n+        return this.httpClient.patch<any>(this.endpointUrl, httpOptions).pipe(\r\n+            map(data => console.log(data))\r\n+        );\r\n     }\r\n }\r\n"
+                },
+                {
+                    "date": 1627513517449,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,8 +38,22 @@\n             map(data => data)\r\n         );\r\n     }\r\n \r\n+    getProjectUsers(projectId: string): Observable<Project> {\r\n+        const httpOptions = {\r\n+            headers: new HttpHeaders({\r\n+                'Content-Type': 'application/json'\r\n+            }),\r\n+            params: new HttpParams()\r\n+                .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n+                .set('projectId', projectId)\r\n+        };\r\n+        return this.httpClient.get<Project>(`${this.endpointUrl}/users`, httpOptions).pipe(\r\n+            map(data => data)\r\n+        );\r\n+    }\r\n+\r\n     deleteProject(projectId: string): Observable<any> {\r\n         const httpOptions = {\r\n             headers: new HttpHeaders({\r\n                 'Content-Type': 'application/json'\r\n"
+                },
+                {
+                    "date": 1627513552885,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,18 +38,18 @@\n             map(data => data)\r\n         );\r\n     }\r\n \r\n-    getProjectUsers(projectId: string): Observable<Project> {\r\n+    getProjectUsers(projectId: string): Observable<User[]> {\r\n         const httpOptions = {\r\n             headers: new HttpHeaders({\r\n                 'Content-Type': 'application/json'\r\n             }),\r\n             params: new HttpParams()\r\n                 .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n                 .set('projectId', projectId)\r\n         };\r\n-        return this.httpClient.get<Project>(`${this.endpointUrl}/users`, httpOptions).pipe(\r\n+        return this.httpClient.get<User[]>(`${this.endpointUrl}/users`, httpOptions).pipe(\r\n             map(data => data)\r\n         );\r\n     }\r\n \r\n"
                 }
             ],
             "date": 1626809968407,

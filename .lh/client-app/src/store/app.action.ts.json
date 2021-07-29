@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 17,
+            "activePatchIndex": 18,
             "patches": [
                 {
                     "date": 1626515986012,
@@ -76,6 +76,10 @@
                 {
                     "date": 1627164862110,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -118,9 +118,9 @@\n );\r\n \r\n const deleteProjectTeamMember = createAction(\r\n     '[app] delete Project TeamMember',\r\n-    (userId: string, projectId: string) => ({ userId, projectId })\r\n+    (id: string, projectId: string) => ({ id, projectId })\r\n );\r\n \r\n const deleteProjectTeamMemberSuccess = createAction(\r\n     '[app] delete Project TeamMember Success'\r\n"
+                },
+                {
+                    "date": 1627513276549,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n import { Signup } from '../models/signup.model';\r\n import { Project } from '../models/project.model';\r\n import { User } from '../models/user.model';\r\n \r\n+\r\n const getTeamMembers = createAction(\r\n     '[app] Get Team Members',\r\n );\r\n \r\n@@ -143,9 +144,22 @@\n const renameProjectSuccess = createAction(\r\n     '[app] rename Project Success',\r\n     (projectId: string, projectName: string) => ({ projectId, projectName })\r\n );\r\n+\r\n+const fetchProjectUsers = createAction(\r\n+    '[app] fetch Project Users ',\r\n+    (projectId: string) => ({ projectId })\r\n+);\r\n+\r\n+const fetchProjectUsersSuccess = createAction(\r\n+    '[app] fetch Project Users Success',\r\n+    (users: User[]) => ({ users })\r\n+);\r\n+\r\n export const AppActions = {\r\n+    fetchProjectUsers,\r\n+    fetchProjectUsersSuccess,\r\n     fetchErrors,\r\n     fetchErrorsSuccess,\r\n     fetchBugs,\r\n     fetchBugsSuccess,\r\n"
                 }
             ],
             "date": 1626515986012,
