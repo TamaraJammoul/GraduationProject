@@ -1,0 +1,22 @@
+{
+    "sourceFile": "client-app/src/assets/scss/themes/mat-components/mat-input.theme.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1627609541550,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1627609615460,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,14 +2,14 @@\n \r\n @mixin mat-input-custom-typography($theme, $typography) {\r\n   .mat-input-element {\r\n     @include input-placeholder {\r\n-      color: $secondary;\r\n+      color: $secondary2;\r\n     }\r\n   }\r\n \r\n   .mat-form-field-appearance-outline .mat-form-field-outline {\r\n-    color: $secondary;\r\n+    color: $secondary2;\r\n   }\r\n \r\n   //Make the padding of input select small to match the design\r\n   .mat-form-field-type-mat-input.mat-form-field-appearance-outline .mat-form-field-infix {\r\n"
+                }
+            ],
+            "date": 1627609541550,
+            "name": "Commit-0",
+            "content": "@import \"~@angular/material/theming\";\r\n\r\n@mixin mat-input-custom-typography($theme, $typography) {\r\n  .mat-input-element {\r\n    @include input-placeholder {\r\n      color: $secondary;\r\n    }\r\n  }\r\n\r\n  .mat-form-field-appearance-outline .mat-form-field-outline {\r\n    color: $secondary;\r\n  }\r\n\r\n  //Make the padding of input select small to match the design\r\n  .mat-form-field-type-mat-input.mat-form-field-appearance-outline .mat-form-field-infix {\r\n    padding: 0.3em 0 0.5em 0;\r\n\r\n    input.mat-input-element,\r\n    textarea.mat-input-element {\r\n      margin-top: 0;\r\n    }\r\n\r\n    textarea.mat-input-element {\r\n      resize: none;\r\n      min-height: 100px;\r\n      line-height: 25px;\r\n    }\r\n  }\r\n\r\n  //Make the padding of input select small to match the design\r\n  .mat-form-field-type-mat-select.mat-form-field-appearance-outline .mat-form-field-infix {\r\n    padding: 0.2em 0 0.3em 0;\r\n\r\n    .mat-select-min-line {\r\n      line-height: 26px;\r\n    }\r\n\r\n    .mat-select-arrow-wrapper {\r\n      transform: translateY(0%) !important;\r\n    }\r\n  }\r\n\r\n  //Fix icon positioning in inputs\r\n  .mat-form-field-appearance-outline {\r\n    .mat-form-field-flex {\r\n\r\n      .mat-form-field-prefix .mat-icon,\r\n      .mat-form-field-suffix .mat-icon {\r\n        line-height: 100%;\r\n        margin-inline-end: 10px;\r\n        color: $secondary2;\r\n      }\r\n    }\r\n  }\r\n\r\n  // Remove fields margin to fix spacing\r\n  .mat-form-field.mat-form-field-appearance-outline {\r\n    .mat-form-field-wrapper {\r\n      margin: 0;\r\n    }\r\n  }\r\n\r\n  .mat-form-field-type-mat-input.mat-form-field-appearance-outline {\r\n    .mat-form-field-flex {\r\n      align-items: center;\r\n    }\r\n  }\r\n\r\n  // change label colors\r\n  .mat-form-field.mat-form-field-appearance-outline .mat-form-field-label {\r\n    color: $secondary2;\r\n    line-height: 26px;\r\n    margin-top: -8px;\r\n  }\r\n\r\n  .mat-validation-error {\r\n    position: relative;\r\n    top: -14px;\r\n    font-size: 13px;\r\n    white-space: break-spaces;\r\n  }\r\n\r\n  .mat-input-inline-text {\r\n    font-size: $spacing-sm;\r\n  }\r\n\r\n  .mat-inline-label {\r\n    padding-bottom: 1.025em;\r\n  }\r\n\r\n}\r\n"
+        }
+    ]
+}

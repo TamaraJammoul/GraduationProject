@@ -1,0 +1,27 @@
+<form class="row no-margin full-width pt12">
+  <p class="center col-xs-12 mat-display-1 text-primary title">Team Members</p>
+  <div class="col-xs-8">
+    <mat-form-field appearance="outline" [floatLabel]="'always'" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput [formControl]="control" placeholder="Enter Member Email" required type="email" />
+    </mat-form-field>
+    <div *ngIf="control.invalid && (control.dirty || control.touched)" class="text-danger mat-caption">
+      <div *ngIf="control?.errors?.required">
+        Please enter Email
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-4 center">
+    <button class="p5 mb4 border-radius-xs full-width background-primary center text-white border-white"
+      (click)="onAdd()">Add Member</button>
+  </div>
+</form>
+<div class="row no-margin full-width pt12" *ngFor="let item of members">
+  <div class="col-xs-8">
+    <h3>{{item.name}}</h3>
+  </div>
+  <div class="col-xs-4 center">
+    <button class="p5 mb4 border-radius-xs full-width background-danger center text-white border-white"
+      (click)="onDelete(item.id)">Delete Member</button>
+  </div>
+</div>

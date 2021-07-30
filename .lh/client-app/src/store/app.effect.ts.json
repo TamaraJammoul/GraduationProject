@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 14,
+            "activePatchIndex": 15,
             "patches": [
                 {
                     "date": 1626537131377,
@@ -64,6 +64,10 @@
                 {
                     "date": 1627513570906,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -84,8 +84,19 @@\n             )\r\n         )\r\n     );\r\n \r\n+    getProjectUsers$ = createEffect(() =>\r\n+        this.actions$.pipe(\r\n+            ofType(AppActions.fetchProjectUsers),\r\n+            switchMap(action =>\r\n+                this.projectService.getProjectUsers(action.projectId).pipe(\r\n+                    map((res) => AppActions.fetchProjectUsersSuccess(res)),\r\n+                )\r\n+            )\r\n+        )\r\n+    );\r\n+\r\n     deleteProject$ = createEffect(() =>\r\n         this.actions$.pipe(\r\n             ofType(AppActions.deleteProject),\r\n             switchMap(action =>\r\n"
+                },
+                {
+                    "date": 1627608843858,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,10 +5,11 @@\n     ofType\r\n } from '@ngrx/effects';\r\n import {\r\n     map,\r\n-    switchMap,\r\n+    switchMap,catchError \r\n } from 'rxjs/operators';\r\n+import { EMPTY } from 'rxjs';\r\n import { AuthService } from '../services/auth.service';\r\n import { AppActions } from './app.action';\r\n import { BugsService } from '../services/bugs.service';\r\n import { ErrorsService } from '../services/errors.service';\r\n@@ -112,8 +113,9 @@\n             ofType(AppActions.renameProject),\r\n             switchMap(action =>\r\n                 this.projectService.renameProjectMember(action.projectId, action.projectName).pipe(\r\n                     map(() => AppActions.renameProjectSuccess(action.projectId, action.projectName)),\r\n+                    catchError(() => EMPTY)\r\n                 )\r\n             )\r\n         )\r\n     );\r\n"
                 }
             ],
             "date": 1626537131377,

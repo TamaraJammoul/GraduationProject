@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1626807834712,
@@ -16,6 +16,14 @@
                 {
                     "date": 1627164725154,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,21 +1,25 @@\n-import { Component, OnInit } from '@angular/core';\n+import { Component, OnInit, Inject } from '@angular/core';\n import { Store } from '@ngrx/store';\n import { FormControl } from '@angular/forms';\n import { AppActions } from '../../store/app.action';\n+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';\n+\n @Component({\n   selector: 'app-add-project-member-dialog',\n   templateUrl: './add-project-member-dialog.component.html',\n   styleUrls: ['./add-project-member-dialog.component.scss']\n })\n export class AddProjectMemberDialogComponent implements OnInit {\n-   control = new FormControl();\n+  control = new FormControl();\n \n-  constructor(private store$: Store) { }\n+  constructor(private store$: Store,\n+    public dialogRef: MatDialogRef<AddProjectMemberDialogComponent>,\n+    @Inject(MAT_DIALOG_DATA) public data: string) { }\n \n   ngOnInit(): void {\n   }\n \n   onSubmit() {\n-    this.store$.dispatch(AppActions.addProjectTeamMember(this.control.value));\n+    this.store$.dispatch(AppActions.addProjectTeamMember(this.control.value, this.data));\n   }\n }\n"
+                },
+                {
+                    "date": 1627592912739,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,22 +2,26 @@\n import { Store } from '@ngrx/store';\n import { FormControl } from '@angular/forms';\n import { AppActions } from '../../store/app.action';\n import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';\n+import { User } from '../../models/user.model';\n+import { getProjectUsersList } from '../../store/app.selector';\n \n @Component({\n   selector: 'app-add-project-member-dialog',\n   templateUrl: './add-project-member-dialog.component.html',\n   styleUrls: ['./add-project-member-dialog.component.scss']\n })\n export class AddProjectMemberDialogComponent implements OnInit {\n   control = new FormControl();\n-\n+  users: User[] = [];\n   constructor(private store$: Store,\n     public dialogRef: MatDialogRef<AddProjectMemberDialogComponent>,\n     @Inject(MAT_DIALOG_DATA) public data: string) { }\n \n   ngOnInit(): void {\n+    this.store$.dispatch(AppActions.fetchProjectUsers(this.data));\n+    this.store$.select(getProjectUsersList).subscribe(data => this.users = data);\n   }\n \n   onSubmit() {\n     this.store$.dispatch(AppActions.addProjectTeamMember(this.control.value, this.data));\n"
+                },
+                {
+                    "date": 1627593453293,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import { Component, OnInit, Inject } from '@angular/core';\n+import { Component, OnInit, Inject, ChangeDetectorRef } from '@angular/core';\n import { Store } from '@ngrx/store';\n import { FormControl } from '@angular/forms';\n import { AppActions } from '../../store/app.action';\n import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';\n@@ -14,14 +14,18 @@\n export class AddProjectMemberDialogComponent implements OnInit {\n   control = new FormControl();\n   users: User[] = [];\n   constructor(private store$: Store,\n-    public dialogRef: MatDialogRef<AddProjectMemberDialogComponent>,\n+    private cdr: ChangeDetectorRef,\n+    private dialogRef: MatDialogRef<AddProjectMemberDialogComponent>,\n     @Inject(MAT_DIALOG_DATA) public data: string) { }\n \n   ngOnInit(): void {\n     this.store$.dispatch(AppActions.fetchProjectUsers(this.data));\n-    this.store$.select(getProjectUsersList).subscribe(data => this.users = data);\n+    this.store$.select(getProjectUsersList).subscribe(data => {\n+      this.users = data\n+      this.cdr.detectChanges()\n+    });\n   }\n \n   onSubmit() {\n     this.store$.dispatch(AppActions.addProjectTeamMember(this.control.value, this.data));\n"
                 }
             ],
             "date": 1626807834712,

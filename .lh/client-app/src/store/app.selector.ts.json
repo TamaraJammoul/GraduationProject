@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 6,
             "patches": [
                 {
                     "date": 1626549455114,
@@ -20,6 +20,18 @@
                 {
                     "date": 1627513371881,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,5 +21,11 @@\n \r\n export const getProjectsList = createSelector(\r\n   featureSelector,\r\n   (state) => state.projects\r\n-);\n\\ No newline at end of file\n+);\r\n+\r\n+export const getProjectUsersList = createSelector(\r\n+  featureSelector,\r\n+  (state) => state.projectUsers\r\n+);\r\n+\r\n"
+                },
+                {
+                    "date": 1627610626419,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,4 +28,9 @@\n   featureSelector,\r\n   (state) => state.projectUsers\r\n );\r\n \r\n+export const isUserAuth = createSelector(\r\n+  featureSelector,\r\n+  () => true\r\n+);\r\n+\r\n"
+                },
+                {
+                    "date": 1627610793226,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,7 +30,7 @@\n );\r\n \r\n export const isUserAuth = createSelector(\r\n   featureSelector,\r\n-  () => true\r\n+  () => ''\r\n );\r\n \r\n"
+                },
+                {
+                    "date": 1627611220476,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,7 +30,7 @@\n );\r\n \r\n export const isUserAuth = createSelector(\r\n   featureSelector,\r\n-  () => ''\r\n+  () => 'lkl'\r\n );\r\n \r\n"
                 }
             ],
             "date": 1626549455114,

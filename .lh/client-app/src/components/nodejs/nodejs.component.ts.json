@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client-app/src/components/nodejs/nodejs.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1627610196285,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1627610196285,
+            "name": "Commit-0",
+            "content": "import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-nodejs',\r\n  templateUrl: './nodejs.component.html',\r\n  styleUrls: ['./nodejs.component.scss'],\r\n  changeDetection: ChangeDetectionStrategy.OnPush\r\n})\r\nexport class NodejsComponent implements OnInit {\r\n\r\n\r\n  constructor() { }\r\n\r\n  ngOnInit(): void {\r\n  }\r\n}\r\n"
+        }
+    ]
+}

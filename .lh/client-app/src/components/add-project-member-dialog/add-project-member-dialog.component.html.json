@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 9,
             "patches": [
                 {
                     "date": 1626807996237,
@@ -12,6 +12,38 @@
                 {
                     "date": 1627523590998,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <form class=\"row no-margin full-width pt12\">\n     <p class=\"center col-xs-12 mat-display-1 text-primary title\">Add Member</p>\n     <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-8\">\n       <mat-label>Email</mat-label>\n-      <input matInput formControlName=\"control\" placeholder=\"Enter Member Email\" required type=\"email\"/>\n+      <input matInput [formControl]=\"control\" placeholder=\"Enter Member Email\" required type=\"email\"/>\n     </mat-form-field>\n     <div class=\"col-xs-4 center\">\n       <button class=\"p5 mb4 border-radius-xs full-width background-primary center text-white border-white\" (click)=\"onSubmit()\">Add</button>\n     </div>\n"
+                },
+                {
+                    "date": 1627593068196,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,11 @@\n <form class=\"row no-margin full-width pt12\">\n     <p class=\"center col-xs-12 mat-display-1 text-primary title\">Add Member</p>\n     <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-8\">\n       <mat-label>Email</mat-label>\n-      <input matInput [formControl]=\"control\" placeholder=\"Enter Member Email\" required type=\"email\"/>\n+      <select [formControl]=\"control\" required>\n+        <option [value]=\"item.id\" *ngFor=\"let item of users\">{{item.name}}</option>\n+      </select>\n     </mat-form-field>\n     <div class=\"col-xs-4 center\">\n       <button class=\"p5 mb4 border-radius-xs full-width background-primary center text-white border-white\" (click)=\"onSubmit()\">Add</button>\n     </div>\n"
+                },
+                {
+                    "date": 1627593078664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <form class=\"row no-margin full-width pt12\">\n     <p class=\"center col-xs-12 mat-display-1 text-primary title\">Add Member</p>\n     <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-8\">\n-      <mat-label>Email</mat-label>\n+      <mat-label>User</mat-label>\n       <select [formControl]=\"control\" required>\n         <option [value]=\"item.id\" *ngFor=\"let item of users\">{{item.name}}</option>\n       </select>\n     </mat-form-field>\n"
+                },
+                {
+                    "date": 1627593151027,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <form class=\"row no-margin full-width pt12\">\n     <p class=\"center col-xs-12 mat-display-1 text-primary title\">Add Member</p>\n     <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-8\">\n       <mat-label>User</mat-label>\n-      <select [formControl]=\"control\" required>\n+      <select class=\"full-width\" [formControl]=\"control\" required>\n         <option [value]=\"item.id\" *ngFor=\"let item of users\">{{item.name}}</option>\n       </select>\n     </mat-form-field>\n     <div class=\"col-xs-4 center\">\n"
+                },
+                {
+                    "date": 1627593257040,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,11 @@\n <form class=\"row no-margin full-width pt12\">\n     <p class=\"center col-xs-12 mat-display-1 text-primary title\">Add Member</p>\n     <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-8\">\n       <mat-label>User</mat-label>\n+      <span matPrefix>\n+        <mat-icon class=\"material-icons-outlined\">paid</mat-icon>\n+      </span>\n       <select class=\"full-width\" [formControl]=\"control\" required>\n         <option [value]=\"item.id\" *ngFor=\"let item of users\">{{item.name}}</option>\n       </select>\n     </mat-form-field>\n"
+                },
+                {
+                    "date": 1627593493699,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,16 @@\n <form class=\"row no-margin full-width pt12\">\n-    <p class=\"center col-xs-12 mat-display-1 text-primary title\">Add Member</p>\n-    <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-8\">\n-      <mat-label>User</mat-label>\n-      <span matPrefix>\n-        <mat-icon class=\"material-icons-outlined\">paid</mat-icon>\n-      </span>\n-      <select class=\"full-width\" [formControl]=\"control\" required>\n-        <option [value]=\"item.id\" *ngFor=\"let item of users\">{{item.name}}</option>\n-      </select>\n-    </mat-form-field>\n-    <div class=\"col-xs-4 center\">\n-      <button class=\"p5 mb4 border-radius-xs full-width background-primary center text-white border-white\" (click)=\"onSubmit()\">Add</button>\n-    </div>\n-  </form>\n\\ No newline at end of file\n+  <p class=\"center col-xs-12 mat-display-1 text-primary title\">Add Member</p>\n+  <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-8\">\n+    <mat-label>User</mat-label>\n+    <span matPrefix>\n+      <mat-icon class=\"material-icons-outlined\">paid</mat-icon>\n+    </span>\n+    <select class=\"full-width\" [disabled]=\"users.length===0\" [formControl]=\"control\" required>\n+      <option [value]=\"item.id\" *ngFor=\"let item of users\">{{item.name}}</option>\n+    </select>\n+  </mat-form-field>\n+  <div class=\"col-xs-4 center\">\n+    <button class=\"p5 mb4 border-radius-xs full-width background-primary center text-white border-white\"\n+      (click)=\"onSubmit()\">Add</button>\n+  </div>\n+</form>\n"
+                },
+                {
+                    "date": 1627593568694,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,11 +4,11 @@\n     <mat-label>User</mat-label>\n     <span matPrefix>\n       <mat-icon class=\"material-icons-outlined\">paid</mat-icon>\n     </span>\n-    <select class=\"full-width\" [disabled]=\"users.length===0\" [formControl]=\"control\" required>\n-      <option [value]=\"item.id\" *ngFor=\"let item of users\">{{item.name}}</option>\n-    </select>\n+    <mat-select class=\"full-width\" [disabled]=\"users.length===0\" [formControl]=\"control\" required>\n+      <mat-option [value]=\"item.id\" *ngFor=\"let item of users\">{{item.name}}</mat-option>\n+    </mat-select>\n   </mat-form-field>\n   <div class=\"col-xs-4 center\">\n     <button class=\"p5 mb4 border-radius-xs full-width background-primary center text-white border-white\"\n       (click)=\"onSubmit()\">Add</button>\n"
+                },
+                {
+                    "date": 1627594414267,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,13 @@\n <form class=\"row no-margin full-width pt12\">\n   <p class=\"center col-xs-12 mat-display-1 text-primary title\">Add Member</p>\n   <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-8\">\n-    <mat-label>User</mat-label>\n+    <mat-label>Team Member Name</mat-label>\n     <span matPrefix>\n-      <mat-icon class=\"material-icons-outlined\">paid</mat-icon>\n-    </span>\n+      <span class=\"material-icons\">\n+        person_outline\n+      </span>\n+     </span>\n     <mat-select class=\"full-width\" [disabled]=\"users.length===0\" [formControl]=\"control\" required>\n       <mat-option [value]=\"item.id\" *ngFor=\"let item of users\">{{item.name}}</mat-option>\n     </mat-select>\n   </mat-form-field>\n"
+                },
+                {
+                    "date": 1627609332029,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,8 @@\n       <mat-option [value]=\"item.id\" *ngFor=\"let item of users\">{{item.name}}</mat-option>\n     </mat-select>\n   </mat-form-field>\n   <div class=\"col-xs-4 center\">\n-    <button class=\"p5 mb4 border-radius-xs full-width background-primary center text-white border-white\"\n+    <button type=\"button\" class=\"p5 mb4 border-radius-xs full-width background-primary center text-white border-white\"\n       (click)=\"onSubmit()\">Add</button>\n   </div>\n </form>\n"
                 }
             ],
             "date": 1626807996237,

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1627521016988,
@@ -20,6 +20,10 @@
                 {
                     "date": 1627523667811,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,7 +16,6 @@\n </head>\n <body class=\"mat-typography\">\n   <app-root></app-root>\n     <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js\"></script>\n-    <script src=\"https://cdn.startbootstrap.com/sb-forms-latest.js\"></script>\n </body>\n </html>\n"
+                },
+                {
+                    "date": 1627544248677,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,8 @@\n   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n   <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n   <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" />\n   <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined\" rel=\"stylesheet\">\n-  <script src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyA2nR20DGepHRCHFd5aHnN0wK2rOJdp1lo&libraries=places&language=en\"></script>\n   <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\">\n   <link href=\"https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap\" rel=\"stylesheet\">\n   <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n   <script src=\"https://use.fontawesome.com/releases/v5.15.3/js/all.js\" crossorigin=\"anonymous\"></script>\n"
                 }
             ],
             "date": 1627521016988,

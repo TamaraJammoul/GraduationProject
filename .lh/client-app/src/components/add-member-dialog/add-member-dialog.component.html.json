@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 11,
+            "activePatchIndex": 16,
             "patches": [
                 {
                     "date": 1626795223833,
@@ -52,6 +52,26 @@
                 {
                     "date": 1627508042004,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <form class=\"row no-margin full-width pt12\">\n   <p class=\"center col-xs-12 mat-display-1 text-primary title\">Team Members</p>\n   <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-8\">\n     <mat-label>Email</mat-label>\n-    <input matInput formControlName=\"control\" placeholder=\"Enter Member Email\" required type=\"email\" />\n+    <input matInput [formControl]=\"control\" placeholder=\"Enter Member Email\" required type=\"email\" />\n   </mat-form-field>\n   <div class=\"col-xs-4 center\">\n     <button class=\"p5 mb4 border-radius-xs full-width background-primary center text-white border-white\"\n       (click)=\"onAdd()\">Add Member</button>\n"
+                },
+                {
+                    "date": 1627611077122,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,13 @@\n   <p class=\"center col-xs-12 mat-display-1 text-primary title\">Team Members</p>\n   <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-8\">\n     <mat-label>Email</mat-label>\n     <input matInput [formControl]=\"control\" placeholder=\"Enter Member Email\" required type=\"email\" />\n+    <div *ngIf=\"control.invalid && (control.dirty || control.touched)\" class=\"text-danger mat-caption\">\n+      <div *ngIf=\"control?.errors?.required\">\n+      Please enter Email\n+    </div>\n+  </div>\n   </mat-form-field>\n   <div class=\"col-xs-4 center\">\n     <button class=\"p5 mb4 border-radius-xs full-width background-primary center text-white border-white\"\n       (click)=\"onAdd()\">Add Member</button>\n"
+                },
+                {
+                    "date": 1627611277499,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,14 +2,14 @@\n   <p class=\"center col-xs-12 mat-display-1 text-primary title\">Team Members</p>\n   <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-8\">\n     <mat-label>Email</mat-label>\n     <input matInput [formControl]=\"control\" placeholder=\"Enter Member Email\" required type=\"email\" />\n-    <div *ngIf=\"control.invalid && (control.dirty || control.touched)\" class=\"text-danger mat-caption\">\n-      <div *ngIf=\"control?.errors?.required\">\n-      Please enter Email\n-    </div>\n+  </mat-form-field>\n+  <div *ngIf=\"control.invalid && (control.dirty || control.touched)\" class=\"text-danger mat-caption\">\n+    <div *ngIf=\"control?.errors?.required\">\n+    Please enter Email\n   </div>\n-  </mat-form-field>\n+</div>\n   <div class=\"col-xs-4 center\">\n     <button class=\"p5 mb4 border-radius-xs full-width background-primary center text-white border-white\"\n       (click)=\"onAdd()\">Add Member</button>\n   </div>\n"
+                },
+                {
+                    "date": 1627611310861,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n <form class=\"row no-margin full-width pt12\">\n   <p class=\"center col-xs-12 mat-display-1 text-primary title\">Team Members</p>\n+  <div>\n   <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-8\">\n     <mat-label>Email</mat-label>\n     <input matInput [formControl]=\"control\" placeholder=\"Enter Member Email\" required type=\"email\" />\n   </mat-form-field>\n@@ -8,8 +9,9 @@\n     <div *ngIf=\"control?.errors?.required\">\n     Please enter Email\n   </div>\n </div>\n+</div>\n   <div class=\"col-xs-4 center\">\n     <button class=\"p5 mb4 border-radius-xs full-width background-primary center text-white border-white\"\n       (click)=\"onAdd()\">Add Member</button>\n   </div>\n"
+                },
+                {
+                    "date": 1627611326784,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <form class=\"row no-margin full-width pt12\">\n   <p class=\"center col-xs-12 mat-display-1 text-primary title\">Team Members</p>\n-  <div>\n-  <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"col-xs-8\">\n+  <div class=\"col-xs-8\">\n+  <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" >\n     <mat-label>Email</mat-label>\n     <input matInput [formControl]=\"control\" placeholder=\"Enter Member Email\" required type=\"email\" />\n   </mat-form-field>\n   <div *ngIf=\"control.invalid && (control.dirty || control.touched)\" class=\"text-danger mat-caption\">\n"
+                },
+                {
+                    "date": 1627611349210,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,17 @@\n <form class=\"row no-margin full-width pt12\">\n   <p class=\"center col-xs-12 mat-display-1 text-primary title\">Team Members</p>\n   <div class=\"col-xs-8\">\n-  <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" >\n-    <mat-label>Email</mat-label>\n-    <input matInput [formControl]=\"control\" placeholder=\"Enter Member Email\" required type=\"email\" />\n-  </mat-form-field>\n-  <div *ngIf=\"control.invalid && (control.dirty || control.touched)\" class=\"text-danger mat-caption\">\n-    <div *ngIf=\"control?.errors?.required\">\n-    Please enter Email\n+    <mat-form-field appearance=\"outline\" [floatLabel]=\"'always'\" class=\"full-width\">\n+      <mat-label>Email</mat-label>\n+      <input matInput [formControl]=\"control\" placeholder=\"Enter Member Email\" required type=\"email\" />\n+    </mat-form-field>\n+    <div *ngIf=\"control.invalid && (control.dirty || control.touched)\" class=\"text-danger mat-caption\">\n+      <div *ngIf=\"control?.errors?.required\">\n+        Please enter Email\n+      </div>\n+    </div>\n   </div>\n-</div>\n-</div>\n   <div class=\"col-xs-4 center\">\n     <button class=\"p5 mb4 border-radius-xs full-width background-primary center text-white border-white\"\n       (click)=\"onAdd()\">Add Member</button>\n   </div>\n@@ -23,5 +23,5 @@\n   <div class=\"col-xs-4 center\">\n     <button class=\"p5 mb4 border-radius-xs full-width background-danger center text-white border-white\"\n       (click)=\"onDelete(item.id)\">Delete Member</button>\n   </div>\n-</div>\n\\ No newline at end of file\n+</div>\n"
                 }
             ],
             "date": 1626795223833,

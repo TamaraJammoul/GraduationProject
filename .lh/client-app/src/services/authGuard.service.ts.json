@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client-app/src/services/authGuard.service.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1627610800993,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1627610800993,
+            "name": "Commit-0",
+            "content": "import { Injectable } from '@angular/core';\r\nimport {\r\n    Router,\r\n    CanActivate,\r\n    CanLoad\r\n} from '@angular/router';\r\nimport {Store} from '@ngrx/store';\r\nimport { Observable, of } from 'rxjs';\r\nimport { tap, take, switchMap } from 'rxjs/operators';\r\nimport { isUserAuth } from '../store/app.selector';\r\n\r\n@Injectable()\r\nexport class AuthGuard implements CanActivate, CanLoad{\r\n    constructor(private router: Router, private store$: Store) { }\r\n    canActivate(): Observable<boolean> | boolean {\r\n        return this.isAllowedVisiting();\r\n    }\r\n    canLoad() {\r\n        return this.isAllowedVisiting();\r\n    }\r\n\r\n    isAllowedVisiting() {\r\n        return this.store$.select(isUserAuth).pipe(\r\n            tap(data => data),\r\n            take(1),\r\n            switchMap((data: string) => {\r\n                if(!!data) {\r\n                    return of(true);\r\n                }\r\n                else {\r\n                    this.router.navigateByUrl(`/login`);\r\n                        return of(false);\r\n                }\r\n            })\r\n        );\r\n    }\r\n}\r\n"
+        }
+    ]
+}

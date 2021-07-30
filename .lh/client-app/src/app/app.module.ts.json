@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 35,
+            "activePatchIndex": 37,
             "patches": [
                 {
                     "date": 1626457872125,
@@ -148,6 +148,14 @@
                 {
                     "date": 1627519677089,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,8 @@\n import { DeleteProjectMemberDialogComponent } from '../components/delete-project-member-dialog/delete-project-member-dialog.component';\n import { AddProjectMemberDialogComponent } from '../components/add-project-member-dialog/add-project-member-dialog.component';\n import { RenameProjectDialogComponent } from '../components/rename-project-dialog/rename-project-dialog.component';\n import { HomeComponent } from '../components/home-page/home-page.component';\n-import { CoreModule } from '@core/core.module';\n \n \n @NgModule({\n   declarations: [\n@@ -52,9 +51,8 @@\n     SidenavComponent,\n     HomeComponent\n   ],\n   imports: [\n-    CoreModule,\n     CommonModule,\n     HttpClientModule,\n     BrowserModule,\n     AppRoutingModule,\n"
+                },
+                {
+                    "date": 1627610246632,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,12 +28,14 @@\n import { DeleteProjectMemberDialogComponent } from '../components/delete-project-member-dialog/delete-project-member-dialog.component';\n import { AddProjectMemberDialogComponent } from '../components/add-project-member-dialog/add-project-member-dialog.component';\n import { RenameProjectDialogComponent } from '../components/rename-project-dialog/rename-project-dialog.component';\n import { HomeComponent } from '../components/home-page/home-page.component';\n+import { NodejsComponent } from '../components/nodejs/nodejs.component';\n \n \n @NgModule({\n   declarations: [\n+    NodejsComponent,\n     DeleteProjectMemberDialogComponent,\n     AddProjectMemberDialogComponent,\n     RenameProjectDialogComponent,\n     AppComponent,\n"
+                },
+                {
+                    "date": 1627611172754,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,8 +29,9 @@\n import { AddProjectMemberDialogComponent } from '../components/add-project-member-dialog/add-project-member-dialog.component';\n import { RenameProjectDialogComponent } from '../components/rename-project-dialog/rename-project-dialog.component';\n import { HomeComponent } from '../components/home-page/home-page.component';\n import { NodejsComponent } from '../components/nodejs/nodejs.component';\n+import { AuthGuard } from '../services/authGuard.service';\n \n \n @NgModule({\n   declarations: [\n@@ -65,9 +66,9 @@\n     BrowserAnimationsModule,\n     NgbModule,\n     StoreDevtoolsModule.instrument({}),\n   ],\n-  providers: [],\n+  providers: [AuthGuard],\n   exports: [MaterialModule],\n   bootstrap: [AppComponent],\n   entryComponents: [\n     AddMemberDialogComponent,\n"
                 }
             ],
             "date": 1626457872125,

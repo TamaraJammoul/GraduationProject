@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client-app/src/components/nodejs/nodejs.component.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1627610202718,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1627610202718,
+            "name": "Commit-0",
+            "content": ""
+        }
+    ]
+}
