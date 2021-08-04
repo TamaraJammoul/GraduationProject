@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 21,
+            "activePatchIndex": 22,
             "patches": [
                 {
                     "date": 1626515986012,
@@ -92,6 +92,10 @@
                 {
                     "date": 1628100704760,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -104,9 +104,10 @@\n     (id: string) => ({ id })\r\n );\r\n \r\n const deleteTeamMemberSuccess = createAction(\r\n-    '[app] delete TeamMember Success'\r\n+    '[app] delete TeamMember Success',\r\n+    (id: string) => ({ id })\r\n );\r\n \r\n const addProjectTeamMember = createAction(\r\n     '[app] add Project TeamMember',\r\n"
+                },
+                {
+                    "date": 1628103125182,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -90,9 +90,9 @@\n );\r\n \r\n const addTeamMember = createAction(\r\n     '[app] add TeamMember',\r\n-    (email: string) => ({ email })\r\n+    (email: string,name: string) => ({ email,name })\r\n );\r\n \r\n const addTeamMemberSuccess = createAction(\r\n     '[app] add TeamMember Success',\r\n"
                 }
             ],
             "date": 1626515986012,

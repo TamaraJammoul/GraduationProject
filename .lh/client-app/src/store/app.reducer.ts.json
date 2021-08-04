@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 36,
+            "activePatchIndex": 37,
             "patches": [
                 {
                     "date": 1626516152362,
@@ -152,6 +152,10 @@
                 {
                     "date": 1628101584047,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,15 +17,17 @@\n );\r\n \r\n export const MembersReducer = createReducer(\r\n   [] as User[],\r\n+  on(AppActions.fetchProjectUsersSuccess, (_, { users }) => users),\r\n   on(AppActions.addTeamMemberSuccess, (state, { user }) => {\r\n     const newState: User[] = [...state];\r\n-    newState.push(user);\r\n-    return newState;\r\n+    return [...newState, user];\r\n   }),\r\n-  on(AppActions.deleteTeamMember, (state, { id }) => state.filter(e => e.id !== id)),\r\n-  on(AppActions.getTeamMembersSuccess, (_, { users }) => users)\r\n+  on(AppActions.deleteTeamMemberSuccess, (state, { id }) => {\r\n+    const newState: User[] = [...state];\r\n+    return newState.filter(e => e.id !== id);\r\n+  }),\r\n );\r\n \r\n export const ProjectReducer = createReducer(\r\n   [] as Project[],\r\n@@ -64,25 +66,13 @@\n   [] as User[],\r\n   on(AppActions.fetchProjectUsersSuccess, (_, { users }) => users)\r\n );\r\n \r\n-export const TeamUsersReducer = createReducer(\r\n-  [] as User[],\r\n-  on(AppActions.fetchProjectUsersSuccess, (_, { users }) => users),\r\n-  on(AppActions.addTeamMemberSuccess, (state, { user }) => {\r\n-    const newState: User[] = [...state];\r\n-    return [...newState, user];\r\n-  }),\r\n-  on(AppActions.deleteTeamMemberSuccess, (state, { id }) => {\r\n-    const newState: User[] = [...state];\r\n-    return newState.filter(e => e.id !== id);\r\n-  }),\r\n-);\r\n \r\n+\r\n export const reducers: ActionReducerMap<AppState> = {\r\n   bugs: BugsReducer,\r\n   errors: ErrorsReducer,\r\n   members: MembersReducer,\r\n   projects: ProjectReducer,\r\n   projectUsers: ProjectUsersReducer,\r\n-  teamUsers: TeamUsersReducer\r\n }\r\n"
+                },
+                {
+                    "date": 1628104529472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,10 +32,9 @@\n export const ProjectReducer = createReducer(\r\n   [] as Project[],\r\n   on(AppActions.addProjectSuccess, (state, { project }) => {\r\n     const newState: Project[] = [...state];\r\n-    newState.push(project);\r\n-    return newState;\r\n+    return [...newState, project];\r\n   }),\r\n   on(AppActions.deleteProject, (state, { projectId }) => state.filter(e => e.id !== projectId)),\r\n   on(AppActions.getProjectSuccess, (_, { projects }) => projects),\r\n   on(AppActions.renameProjectSuccess, (state, { projectId, projectName }) => {\r\n"
                 }
             ],
             "date": 1626516152362,

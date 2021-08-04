@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 11,
+            "activePatchIndex": 12,
             "patches": [
                 {
                     "date": 1626804118845,
@@ -52,6 +52,10 @@
                 {
                     "date": 1627953633150,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n @Component({\r\n   selector: 'app-sidenav',\r\n   templateUrl: './sidenav.component.html',\r\n   styleUrls: ['./sidenav.component.scss'],\r\n-  changeDetection: ChangeDetectionStrategy.Default\r\n+  changeDetection: ChangeDetectionStrategy.OnPush\r\n })\r\n export class SidenavComponent implements OnInit {\r\n   projects: Project[] = [];\r\n   constructor(private dialog: MatDialog,\r\n"
+                },
+                {
+                    "date": 1628104358366,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,10 @@\n import { Store } from '@ngrx/store';\r\n import { AppActions } from '../../store/app.action';\r\n import { AddProjectMemberDialogComponent } from '../add-project-member-dialog/add-project-member-dialog.component';\r\n import { DeleteProjectMemberDialogComponent } from '../delete-project-member-dialog/delete-project-member-dialog.component'\r\n-import { RenameProjectDialogComponent } from '../rename-project-dialog/rename-project-dialog.component'\r\n+import { RenameProjectDialogComponent } from '../rename-project-dialog/rename-project-dialog.component';\r\n+import { AddProjectDialogComponent } from '../add-project-dialog/add-project-dialog.component'\r\n import { Project } from '../../models/project.model';\r\n import { getProjectsList } from '../../store/app.selector';\r\n \r\n @Component({\r\n@@ -34,8 +35,14 @@\n       data: projectId\r\n     });\r\n   }\r\n \r\n+  addProject() {\r\n+    this.dialog.open(AddProjectDialogComponent, {\r\n+      width: '40%',\r\n+    });\r\n+  }\r\n+\r\n   deleteProjectTeamMember(project: Project) {\r\n     this.dialog.open(DeleteProjectMemberDialogComponent, {\r\n       width: '40%',\r\n       data: project\r\n"
                 }
             ],
             "date": 1626804118845,

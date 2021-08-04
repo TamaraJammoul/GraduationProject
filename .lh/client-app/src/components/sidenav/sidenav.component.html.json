@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 18,
+            "activePatchIndex": 25,
             "patches": [
                 {
                     "date": 1626804181384,
@@ -80,6 +80,34 @@
                 {
                     "date": 1627504183203,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     <span class=\"material-icons col-sm-1 mr-3 cursor-pointer\" (click)=\"addProjectTeamMember(item.id)\">\r\n       person_add\r\n     </span>\r\n \r\n-    <span class=\"material-icons col-sm-1 mr-3 cursor-pointer\" (click)=\"deleteProjectTeamMember(item.id)\">\r\n+    <span class=\"material-icons col-sm-1 mr-3 cursor-pointer\" (click)=\"deleteProjectTeamMember(item)\">\r\n       person_remove\r\n     </span>\r\n \r\n     <span class=\"material-icons col-sm-1 mr-3 cursor-pointer\" (click)=\"renameProject(item.id)\">\r\n"
+                },
+                {
+                    "date": 1628103908664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,9 @@\n <div class=\"container sidenav-container\">\r\n-  <h1 class=\"text-primary mt7 projects\">Projects</h1>\r\n+  <h1 class=\"text-primary mt7 projects\">Projects</h1> \r\n+  <span class=\"material-icons col-sm-1 ml-3 cursor-pointer\">\r\n+    add\r\n+  </span>\r\n   <div class=\"row full-width\" *ngFor=\"let item of projects\">\r\n     <div class=\"col-sm-5\">\r\n       <h3>{{item.name}}</h3>\r\n     </div>\r\n"
+                },
+                {
+                    "date": 1628103946794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,11 @@\n <div class=\"container sidenav-container\">\r\n-  <h1 class=\"text-primary mt7 projects\">Projects</h1> \r\n-  <span class=\"material-icons col-sm-1 ml-3 cursor-pointer\">\r\n-    add\r\n-  </span>\r\n+  <div>\r\n+    <h1 class=\"text-primary mt7 projects\">Projects</h1>\r\n+    <span class=\"material-icons col-sm-1 ml-3 cursor-pointer\">\r\n+      add\r\n+    </span>\r\n+  </div>\r\n   <div class=\"row full-width\" *ngFor=\"let item of projects\">\r\n     <div class=\"col-sm-5\">\r\n       <h3>{{item.name}}</h3>\r\n     </div>\r\n"
+                },
+                {
+                    "date": 1628103970813,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <div class=\"container sidenav-container\">\r\n-  <div>\r\n+  <div class=\"d-flex\">\r\n     <h1 class=\"text-primary mt7 projects\">Projects</h1>\r\n     <span class=\"material-icons col-sm-1 ml-3 cursor-pointer\">\r\n       add\r\n     </span>\r\n"
+                },
+                {
+                    "date": 1628103991611,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <div class=\"container sidenav-container\">\r\n   <div class=\"d-flex\">\r\n     <h1 class=\"text-primary mt7 projects\">Projects</h1>\r\n-    <span class=\"material-icons col-sm-1 ml-3 cursor-pointer\">\r\n+    <span class=\"material-icons ml-3 cursor-pointer\">\r\n       add\r\n     </span>\r\n   </div>\r\n   <div class=\"row full-width\" *ngFor=\"let item of projects\">\r\n"
+                },
+                {
+                    "date": 1628104005202,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <div class=\"container sidenav-container\">\r\n-  <div class=\"d-flex\">\r\n-    <h1 class=\"text-primary mt7 projects\">Projects</h1>\r\n+  <div class=\"d-flex mt7\">\r\n+    <h1 class=\"text-primary projects\">Projects</h1>\r\n     <span class=\"material-icons ml-3 cursor-pointer\">\r\n       add\r\n     </span>\r\n   </div>\r\n"
+                },
+                {
+                    "date": 1628104025301,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <div class=\"container sidenav-container\">\r\n-  <div class=\"d-flex mt7\">\r\n-    <h1 class=\"text-primary projects\">Projects</h1>\r\n+  <div class=\"d-flex text-primary mt7\">\r\n+    <h1 class=\"projects\">Projects</h1>\r\n     <span class=\"material-icons ml-3 cursor-pointer\">\r\n       add\r\n     </span>\r\n   </div>\r\n"
+                },
+                {
+                    "date": 1628104376408,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <div class=\"container sidenav-container\">\r\n   <div class=\"d-flex text-primary mt7\">\r\n     <h1 class=\"projects\">Projects</h1>\r\n-    <span class=\"material-icons ml-3 cursor-pointer\">\r\n+    <span class=\"material-icons ml-3 cursor-pointer\" (click)=\"addProject()\">\r\n       add\r\n     </span>\r\n   </div>\r\n   <div class=\"row full-width\" *ngFor=\"let item of projects\">\r\n"
                 }
             ],
             "date": 1626804181384,

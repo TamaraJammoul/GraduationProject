@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 22,
+            "activePatchIndex": 24,
             "patches": [
                 {
                     "date": 1626809968407,
@@ -96,6 +96,14 @@
                 {
                     "date": 1627953352785,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -76,9 +76,9 @@\n                 .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n                 .set('projectId', projectId)\r\n                 .set('userId', userId)\r\n         };\r\n-        return this.httpClient.post<User>(`${this.endpointUrl}/users`, httpOptions).pipe(\r\n+        return this.httpClient.post<User>(`${this.endpointUrl}/users`,null, httpOptions).pipe(\r\n             map(data => data)\r\n         );\r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1628104863175,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,10 +32,11 @@\n                 'Content-Type': 'application/json'\r\n             }),\r\n             params: new HttpParams()\r\n                 .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n+                .set('name', name)\r\n         };\r\n-        return this.httpClient.post<Project>(this.endpointUrl, name, httpOptions).pipe(\r\n+        return this.httpClient.post<Project>(this.endpointUrl, null, httpOptions).pipe(\r\n             map(data => data)\r\n         );\r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1628104880871,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n             map(data => data)\r\n         );\r\n     }\r\n \r\n-    addProject(name: String): Observable<Project> {\r\n+    addProject(name: string): Observable<Project> {\r\n         const httpOptions = {\r\n             headers: new HttpHeaders({\r\n                 'Content-Type': 'application/json'\r\n             }),\r\n"
                 }
             ],
             "date": 1626809968407,

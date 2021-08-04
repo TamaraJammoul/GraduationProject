@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1628101262719,
@@ -12,6 +12,10 @@
                 {
                     "date": 1628101633206,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,8 @@\n \n   ngOnInit(): void {\n     this.store$.dispatch(AppActions.getTeamMembers());\n     this.store$.select(getMembersList).subscribe(data => this.members = data);\n-\n   }\n \n   onAdd() {\n     this.store$.dispatch(AppActions.addTeamMember(this.control.value));\n"
+                },
+                {
+                    "date": 1628103261591,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,11 @@\n   templateUrl: './team-member-dialog.component.html',\n   styleUrls: ['./team-member-dialog.component.scss']\n })\n export class AddMemberDialogComponent implements OnInit {\n-  control = new FormControl();\n+  name = new FormControl();\n+  email = new FormControl();\n+\n   members: User[] = [];\n   constructor(private store$: Store) { }\n \n   ngOnInit(): void {\n@@ -19,9 +21,9 @@\n     this.store$.select(getMembersList).subscribe(data => this.members = data);\n   }\n \n   onAdd() {\n-    this.store$.dispatch(AppActions.addTeamMember(this.control.value));\n+    this.store$.dispatch(AppActions.addTeamMember(this.email.value, this.name.value));\n   }\n \n   onDelete(email: string) {\n     this.store$.dispatch(AppActions.deleteTeamMember(email));\n"
                 }
             ],
             "date": 1628101262719,

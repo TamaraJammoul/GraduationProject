@@ -1,0 +1,30 @@
+<div class="container sidenav-container">
+  <div class="d-flex">
+    <h1 class="text-primary mt7 projects">Projects</h1>
+    <span class="material-icons col-sm-1 ml-3 cursor-pointer">
+      add
+    </span>
+  </div>
+  <div class="row full-width" *ngFor="let item of projects">
+    <div class="col-sm-5">
+      <h3>{{item.name}}</h3>
+    </div>
+    <span class="material-icons col-sm-1 mr-3 cursor-pointer" (click)="addProjectTeamMember(item.id)">
+      person_add
+    </span>
+
+    <span class="material-icons col-sm-1 mr-3 cursor-pointer" (click)="deleteProjectTeamMember(item)">
+      person_remove
+    </span>
+
+    <span class="material-icons col-sm-1 mr-3 cursor-pointer" (click)="renameProject(item.id)">
+      drive_file_rename_outline
+    </span>
+
+    <span class="material-icons col-sm-1 cursor-pointer" (click)="deleteProject(item.id)">
+      delete
+    </span>
+  </div>
+
+
+</div>

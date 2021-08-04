@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 19,
+            "activePatchIndex": 20,
             "patches": [
                 {
                     "date": 1626537131377,
@@ -84,6 +84,10 @@
                 {
                     "date": 1628101001470,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n     ofType\r\n } from '@ngrx/effects';\r\n import {\r\n     map,\r\n-    switchMap,catchError \r\n+    switchMap, catchError\r\n } from 'rxjs/operators';\r\n import { EMPTY } from 'rxjs';\r\n import { AuthService } from '../services/auth.service';\r\n import { AppActions } from './app.action';\r\n@@ -175,8 +175,19 @@\n             )\r\n         )\r\n     );\r\n \r\n+    getTeamMember$ = createEffect(() =>\r\n+        this.actions$.pipe(\r\n+            ofType(AppActions.getTeamMembers),\r\n+            switchMap(() =>\r\n+                this.teamService.getTeamMembers().pipe(\r\n+                    map((res) => AppActions.getTeamMembersSuccess(res)),\r\n+                )\r\n+            )\r\n+        )\r\n+    );\r\n+\r\n     constructor(\r\n         private actions$: Actions,\r\n         private authService: AuthService,\r\n         private bugsService: BugsService,\r\n"
+                },
+                {
+                    "date": 1628103210661,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -157,9 +157,9 @@\n     addTeamMember$ = createEffect(() =>\r\n         this.actions$.pipe(\r\n             ofType(AppActions.addTeamMember),\r\n             switchMap(action =>\r\n-                this.teamService.addTeamMember(action.email).pipe(\r\n+                this.teamService.addTeamMember(action.email, action.name).pipe(\r\n                     map((res) => AppActions.addTeamMemberSuccess(res)),\r\n                 )\r\n             )\r\n         )\r\n"
                 }
             ],
             "date": 1626537131377,

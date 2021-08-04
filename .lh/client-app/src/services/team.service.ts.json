@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1626810386705,
@@ -20,6 +20,10 @@
                 {
                     "date": 1628100850191,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n import { User } from '../models/user.model';\r\n @Injectable({ providedIn: 'root' })\r\n export class TeamService {\r\n \r\n-    endpointUrl = `${environment.apiUrl}/Errors`;\r\n+    endpointUrl = `${environment.apiUrl}/Users`;\r\n \r\n     constructor(private httpClient: HttpClient) { }\r\n \r\n     getTeamMembers(): Observable<User[]> {\r\n"
+                },
+                {
+                    "date": 1628103202845,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,17 +23,19 @@\n             map(data => data)\r\n         );\r\n     }\r\n \r\n-    addTeamMember(memberEmail: string): Observable<any> {\r\n+    addTeamMember(email: string, name: string): Observable<any> {\r\n         const httpOptions = {\r\n             headers: new HttpHeaders({\r\n                 'Content-Type': 'application/json'\r\n             }),\r\n             params: new HttpParams()\r\n                 .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n+                .set('email', email)\r\n+                .set('name', name)\r\n         };\r\n-        return this.httpClient.post<any>(this.endpointUrl, memberEmail, httpOptions).pipe(\r\n+        return this.httpClient.post<any>(this.endpointUrl, null, httpOptions).pipe(\r\n             map(data => data)\r\n         );\r\n     }\r\n \r\n"
                 }
             ],
             "date": 1626810386705,
