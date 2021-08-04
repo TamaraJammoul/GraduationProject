@@ -1,0 +1,22 @@
+{
+    "sourceFile": "client-app/src/components/team-member-dialog/team-member-dialog.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1628101262719,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1628101633206,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,8 @@\n \n   ngOnInit(): void {\n     this.store$.dispatch(AppActions.getTeamMembers());\n     this.store$.select(getMembersList).subscribe(data => this.members = data);\n-\n   }\n \n   onAdd() {\n     this.store$.dispatch(AppActions.addTeamMember(this.control.value));\n"
+                }
+            ],
+            "date": 1628101262719,
+            "name": "Commit-0",
+            "content": "import { Component, OnInit } from '@angular/core';\nimport { Store } from '@ngrx/store';\nimport { FormControl } from '@angular/forms';\nimport { AppActions } from '../../store/app.action';\nimport { getMembersList } from '../../store/app.selector';\nimport { User } from '../../models/user.model';\n@Component({\n  selector: 'app-team-member-dialog',\n  templateUrl: './team-member-dialog.component.html',\n  styleUrls: ['./team-member-dialog.component.scss']\n})\nexport class AddMemberDialogComponent implements OnInit {\n  control = new FormControl();\n  members: User[] = [];\n  constructor(private store$: Store) { }\n\n  ngOnInit(): void {\n    this.store$.dispatch(AppActions.getTeamMembers());\n    this.store$.select(getMembersList).subscribe(data => this.members = data);\n\n  }\n\n  onAdd() {\n    this.store$.dispatch(AppActions.addTeamMember(this.control.value));\n  }\n\n  onDelete(email: string) {\n    this.store$.dispatch(AppActions.deleteTeamMember(email));\n  }\n}\n"
+        }
+    ]
+}

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 15,
+            "activePatchIndex": 19,
             "patches": [
                 {
                     "date": 1626537131377,
@@ -68,6 +68,22 @@
                 {
                     "date": 1627608843858,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,10 +5,11 @@\n     ofType\r\n } from '@ngrx/effects';\r\n import {\r\n     map,\r\n-    switchMap,\r\n+    switchMap,catchError \r\n } from 'rxjs/operators';\r\n+import { EMPTY } from 'rxjs';\r\n import { AuthService } from '../services/auth.service';\r\n import { AppActions } from './app.action';\r\n import { BugsService } from '../services/bugs.service';\r\n import { ErrorsService } from '../services/errors.service';\r\n@@ -112,8 +113,9 @@\n             ofType(AppActions.renameProject),\r\n             switchMap(action =>\r\n                 this.projectService.renameProjectMember(action.projectId, action.projectName).pipe(\r\n                     map(() => AppActions.renameProjectSuccess(action.projectId, action.projectName)),\r\n+                    catchError(() => EMPTY)\r\n                 )\r\n             )\r\n         )\r\n     );\r\n"
+                },
+                {
+                    "date": 1628098138305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -146,10 +146,10 @@\n     addProjectMember$ = createEffect(() =>\r\n         this.actions$.pipe(\r\n             ofType(AppActions.addProjectTeamMember),\r\n             switchMap(action =>\r\n-                this.projectService.addProjectMember(action.id, action.projectId).pipe(\r\n-                    map((res) => AppActions.addProjectTeamMemberSuccess(res, action.projectId)),\r\n+                this.projectService.addProjectMember(action.id.id, action.projectId).pipe(\r\n+                    map(() => AppActions.addProjectTeamMemberSuccess(action.id, action.projectId)),\r\n                 )\r\n             )\r\n         )\r\n     );\r\n"
+                },
+                {
+                    "date": 1628098241285,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -146,10 +146,10 @@\n     addProjectMember$ = createEffect(() =>\r\n         this.actions$.pipe(\r\n             ofType(AppActions.addProjectTeamMember),\r\n             switchMap(action =>\r\n-                this.projectService.addProjectMember(action.id.id, action.projectId).pipe(\r\n-                    map(() => AppActions.addProjectTeamMemberSuccess(action.id, action.projectId)),\r\n+                this.projectService.addProjectMember(action.user.id, action.projectId).pipe(\r\n+                    map(() => AppActions.addProjectTeamMemberSuccess(action.user, action.projectId)),\r\n                 )\r\n             )\r\n         )\r\n     );\r\n"
+                },
+                {
+                    "date": 1628100714208,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -169,9 +169,9 @@\n         this.actions$.pipe(\r\n             ofType(AppActions.deleteTeamMember),\r\n             switchMap(action =>\r\n                 this.teamService.deleteTeamMember(action.id).pipe(\r\n-                    map(() => AppActions.deleteTeamMemberSuccess()),\r\n+                    map(() => AppActions.deleteTeamMemberSuccess(action.id)),\r\n                 )\r\n             )\r\n         )\r\n     );\r\n"
+                },
+                {
+                    "date": 1628101001470,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n     ofType\r\n } from '@ngrx/effects';\r\n import {\r\n     map,\r\n-    switchMap,catchError \r\n+    switchMap, catchError\r\n } from 'rxjs/operators';\r\n import { EMPTY } from 'rxjs';\r\n import { AuthService } from '../services/auth.service';\r\n import { AppActions } from './app.action';\r\n@@ -175,8 +175,19 @@\n             )\r\n         )\r\n     );\r\n \r\n+    getTeamMember$ = createEffect(() =>\r\n+        this.actions$.pipe(\r\n+            ofType(AppActions.getTeamMembers),\r\n+            switchMap(() =>\r\n+                this.teamService.getTeamMembers().pipe(\r\n+                    map((res) => AppActions.getTeamMembersSuccess(res)),\r\n+                )\r\n+            )\r\n+        )\r\n+    );\r\n+\r\n     constructor(\r\n         private actions$: Actions,\r\n         private authService: AuthService,\r\n         private bugsService: BugsService,\r\n"
                 }
             ],
             "date": 1626537131377,

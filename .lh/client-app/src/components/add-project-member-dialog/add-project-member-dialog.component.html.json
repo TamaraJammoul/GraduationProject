@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 9,
+            "activePatchIndex": 10,
             "patches": [
                 {
                     "date": 1626807996237,
@@ -44,6 +44,10 @@
                 {
                     "date": 1627609332029,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,8 @@\n       <mat-option [value]=\"item.id\" *ngFor=\"let item of users\">{{item.name}}</mat-option>\n     </mat-select>\n   </mat-form-field>\n   <div class=\"col-xs-4 center\">\n-    <button class=\"p5 mb4 border-radius-xs full-width background-primary center text-white border-white\"\n+    <button type=\"button\" class=\"p5 mb4 border-radius-xs full-width background-primary center text-white border-white\"\n       (click)=\"onSubmit()\">Add</button>\n   </div>\n </form>\n"
+                },
+                {
+                    "date": 1628098065232,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n         person_outline\n       </span>\n      </span>\n     <mat-select class=\"full-width\" [disabled]=\"users.length===0\" [formControl]=\"control\" required>\n-      <mat-option [value]=\"item.id\" *ngFor=\"let item of users\">{{item.name}}</mat-option>\n+      <mat-option [value]=\"item\" *ngFor=\"let item of users\">{{item.name}}</mat-option>\n     </mat-select>\n   </mat-form-field>\n   <div class=\"col-xs-4 center\">\n     <button type=\"button\" class=\"p5 mb4 border-radius-xs full-width background-primary center text-white border-white\"\n"
                 }
             ],
             "date": 1626807996237,

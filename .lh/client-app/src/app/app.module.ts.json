@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 37,
+            "activePatchIndex": 39,
             "patches": [
                 {
                     "date": 1626457872125,
@@ -156,6 +156,14 @@
                 {
                     "date": 1627611172754,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,8 +29,9 @@\n import { AddProjectMemberDialogComponent } from '../components/add-project-member-dialog/add-project-member-dialog.component';\n import { RenameProjectDialogComponent } from '../components/rename-project-dialog/rename-project-dialog.component';\n import { HomeComponent } from '../components/home-page/home-page.component';\n import { NodejsComponent } from '../components/nodejs/nodejs.component';\n+import { AuthGuard } from '../services/authGuard.service';\n \n \n @NgModule({\n   declarations: [\n@@ -65,9 +66,9 @@\n     BrowserAnimationsModule,\n     NgbModule,\n     StoreDevtoolsModule.instrument({}),\n   ],\n-  providers: [],\n+  providers: [AuthGuard],\n   exports: [MaterialModule],\n   bootstrap: [AppComponent],\n   entryComponents: [\n     AddMemberDialogComponent,\n"
+                },
+                {
+                    "date": 1628101096438,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n import { MaterialModule } from '../libs/material.module';\n import { LoginComponent } from '../components/login/login.component';\n import { SignupComponent } from '../components/signup/signup.component';\n import { DashboardComponent } from '../components/dashboard/dashboard.component';\n-import { AddMemberDialogComponent } from '../components/add-member-dialog/add-member-dialog.component';\n+import { AddMemberDialogComponent } from '../components/team-member-dialog/add-member-dialog.component';\n import { ErrorCardComponent } from '../components/error-card/error-card.component';\n import { NavBarComponent } from '../components/navbar/navbar.component';\n import { LabeldButtonComponent } from '../components/labeld-button/labeld-button.component';\n import { PagingComponent } from '../components/paging/paging.component';\n"
+                },
+                {
+                    "date": 1628101275180,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n import { MaterialModule } from '../libs/material.module';\n import { LoginComponent } from '../components/login/login.component';\n import { SignupComponent } from '../components/signup/signup.component';\n import { DashboardComponent } from '../components/dashboard/dashboard.component';\n-import { AddMemberDialogComponent } from '../components/team-member-dialog/add-member-dialog.component';\n+import { AddMemberDialogComponent } from '../components/team-member-dialog/team-member-dialog.component';\n import { ErrorCardComponent } from '../components/error-card/error-card.component';\n import { NavBarComponent } from '../components/navbar/navbar.component';\n import { LabeldButtonComponent } from '../components/labeld-button/labeld-button.component';\n import { PagingComponent } from '../components/paging/paging.component';\n"
                 }
             ],
             "date": 1626457872125,

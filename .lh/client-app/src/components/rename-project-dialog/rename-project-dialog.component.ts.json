@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1626811432413,
@@ -12,6 +12,10 @@
                 {
                     "date": 1626811529113,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,24 +1,23 @@\n import { Component, Inject } from '@angular/core';\n import { Store } from '@ngrx/store';\n import { AppActions } from '../../store/app.action';\n import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';\n+import { FormControl } from '@angular/forms';\n \n @Component({\n   selector: 'app-rename-project-dialog',\n   templateUrl: './rename-project-dialog.component.html',\n   styleUrls: ['./rename-project-dialog.component.scss']\n })\n export class RenameProjectDialogComponent {\n+  control = new FormControl();\n \n   constructor(private store$: Store,\n     public dialogRef: MatDialogRef<RenameProjectDialogComponent>,\n-    @Inject(MAT_DIALOG_DATA) public data: {\n-      name: string,\n-      id: string\n-    }) { }\n+    @Inject(MAT_DIALOG_DATA) public data: string) { }\n \n \n   onSubmit() {\n-    this.store$.dispatch(AppActions.renameProject(this.data.id, this.data.name));\n+    this.store$.dispatch(AppActions.renameProject(this.data, this.control.value));\n   }\n }\n"
+                },
+                {
+                    "date": 1628100028672,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,6 +18,7 @@\n \n \n   onSubmit() {\n     this.store$.dispatch(AppActions.renameProject(this.data, this.control.value));\n+    this.dialogRef.close();\n   }\n }\n"
                 }
             ],
             "date": 1626811432413,

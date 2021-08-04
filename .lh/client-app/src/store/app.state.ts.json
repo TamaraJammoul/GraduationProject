@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 4,
+            "activePatchIndex": 6,
             "patches": [
                 {
                     "date": 1626516045999,
@@ -24,6 +24,14 @@
                 {
                     "date": 1627513187237,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,9 @@\n export interface AppState {\r\n     bugs: Bug[],\r\n     errors: Error[],\r\n     members: User[],\r\n-    projects: Project[]\r\n+    projects: Project[],\r\n+    projectUsers: User[],\r\n }\r\n \r\n export const STATE = 'state';\r\n"
+                },
+                {
+                    "date": 1628100492297,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,7 +8,8 @@\n     errors: Error[],\r\n     members: User[],\r\n     projects: Project[],\r\n     projectUsers: User[],\r\n+    teamUsers: User[],\r\n }\r\n \r\n export const STATE = 'state';\r\n"
+                },
+                {
+                    "date": 1628101592348,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,7 @@\n     errors: Error[],\r\n     members: User[],\r\n     projects: Project[],\r\n     projectUsers: User[],\r\n-    teamUsers: User[],\r\n }\r\n \r\n export const STATE = 'state';\r\n"
                 }
             ],
             "date": 1626516045999,

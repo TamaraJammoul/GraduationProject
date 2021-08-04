@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 18,
+            "activePatchIndex": 22,
             "patches": [
                 {
                     "date": 1626809968407,
@@ -80,6 +80,22 @@
                 {
                     "date": 1627608678135,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -108,8 +108,8 @@\n                 .set('projectId', projectId)\r\n                 .set('name', projectName)\r\n         };\r\n         return this.httpClient.patch<any>(this.endpointUrl, httpOptions).pipe(\r\n-            map(data => console.log(data))\r\n+            map(data => data)\r\n         );\r\n     }\r\n }\r\n"
+                },
+                {
+                    "date": 1627951135940,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -107,9 +107,12 @@\n                 .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n                 .set('projectId', projectId)\r\n                 .set('name', projectName)\r\n         };\r\n-        return this.httpClient.patch<any>(this.endpointUrl, httpOptions).pipe(\r\n+        return this.httpClient.patch<any>(this.endpointUrl, {params: new HttpParams()\r\n+            .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n+            .set('projectId', projectId)\r\n+            .set('name', projectName)}).pipe(\r\n             map(data => data)\r\n         );\r\n     }\r\n }\r\n"
+                },
+                {
+                    "date": 1627951265426,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -107,12 +107,9 @@\n                 .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n                 .set('projectId', projectId)\r\n                 .set('name', projectName)\r\n         };\r\n-        return this.httpClient.patch<any>(this.endpointUrl, {params: new HttpParams()\r\n-            .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n-            .set('projectId', projectId)\r\n-            .set('name', projectName)}).pipe(\r\n+        return this.httpClient.patch<any>(this.endpointUrl, httpOptions).pipe(\r\n             map(data => data)\r\n         );\r\n     }\r\n }\r\n"
+                },
+                {
+                    "date": 1627951506587,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -107,9 +107,9 @@\n                 .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n                 .set('projectId', projectId)\r\n                 .set('name', projectName)\r\n         };\r\n-        return this.httpClient.patch<any>(this.endpointUrl, httpOptions).pipe(\r\n+        return this.httpClient.patch<any>(this.endpointUrl, null, httpOptions).pipe(\r\n             map(data => data)\r\n         );\r\n     }\r\n }\r\n"
+                },
+                {
+                    "date": 1627953352785,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -76,9 +76,9 @@\n                 .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n                 .set('projectId', projectId)\r\n                 .set('userId', userId)\r\n         };\r\n-        return this.httpClient.post<User>(`${this.endpointUrl}/users`, httpOptions).pipe(\r\n+        return this.httpClient.post<User>(`${this.endpointUrl}/users`,null, httpOptions).pipe(\r\n             map(data => data)\r\n         );\r\n     }\r\n \r\n"
                 }
             ],
             "date": 1626809968407,

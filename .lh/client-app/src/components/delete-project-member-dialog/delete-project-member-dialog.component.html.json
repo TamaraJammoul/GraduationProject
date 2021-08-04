@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 5,
+            "activePatchIndex": 6,
             "patches": [
                 {
                     "date": 1626807983384,
@@ -28,6 +28,10 @@
                 {
                     "date": 1627504300922,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <p class=\"center col-xs-12 mat-display-1 text-primary title\">Delete Member</p>\n <div class=\"row no-margin full-width pt12\" *ngFor=\"let item of data.users\">\n   <div class=\"col-xs-8\">\n-    <h3>{{item.name}}</h3>\n+    <h1>{{item.name}}</h1>\n   </div>\n   <div class=\"col-xs-4 center\">\n     <button class=\"p5 mb4 border-radius-xs full-width background-danger center text-white border-white\"\n       (click)=\"onSubmit(item.id)\">Delete</button>\n"
+                },
+                {
+                    "date": 1627953803871,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <p class=\"center col-xs-12 mat-display-1 text-primary title\">Delete Member</p>\n-<div class=\"row no-margin full-width pt12\" *ngFor=\"let item of data.users\">\n+<div class=\"row no-margin full-width pt12\" *ngFor=\"let item of getUsers()\">\n   <div class=\"col-xs-8\">\n     <h1>{{item.name}}</h1>\n   </div>\n   <div class=\"col-xs-4 center\">\n"
                 }
             ],
             "date": 1626807983384,

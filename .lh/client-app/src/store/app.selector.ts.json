@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 6,
+            "activePatchIndex": 8,
             "patches": [
                 {
                     "date": 1626549455114,
@@ -32,6 +32,14 @@
                 {
                     "date": 1627611220476,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,7 +30,7 @@\n );\r\n \r\n export const isUserAuth = createSelector(\r\n   featureSelector,\r\n-  () => ''\r\n+  () => 'lkl'\r\n );\r\n \r\n"
+                },
+                {
+                    "date": 1628100534549,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,4 +33,8 @@\n   featureSelector,\r\n   () => 'lkl'\r\n );\r\n \r\n+export const getTeamUsers = createSelector(\r\n+  featureSelector,\r\n+  (state) => state.teamUsers\r\n+);\r\n"
+                },
+                {
+                    "date": 1628101603999,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,8 +33,4 @@\n   featureSelector,\r\n   () => 'lkl'\r\n );\r\n \r\n-export const getTeamUsers = createSelector(\r\n-  featureSelector,\r\n-  (state) => state.teamUsers\r\n-);\r\n"
                 }
             ],
             "date": 1626549455114,

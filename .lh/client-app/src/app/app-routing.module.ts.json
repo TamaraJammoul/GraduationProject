@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 5,
             "patches": [
                 {
                     "date": 1626458195734,
@@ -20,6 +20,14 @@
                 {
                     "date": 1627610895218,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,20 +15,17 @@\n import { SignupComponent } from '../components/signup/signup.component';\n import { CommonModule } from '@angular/common';\n import { HomeComponent } from '../components/home-page/home-page.component';\n import { NodejsComponent } from '../components/nodejs/nodejs.component';\n+import { AuthGuard } from '../services/authGuard.service';\n \n \n const routes: Routes = [\n   {\n     path: '',\n     component: HomeComponent,\n   },\n   {\n-    path: 'dashboard',\n-    component: DashboardComponent,\n-  },\n-  {\n     path: 'login',\n     component: LoginComponent,\n   }, {\n     path: 'signup',\n@@ -36,16 +33,16 @@\n   },\n   {\n     path: 'dashboard',\n     component: DashboardComponent,\n+    canActivate: [AuthGuard]\n   },\n   {\n     path: 'documentation',\n     children: [\n       {\n         path: 'node.js',\n         component: NodejsComponent,\n-        //canActivate: [VenuesListFirstGuard]\n       },\n       {\n         path: 'android',\n         component: NodejsComponent,\n"
+                },
+                {
+                    "date": 1628101104575,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n import { NgbModule } from '@ng-bootstrap/ng-bootstrap';\n import { STATE } from '../store/app.state';\n import { AppEffects } from '../store/app.effect';\n import { MaterialModule } from '../libs/material.module';\n-import { AddMemberDialogComponent } from '../components/add-member-dialog/add-member-dialog.component';\n+import { AddMemberDialogComponent } from '../components/team-member-dialog/add-member-dialog.component';\n import { DashboardComponent } from '../components/dashboard/dashboard.component';\n import { LoginComponent } from '../components/login/login.component';\n import { SignupComponent } from '../components/signup/signup.component';\n import { CommonModule } from '@angular/common';\n"
+                },
+                {
+                    "date": 1628101284204,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n import { NgbModule } from '@ng-bootstrap/ng-bootstrap';\n import { STATE } from '../store/app.state';\n import { AppEffects } from '../store/app.effect';\n import { MaterialModule } from '../libs/material.module';\n-import { AddMemberDialogComponent } from '../components/team-member-dialog/add-member-dialog.component';\n+import { AddMemberDialogComponent } from '../components/team-member-dialog/team-member-dialog.component';\n import { DashboardComponent } from '../components/dashboard/dashboard.component';\n import { LoginComponent } from '../components/login/login.component';\n import { SignupComponent } from '../components/signup/signup.component';\n import { CommonModule } from '@angular/common';\n"
                 }
             ],
             "date": 1626458195733,

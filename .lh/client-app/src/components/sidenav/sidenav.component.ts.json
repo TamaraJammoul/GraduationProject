@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 9,
+            "activePatchIndex": 11,
             "patches": [
                 {
                     "date": 1626804118845,
@@ -44,6 +44,14 @@
                 {
                     "date": 1627504172519,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,12 +34,12 @@\n       data: projectId\r\n     });\r\n   }\r\n \r\n-  deleteProjectTeamMember(projectId: string) {\r\n+  deleteProjectTeamMember(project: Project) {\r\n     this.dialog.open(DeleteProjectMemberDialogComponent, {\r\n       width: '40%',\r\n-      data: projectId\r\n+      data: project\r\n     });\r\n   }\r\n \r\n   deleteProject(projectId: string) {\r\n"
+                },
+                {
+                    "date": 1627953592852,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n @Component({\r\n   selector: 'app-sidenav',\r\n   templateUrl: './sidenav.component.html',\r\n   styleUrls: ['./sidenav.component.scss'],\r\n-  changeDetection: ChangeDetectionStrategy.OnPush\r\n+  changeDetection: ChangeDetectionStrategy.Default\r\n })\r\n export class SidenavComponent implements OnInit {\r\n   projects: Project[] = [];\r\n   constructor(private dialog: MatDialog,\r\n"
+                },
+                {
+                    "date": 1627953633150,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n @Component({\r\n   selector: 'app-sidenav',\r\n   templateUrl: './sidenav.component.html',\r\n   styleUrls: ['./sidenav.component.scss'],\r\n-  changeDetection: ChangeDetectionStrategy.Default\r\n+  changeDetection: ChangeDetectionStrategy.OnPush\r\n })\r\n export class SidenavComponent implements OnInit {\r\n   projects: Project[] = [];\r\n   constructor(private dialog: MatDialog,\r\n"
                 }
             ],
             "date": 1626804118845,
