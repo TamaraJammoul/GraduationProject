@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 41,
+            "activePatchIndex": 44,
             "patches": [
                 {
                     "date": 1626457872125,
@@ -172,6 +172,18 @@
                 {
                     "date": 1628104566069,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,12 +27,12 @@\n import { SidenavComponent } from '../components/sidenav/sidenav.component';\n import { DeleteProjectMemberDialogComponent } from '../components/delete-project-member-dialog/delete-project-member-dialog.component';\n import { AddProjectMemberDialogComponent } from '../components/add-project-member-dialog/add-project-member-dialog.component';\n import { RenameProjectDialogComponent } from '../components/rename-project-dialog/rename-project-dialog.component';\n+import { AddProjectDialogComponent } from '../components/add-project-dialog/add-project-dialog.component';\n import { HomeComponent } from '../components/home-page/home-page.component';\n import { NodejsComponent } from '../components/nodejs/nodejs.component';\n import { AuthGuard } from '../services/authGuard.service';\n-import { AddProjectDialogComponent } from '../components/add-project-dialog/add-project-dialog.component';\n \n \n @NgModule({\n   declarations: [\n"
+                },
+                {
+                    "date": 1628344507432,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,12 +2,8 @@\n import { BrowserModule } from '@angular/platform-browser';\n import { AppRoutingModule } from './app-routing.module';\n import { ReactiveFormsModule } from '@angular/forms';\n import { AppComponent } from './app.component';\n-import { StoreModule } from '@ngrx/store';\n-import { EffectsModule } from '@ngrx/effects';\n-import { AppEffects } from '../store/app.effect';\n-import { reducers } from '../store/app.reducer';\n import { HttpClientModule } from '@angular/common/http';\n import { CommonModule } from '@angular/common';\n import { StoreDevtoolsModule } from '@ngrx/store-devtools';\n import { BrowserAnimationsModule } from '@angular/platform-browser/animations';\n@@ -61,12 +57,10 @@\n     HttpClientModule,\n     BrowserModule,\n     AppRoutingModule,\n     MaterialModule,\n+    BrowserAnimationsModule,\n     ReactiveFormsModule,\n-    EffectsModule.forRoot([AppEffects]),\n-    StoreModule.forRoot(reducers),\n-    BrowserAnimationsModule,\n     NgbModule,\n     StoreDevtoolsModule.instrument({}),\n   ],\n   providers: [AuthGuard],\n"
+                },
+                {
+                    "date": 1628344543828,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,12 @@\n import { BrowserModule } from '@angular/platform-browser';\n import { AppRoutingModule } from './app-routing.module';\n import { ReactiveFormsModule } from '@angular/forms';\n import { AppComponent } from './app.component';\n+import { StoreModule } from '@ngrx/store';\n+import { EffectsModule } from '@ngrx/effects';\n+import { AppEffects } from '../store/app.effect';\n+import { reducers } from '../store/app.reducer';\n import { HttpClientModule } from '@angular/common/http';\n import { CommonModule } from '@angular/common';\n import { StoreDevtoolsModule } from '@ngrx/store-devtools';\n import { BrowserAnimationsModule } from '@angular/platform-browser/animations';\n@@ -57,10 +61,12 @@\n     HttpClientModule,\n     BrowserModule,\n     AppRoutingModule,\n     MaterialModule,\n+    ReactiveFormsModule,\n+    EffectsModule.forRoot([AppEffects]),\n+    StoreModule.forRoot(reducers),\n     BrowserAnimationsModule,\n-    ReactiveFormsModule,\n     NgbModule,\n     StoreDevtoolsModule.instrument({}),\n   ],\n   providers: [AuthGuard],\n"
+                },
+                {
+                    "date": 1628346518503,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,8 +31,9 @@\n import { AddProjectDialogComponent } from '../components/add-project-dialog/add-project-dialog.component';\n import { HomeComponent } from '../components/home-page/home-page.component';\n import { NodejsComponent } from '../components/nodejs/nodejs.component';\n import { AuthGuard } from '../services/authGuard.service';\n+import { ToastComponent } from '../components/toast/toast.component';\n \n \n @NgModule({\n   declarations: [\n@@ -53,9 +54,10 @@\n     BugCardComponent,\n     CardImagePlaceholderDirective,\n     BaseComponent,\n     SidenavComponent,\n-    HomeComponent\n+    HomeComponent,\n+    ToastComponent\n   ],\n   imports: [\n     CommonModule,\n     HttpClientModule,\n"
                 }
             ],
             "date": 1626457872125,

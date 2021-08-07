@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 22,
+            "activePatchIndex": 24,
             "patches": [
                 {
                     "date": 1626515986012,
@@ -96,6 +96,14 @@
                 {
                     "date": 1628103125182,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -90,9 +90,9 @@\n );\r\n \r\n const addTeamMember = createAction(\r\n     '[app] add TeamMember',\r\n-    (email: string) => ({ email })\r\n+    (email: string,name: string) => ({ email,name })\r\n );\r\n \r\n const addTeamMemberSuccess = createAction(\r\n     '[app] add TeamMember Success',\r\n"
+                },
+                {
+                    "date": 1628345538808,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,18 +57,20 @@\n     (errorId: string) => ({ errorId })\r\n );\r\n \r\n const deleteErrorSuccess = createAction(\r\n-    '[app] delete Error Success'\r\n+    '[app] delete Error Success',\r\n+    (errorId: string) => ({ errorId })\r\n );\r\n \r\n const resolveBug = createAction(\r\n     '[app] resolve Bug',\r\n     (bugId: string) => ({ bugId })\r\n );\r\n \r\n const resolveBugSuccess = createAction(\r\n-    '[app] resolve Bug Success'\r\n+    '[app] resolve Bug Success',\r\n+    (bugId: string) => ({ bugId })\r\n );\r\n \r\n const deleteProject = createAction(\r\n     '[app] delete Project',\r\n"
+                },
+                {
+                    "date": 1628347430304,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,16 @@\n import { Signup } from '../models/signup.model';\r\n import { Project } from '../models/project.model';\r\n import { User } from '../models/user.model';\r\n \r\n+const showToast = createAction(\r\n+    '[app] show Toast',\r\n+);\r\n \r\n+const hideToast = createAction(\r\n+    '[app] hide Toast',\r\n+);\r\n+\r\n const getTeamMembers = createAction(\r\n     '[app] Get Team Members',\r\n );\r\n \r\n@@ -190,6 +197,8 @@\n     getProjectSuccess,\r\n     renameProject,\r\n     renameProjectSuccess,\r\n     getTeamMembers,\r\n-    getTeamMembersSuccess\r\n+    getTeamMembersSuccess,\r\n+    showToast,\r\n+    hideToast\r\n }\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1626515986012,

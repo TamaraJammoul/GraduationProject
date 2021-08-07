@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 18,
+            "activePatchIndex": 19,
             "patches": [
                 {
                     "date": 1626458451617,
@@ -80,6 +80,10 @@
                 {
                     "date": 1626794139731,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,10 @@\n       mat-card-image\n       class=\"img-container mat-card-strech-section\"\n       [appCardImagePlaceHolder]=\"'../../assets/images/logo.png'\"\n     >\n+    <div class=\"error\"></div>\n     </div>\n-    <div class=\"error\"></div>\n \n     <mat-card-content class=\"mat-typography no-margin\">\n       <div class=\"card-title\">\n         {{error.fileName}}\n"
+                },
+                {
+                    "date": 1628344421569,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n       <div class=\"card-title\">\n         {{error.fileName}}\n       </div>\n   \n-      <p class=\"card-address row flex-nowrap card-subtitle\">\n+      <p class=\"card-address flex-nowrap card-subtitle\">\n         <span>{{error.description}} </span>\n       </p>\n     </mat-card-content>\n     <mat-card-actions>\n"
                 }
             ],
             "date": 1626458451617,

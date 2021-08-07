@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1626517274755,
@@ -20,6 +20,10 @@
                 {
                     "date": 1626724822186,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n         headers: new HttpHeaders({\r\n             'Content-Type': 'application/json'\r\n         }),\r\n         params: new HttpParams()\r\n-        .set('PageIndex', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n+        .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n     };\r\n     endpointUrl = `${environment.apiUrl}/Bugs`;\r\n \r\n     constructor(private httpClient: HttpClient) { }\r\n"
+                },
+                {
+                    "date": 1628345787112,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,31 +1,40 @@\n import { Observable } from 'rxjs';\r\n import { map } from 'rxjs/operators';\r\n import { Injectable } from '@angular/core';\r\n import { environment } from '../environment';\r\n-import { HttpClient, HttpHeaders,HttpParams } from '@angular/common/http';\r\n+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';\r\n import { Bug } from '../models/bug.model';\r\n \r\n @Injectable({ providedIn: 'root' })\r\n export class BugsService {\r\n-    httpOptions = {\r\n-        headers: new HttpHeaders({\r\n-            'Content-Type': 'application/json'\r\n-        }),\r\n-        params: new HttpParams()\r\n-        .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n-    };\r\n+\r\n     endpointUrl = `${environment.apiUrl}/Bugs`;\r\n \r\n     constructor(private httpClient: HttpClient) { }\r\n     fetchBugs(): Observable<Bug[]> {\r\n-    return this.httpClient.get<Bug[]>(this.endpointUrl, this.httpOptions).pipe(\r\n+        const httpOptions = {\r\n+            headers: new HttpHeaders({\r\n+                'Content-Type': 'application/json'\r\n+            }),\r\n+            params: new HttpParams()\r\n+                .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n+        };\r\n+        return this.httpClient.get<Bug[]>(this.endpointUrl, httpOptions).pipe(\r\n             map(data => data)\r\n         );\r\n     }\r\n \r\n     markBugAsError(bugId: string): Observable<any> {\r\n-        return this.httpClient.patch<any>(this.endpointUrl,bugId, this.httpOptions).pipe(\r\n+        const httpOptions = {\r\n+            headers: new HttpHeaders({\r\n+                'Content-Type': 'application/json'\r\n+            }),\r\n+            params: new HttpParams()\r\n+                .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')\r\n+                .set('bugId', bugId)\r\n+        };\r\n+        return this.httpClient.patch<any>(this.endpointUrl, null, httpOptions).pipe(\r\n             map(data => data)\r\n         );\r\n     }\r\n }\r\n"
                 }
             ],
             "date": 1626517274755,
