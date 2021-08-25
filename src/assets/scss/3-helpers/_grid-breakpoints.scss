@@ -1,0 +1,45 @@
+$breakpoints: (
+    "sm": "576px",
+    "md": "768px",
+    "lg": "992px",
+    "xl": "1200px",
+);
+
+$container_width : (
+    "sm": 576px,
+    "md": 769px,
+    "lg": 993px,
+    "xl": 1001px,
+);
+
+@mixin screen($size, $type: max, $pixels: map-get($breakpoints, "sm")) {
+    @if $size == 'small' {
+      @media screen and (#{$type}-width: map-get($breakpoints, "sm")) {
+          @content;
+      }
+    }
+    @else if $size == 'med-small' {
+      @media screen and (#{$type}-width: map-get($breakpoints, "md")) {
+          @content;
+      }
+    }
+    @else if $size == 'med' {
+      @media screen and (#{$type}-width: map-get($breakpoints, "lg")) {
+          @content;
+      }
+    }
+   @else if $size == 'large' {
+      @media screen and (#{$type}-width: map-get($breakpoints, "xl")) {
+          @content;
+      }
+    }
+    @else if $size == 'custom' {
+      @media screen and (#{$type}-width: $pixels + px) {
+       @content;
+      }
+    }
+    @else {
+      @content;
+    }
+  }
+

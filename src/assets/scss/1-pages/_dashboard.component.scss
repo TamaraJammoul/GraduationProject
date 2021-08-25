@@ -1,0 +1,48 @@
+  .error-list-cards {
+    padding: 30px 20px;
+
+    .error-list-cards-wrapper {
+      >* {
+        margin-bottom: 20px;
+      }
+    }
+
+    .paginations {
+      text-align: center;
+    }
+  }
+
+  .navbar-container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 0rem 1rem;
+  }
+
+  .drawer {
+    width: 25%;
+  }
+
+  .drawer-content {
+    margin-left: 25% !important;
+    overflow-x: hidden !important;
+  }
+
+  .key {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .drawer-container {
+    height: 100vh;
+  }
+
+  .material-icons:hover {
+    color: $primary;
+  }
+
+  .dashboard {
+    font-weight: 900 !important;
+    margin-top: 20px !important;
+    margin-left: 3rem !important;
+  }

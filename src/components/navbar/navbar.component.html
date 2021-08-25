@@ -1,0 +1,24 @@
+<div class="row full-width no-margin">
+  <div class="col-sm-3">
+    <app-labeld-button [label]="'Back'" [routerLink]="'/'" iconPosition="left">
+      <span class="material-icons text-primary mr-4">
+        arrow_back
+        </span>
+    </app-labeld-button>
+  </div>
+
+  <div class="col-sm-3" (click)="onChangeView()">
+    <app-labeld-button [label]="label" iconPosition="left">
+      <span class="material-icons text-primary">
+        grid_view
+      </span>
+    </app-labeld-button>
+  </div>
+
+
+  <div class="col-sm-6 no-margin no-padding d-flex justify-content-end">
+    <app-labeld-button appFormValidationTrigger label="Team Members"
+      class=" mr4 text-white labeld-button-secondary-outlined" [isSaveButton]="true" (click)="addTeamMember()">
+    </app-labeld-button>
+  </div>
+</div>

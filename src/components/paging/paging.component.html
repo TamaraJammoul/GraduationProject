@@ -1,0 +1,14 @@
+<div class="paging theme-dark-blue-light-grey" *ngIf="doesShowPaging()">
+  <!-- <button class="text-white" mat-raised-button color="accent"  (click)="goToPage(previousPage)" [disabled]="!previousPage" data-testid="previousPageButton" translate>
+    <mat-icon class="icon-nav mr6">chevron_left</mat-icon> <span translate> shared.paging.previousPage</span>
+  </button> -->
+
+  <button class="text-secondary2" mat-stroked-button
+  color="accent"  (click)="goToPage(previousPage)" 
+  [disabled]="!previousPage" data-testid="previousPageButton" translate>
+    <mat-icon class="icon-nav mr6">chevron_left</mat-icon> <span translate> shared.paging.previousPage</span>
+  </button>
+  <button class="text-secondary2" mat-stroked-button color="accent"  (click)="goToPage(nextPage)" [disabled]="!nextPage" data-testid="nextPageButton"> 
+    <span class="mr6" translate>shared.paging.nextPage</span>
+    <mat-icon class="icon-nav">chevron_right</mat-icon></button>
+</div>

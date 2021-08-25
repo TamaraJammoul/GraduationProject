@@ -1,0 +1,10 @@
+<div class="snackbar-notification">
+    <div class="snackbar-notification-wrapper">
+        <mat-icon class="icon">{{mapStatusToIcon[data.status] || 'info'}}</mat-icon>
+        <div class="message-container">
+            <div class="status" translate>{{data.status}}</div>
+            <div translate>{{data?.message}}</div>
+        </div>
+        <mat-icon (click)="snackBarRef.dismiss()">close</mat-icon>
+    </div>
+</div>

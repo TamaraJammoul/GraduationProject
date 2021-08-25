@@ -1,0 +1,91 @@
+@import "~@angular/material/theming";
+
+@mixin mat-input-custom-typography($theme, $typography) {
+  .mat-input-element {
+    @include input-placeholder {
+      color: $secondary2;
+    }
+  }
+
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: $secondary2;
+  }
+
+  //Make the padding of input select small to match the design
+  .mat-form-field-type-mat-input.mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 0.3em 0 0.5em 0;
+
+    input.mat-input-element,
+    textarea.mat-input-element {
+      margin-top: 0;
+    }
+
+    textarea.mat-input-element {
+      resize: none;
+      min-height: 100px;
+      line-height: 25px;
+    }
+  }
+
+  //Make the padding of input select small to match the design
+  .mat-form-field-type-mat-select.mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 0.2em 0 0.3em 0;
+
+    .mat-select-min-line {
+      line-height: 26px;
+    }
+
+    .mat-select-arrow-wrapper {
+      transform: translateY(0%) !important;
+    }
+  }
+
+  //Fix icon positioning in inputs
+  .mat-form-field-appearance-outline {
+    .mat-form-field-flex {
+
+      .mat-form-field-prefix .mat-icon,
+      .mat-form-field-suffix .mat-icon {
+        line-height: 100%;
+        margin-inline-end: 10px;
+        color: $secondary2;
+      }
+    }
+  }
+
+  // Remove fields margin to fix spacing
+  .mat-form-field.mat-form-field-appearance-outline {
+    .mat-form-field-wrapper {
+      margin: 0;
+    }
+  }
+
+  .mat-form-field-type-mat-input.mat-form-field-appearance-outline {
+    .mat-form-field-flex {
+      align-items: center;
+    }
+  }
+
+  // change label colors
+  .mat-form-field.mat-form-field-appearance-outline .mat-form-field-label {
+    color: $secondary2;
+    line-height: 26px;
+    margin-top: -8px;
+  }
+
+  .mat-validation-error {
+    position: relative;
+    top: -14px;
+    font-size: 13px;
+    white-space: break-spaces;
+  }
+
+  .mat-input-inline-text {
+    font-size: $spacing-sm;
+  }
+
+  .mat-inline-label {
+    padding-bottom: 1.025em;
+  }
+
+}

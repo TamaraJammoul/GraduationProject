@@ -1,0 +1,50 @@
+.no-repeat-background {
+    background-repeat: no-repeat;
+}
+.background-b-r{
+    background-position: bottom right;
+}
+
+.background-secondary3-5-opactiy{
+    background-color: rgba($secondary3, 0.5);
+}
+
+.background-light-primary {
+    background-color: $light-primary;
+}
+
+.background-success{
+    background-color: $success !important;
+}
+
+.background-danger{
+    background-color: $danger;
+}
+
+.background-warning {
+    background-color: $warning;
+}
+
+.background-secondary3{
+    background-color: $secondary3;
+}
+
+.background-secondary-2-opactiy {
+    background: rgba($secondary, 0.2);
+}
+.background-purple {
+    background: $purple;
+}
+
+
+@each $key, $val in $colors {
+    .background-#{$key} {
+        background-color: #{$val} !important;
+    }
+}
+
+@each $key, $val in $notifications-theme {
+    .background-#{$key} {
+        background-color: $val;
+    }
+}

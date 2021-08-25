@@ -1,0 +1,181 @@
+@import '~@angular/material/theming';
+
+
+@mixin contained-button-text {
+  color: $white !important;
+}
+
+@mixin contained-button-icon {
+  border: none !important;
+}
+
+@mixin labeld-button-theme($theme, $typography) {
+  .labeld-button-container {
+    display: flex;
+    min-height: 50px;
+    background-color: $white;
+    overflow: hidden;
+    border-radius: $border-radius-xs;
+    align-items: center;
+    box-shadow: 0px 6px 12px -6px $black-12-opacity, 0px 8px 24px -4px $black-12-opacity;
+    cursor: pointer;
+    border-width: 1px;
+    border-style: solid;
+    min-width: 215px;
+    max-width: 250px;
+  }
+
+  .labeld-button-label {
+    text-align: center;
+    padding: 0 25px;
+    font-size: 14px;
+    flex-basis: 90%;
+  }
+  
+  .labeld-text {
+    padding: 0 15px !important;
+    min-width: 130px;
+  }
+
+  .labeld-button-disabled {
+    cursor: not-allowed;
+    opacity: 0.2;
+  }
+
+  .labeld-button-icon {
+    padding: 0 17px;
+    border-left-width: 1px;
+    border-left-style: solid;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    flex-basis: 10%;
+  }
+
+  .labeld-button-icon-reversed {
+    order: 1;
+    border-left: none;
+    border-right-width: 1px;
+    border-right-style: solid;
+
+    img {
+      transform: rotate(180deg);
+    }
+  }
+
+  .labeld-button-label-reversed {
+    order: 2;
+  }
+
+  .labeld-button-normal-outlined {
+    .labeld-button-container {
+      border: 1px solid $dark !important;
+    }
+
+    .labeld-button-label {
+      color: $dark !important;
+    }
+
+    .labeld-button-icon {
+      border-color: $dark !important;
+    }
+  }
+
+  .labeld-button-success-outlined {
+
+    .labeld-button-container {
+      border: 1px solid $success !important;
+    }
+
+    .labeld-button-label {
+      color: $success !important;
+    }
+
+    .labeld-button-icon {
+      border-color: $success !important;
+    }
+
+  }
+
+  .labeld-button-danger-outlined {
+    .labeld-button-container {
+      border: 1px solid $danger !important;
+    }
+
+    .labeld-button-label {
+      color: $danger !important;
+    }
+
+    .labeld-button-icon {
+      border-color: $danger !important;
+    }
+  }
+
+  .labeld-button-warning-outlined {
+    .labeld-button-container {
+      border: 1px solid $gold !important;
+    }
+
+    .labeld-button-label {
+      color: $gold !important;
+    }
+
+    .labeld-button-icon {
+      border-color: $gold !important;
+    }
+  }
+
+  .labeld-button-normal-contained {
+    .labeld-button-container {
+      background-color: $dark;
+    }
+
+    .labeld-button-label {
+      @include contained-button-text;
+    }
+
+  }
+
+  .labeld-button-success-contained {
+
+    .labeld-button-container {
+      background-color: $success;
+    }
+
+    .labeld-button-label {
+      @include contained-button-text;
+    }
+
+  }
+
+  .labeld-button-danger-contained {
+    .labeld-button-container {
+      background-color: $danger;
+    }
+
+    .labeld-button-label {
+      @include contained-button-text;
+    }
+  }
+
+  .labeld-button-warning-contained {
+    .labeld-button-container {
+      background-color: $gold;
+    }
+
+    .labeld-button-label {
+      @include contained-button-text;
+    }
+
+  }
+
+  .saveIcon {
+    background-image: url(/assets/icons/filters/save.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &:hover {
+      background-image: url(/assets/icons/filters/check_circle.svg);
+    }
+  }
+}

@@ -1,0 +1,40 @@
+<form class="full-width pt12">
+  <p class="center full-width mat-display-1 text-primary title">Team Members</p>
+  <div class="row no-margin full-width">
+    <div class="col-sm-4">
+      <mat-form-field appearance="outline" [floatLabel]="'always'" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput [formControl]="email" placeholder="Enter Member Email" required type="email" />
+      </mat-form-field>
+      <div *ngIf="email.invalid &&  email.touched" class="text-danger mat-caption mr3">
+        <div *ngIf="email?.errors?.required">
+          Please enter Email
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <mat-form-field appearance="outline" [floatLabel]="'always'" class="full-width">
+        <mat-label>Name</mat-label>
+        <input matInput [formControl]="name" placeholder="Enter Member Name" required type="text" />
+      </mat-form-field>
+      <div *ngIf="name.invalid &&  name.touched" class="text-danger mat-caption">
+        <div *ngIf="name?.errors?.required">
+          Please enter Name
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-4 center">
+      <button type="button" class="p5 mb4 border-radius-xs full-width background-primary center text-white border-white"
+        (click)="onAdd()">Add Member</button>
+    </div>
+  </div>
+</form>
+<div class="row no-margin full-width pt12" *ngFor="let item of members">
+  <div class="col-xs-8">
+    <h3 class="pl7">{{item.name}}</h3>
+  </div>
+  <div class="col-xs-4 center">
+    <button type="button" class="p5 mb4 border-radius-xs full-width background-danger center text-white border-white"
+      (click)="onDelete(item.id)">Delete Member</button>
+  </div>
+</div>

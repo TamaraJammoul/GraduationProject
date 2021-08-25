@@ -1,0 +1,10 @@
+<p class="center col-xs-12 mat-display-1 text-primary title">Delete Member</p>
+<div class="row no-margin full-width pt12" *ngFor="let item of getUsers()">
+  <div class="col-xs-8">
+    <h1>{{item.name}}</h1>
+  </div>
+  <div class="col-xs-4 center">
+    <button class="p5 mb4 border-radius-xs full-width background-danger center text-white border-white"
+      (click)="onSubmit(item.id)">Delete</button>
+  </div>
+</div>

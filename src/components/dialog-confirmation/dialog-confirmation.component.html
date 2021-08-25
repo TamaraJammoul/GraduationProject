@@ -1,0 +1,19 @@
+<div class="dialog-confirmation" [class.dialog-confirmation-simple]="!data.description"
+[class.dialog-confirmation-complex]="data.description">
+    <div class="dialog-confirmation-header d-flex">
+        <span class="dialog-confirmation-header__close-icon mr-4">
+            <span (click)="cancel()" class="material-icons text-primary">
+                close
+                </span>
+        </span>
+        <div class="dialog-confirmation-header_content">
+            <h2 mat-dialog-title class="dialog-confirmation-header__title">{{ data.title}}</h2>
+            <p class="dialog-confirmation-header__description mb12" translate="">{{ data.description }}</p>    
+        </div>
+    </div>
+</div>
+
+<div mat-dialog-actions class="dialog-confirmation action">
+        <button type="button" mat-button color="accent" class="mr5 background-white text-primary border-white border-radius-xs p5" (click)="cancel()">{{ data.cancelText}}</button>
+        <button type="button" mat-flat-button color="accent" class="background-primary border-primary text-white border-radius-xs p5" (click)="confirm()">{{ data.confirmText}}</button>
+</div>

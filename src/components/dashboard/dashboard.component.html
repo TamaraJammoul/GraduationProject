@@ -1,0 +1,23 @@
+<mat-drawer-container class="drawer-container">
+  <mat-drawer mode="side" class="drawer" opened>
+    <app-sidenav></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content class="drawer-content">
+    <h1 class="dashboard">Dashboard</h1>
+    <div class="container">
+      <app-navbar class="navbar-container" [label]="isBugListView?'Bugs':'Errors'" (changeView)="changeView()">
+      </app-navbar>
+      <div class="error-list-cards action-bar-container" *ngIf="!isBugListView">
+        <div class="error-list-cards-wrapper row align-items-strech">
+          <error-card class="col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let item of errors" [error]="item">
+          </error-card>
+        </div>
+      </div>
+      <div class="error-list-cards action-bar-container" *ngIf="isBugListView">
+        <div class="error-list-cards-wrapper row align-items-strech">
+          <bug-card class="col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let item of bugs" [bug]="item"></bug-card>
+        </div>
+      </div>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
