@@ -1,0 +1,42 @@
+@import "~@angular/material/theming";
+
+@mixin mat-icon-extended-theme($theme, $notifications-theme, $typography) {
+    $color: mat-get-color-config($theme);
+    $density: mat-get-density-config($theme);
+    $typography: mat-get-typography-config($theme);
+
+    @if $color != null {
+        @include mat-icon-svg-color($color, $notifications-theme);
+    }
+}
+
+@mixin mat-icon-svg-color($config-or-theme, $notifications-theme) {
+    $config: mat-get-color-config($config-or-theme);
+    $primary: map-get($config, primary);
+    $accent: map-get($config, accent);
+    $warn: map-get($config, warn);
+
+    .mat-icon {
+        &.mat-primary path {
+            fill: mat-color($primary, text);
+        }
+
+        &.mat-accent path {
+            fill: mat-color($accent, text);
+        }
+
+        &.mat-warn path {
+            fill: mat-color($warn, text);
+        }
+
+        @each $key, $val in $notifications-theme {
+            &.mat-#{$key} path {
+                fill: $val;
+            }
+
+            &.mat-#{$key} {
+                color: $val;
+            }
+        }
+    }
+}

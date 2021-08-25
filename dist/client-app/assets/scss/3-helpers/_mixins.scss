@@ -1,0 +1,196 @@
+@mixin center() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin inline-center() {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+@mixin inline-center-vertically() {
+  display: inline-flex;
+  align-items: center;
+}
+
+@mixin inline-center-horizontally() {
+  display: inline-flex;
+  justify-content: center;
+}
+
+@mixin center-vertically() {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@mixin center-horizontally() {
+    display: flex;
+    justify-content: center;
+}
+
+.center {
+  @include center();
+}
+
+.inline-center {
+  @include inline-center();
+}
+
+.inline-center-vertically {
+  @include inline-center-vertically();
+}
+
+.inline-center-horizontally {
+  @include inline-center-horizontally();
+}
+
+.center-vertically {
+  @include center-vertically();
+}
+
+.center-horizontally {
+  @include center-horizontally();
+}
+
+$sizes: 12;
+
+@mixin margin-classes {
+  @for $i from 0 through $sizes {
+    $margin: $i * 0.2rem;
+    /* negative margin #{$margin} */
+    .im#{$i} {
+      margin: $margin !important;
+    }
+    .iml#{$i} {
+      margin-left: -#{$margin} !important;
+    }
+    .imr#{$i} {
+      margin-right: -#{$margin} !important;
+    }
+    .imt#{$i} {
+      margin-top: -#{$margin} !important;
+    }
+    .imb#{$i} {
+      margin-bottom: -#{$margin} !important;
+    }
+    .imx#{$i} {
+      margin-left: -#{$margin} !important;
+      margin-right: -#{$margin} !important;
+    }
+    .imy#{$i} {
+      margin-top: -#{$margin} !important;
+      margin-bottom: -#{$margin} !important;
+    }
+    /* Positive margin */
+    .m#{$i} {
+      margin: $margin !important;
+    }
+    .ml#{$i} {
+      margin-left: $margin !important;
+    }
+    .mr#{$i} {
+      margin-right: $margin !important;
+    }
+    .mt#{$i} {
+      margin-top: $margin !important;
+    }
+    .mb#{$i} {
+      margin-bottom: $margin !important;
+    }
+    .mx#{$i} {
+      margin-left: $margin !important;
+      margin-right: $margin !important;
+    }
+    .my#{$i} {
+      margin-top: $margin !important;
+      margin-bottom: $margin !important;
+    }
+  }
+}
+@include margin-classes;
+
+@mixin padding-classes {
+  @for $i from 1 through $sizes {
+    $padding: $i * 0.1rem;
+    /* padding #{$padding} */
+    .p#{$i} {
+      padding: $padding !important;
+    }
+    .pl#{$i} {
+      padding-left: $padding !important;
+    }
+    .pr#{$i} {
+      padding-right: $padding !important;
+    }
+    .pt#{$i} {
+      padding-top: $padding !important;
+    }
+    .pb#{$i} {
+      padding-bottom: $padding !important;
+    }
+    .px#{$i} {
+      padding-left: $padding !important;
+      padding-right: $padding !important;
+    }
+    .py#{$i} {
+      padding-top: $padding !important;
+      padding-bottom: $padding !important;
+    }
+  }
+}
+@include padding-classes;
+
+
+$breakpoints: (
+    "sm": "576px",
+    "md": "768px",
+    "lg": "992px",
+    "xl": "1200px",
+);
+
+$container_width : (
+    "sm": 576px,
+    "md": 769px,
+    "lg": 993px,
+    "xl": 1201px,
+);
+
+@mixin screen($size, $type: max, $pixels: map-get($breakpoints, "sm")) {
+    @if $size == 'small' {
+      @media screen and (#{$type}-width: map-get($breakpoints, "sm")) {
+          @content;
+      }
+    }
+    @else if $size == 'med-small' {
+      @media screen and (#{$type}-width: map-get($breakpoints, "md")) {
+          @content;
+      }
+    }
+    @else if $size == 'med' {
+      @media screen and (#{$type}-width: map-get($breakpoints, "lg")) {
+          @content;
+      }
+    }
+   @else if $size == 'large' {
+      @media screen and (#{$type}-width: map-get($breakpoints, "xl")) {
+          @content;
+      }
+    }
+    @else if $size == 'custom' {
+      @media screen and (#{$type}-width: $pixels + px) {
+       @content;
+      }
+    }
+    @else {
+      @content;
+    }
+  }
+
+
+.center {
+  @include center();
+}
