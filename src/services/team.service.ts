@@ -10,6 +10,7 @@ export class TeamService {
 
     endpointUrl = `${environment.apiUrl}/Users`;
     authEndpointUrl = `${environment.authUrl}/user`;
+    sessionId = localStorage.getItem('token');
 
     constructor(private httpClient: HttpClient) { }
 
@@ -19,7 +20,7 @@ export class TeamService {
                 'Content-Type': 'application/json'
             }),
             params: new HttpParams()
-                .set('sessionId', JSON.stringify(localStorage.getItem('token')))
+                .set('sessionId', this.sessionId?this.sessionId:'')
         };
         return this.httpClient.get<User[]>(this.endpointUrl, httpOptions).pipe(
             map(data => data)
@@ -33,7 +34,7 @@ export class TeamService {
             }),
         };
         const body = {
-            sessionId: JSON.stringify(localStorage.getItem('token')),
+            sessionId: this.sessionId?this.sessionId:'',
             email,
             name,
             phone: '09951516896',
@@ -50,7 +51,7 @@ export class TeamService {
                 'Content-Type': 'application/json'
             }),
             params: new HttpParams()
-                .set('sessionId', JSON.stringify(localStorage.getItem('token')))
+                .set('sessionId', this.sessionId?this.sessionId:'')
                 .set('teamMemberId', userId)
         };
         return this.httpClient.delete<any>(`${this.authEndpointUrl}/deleteUser`, httpOptions).pipe(

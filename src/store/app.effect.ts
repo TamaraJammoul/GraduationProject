@@ -224,7 +224,7 @@ export class AppEffects {
                 this.teamService.addTeamMember(action.email, action.name).pipe(
                     map((res) => {
                         this.snackBarNotificationService.success({ message: 'Add Team Member Success', horizontalPosition: 'right', verticalPosition: 'top' })
-                        return AppActions.addTeamMemberSuccess(res)
+                        return AppActions.addTeamMemberSuccess(res.user)
                     }),
                 )
             )

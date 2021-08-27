@@ -26,8 +26,10 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatStepperModule } from '@angular/material/stepper';
+import {ClipboardModule} from '@angular/cdk/clipboard';
 
 const materialComponents = [
+  ClipboardModule,
   MatInputModule,
   MatGridListModule,
   MatSidenavModule,

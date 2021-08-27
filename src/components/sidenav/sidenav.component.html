@@ -6,28 +6,45 @@
     </span>
   </div>
   <div class="full-width" *ngFor="let item of projects">
-    <div class="row full-width">
-      <div class="col-sm-5">
+    <div class="row full-width mb4">
+      <div class="col-sm-4">
         <h3>{{item.name}}</h3>
       </div>
-      <span class="material-icons text-silver col-sm-1 mr-3 cursor-pointer" (click)="addProjectTeamMember(item.id)">
+      <span class="material-icons text-silver col-sm-1 mr-2 cursor-pointer" (click)="addProjectTeamMember(item.id)">
         person_add
       </span>
 
-      <span class="material-icons text-silver col-sm-1 mr-3 cursor-pointer" (click)="deleteProjectTeamMember(item)">
+      <span class="material-icons text-silver col-sm-1 mr-2 cursor-pointer" (click)="deleteProjectTeamMember(item)">
         person_remove
       </span>
 
-      <span class="material-icons col-sm-1 mr-3 cursor-pointer text-warning" (click)="renameProject(item.id)">
+      <span class="material-icons col-sm-1 mr-2 cursor-pointer text-warning" (click)="renameProject(item.id)">
         drive_file_rename_outline
       </span>
 
-      <span class="material-icons col-sm-1 cursor-pointer text-danger" (click)="deleteProject(item.id)">
+      <span class="material-icons col-sm-1 mr-2 cursor-pointer text-danger" (click)="deleteProject(item.id)">
         delete
       </span>
+      <span class="material-icons col-sm-1 cursor-pointer text-primary" mat-button [matMenuTriggerFor]="menu">
+        vpn_key
+        </span>
     </div>
-    <div class="full-width">
-      <h3 class="full-width key">key : {{item.key}}</h3>
-    </div>
+    <mat-menu #menu="matMenu" class="cursor-pointer">
+      <p mat-menu-item >
+        <span class="material-icons mr-2 text-primary" [cdkCopyToClipboard]="item.key">
+          content_copy
+          </span>
+        Project key: {{item.key}}</p>
+      <p mat-menu-item>
+       <span class="material-icons mr-2 text-primary" [cdkCopyToClipboard]="'7f453dd1b6c12eb143ff59ac94f10df12dfdc24da08063e26e8b19092c528e01'">
+        content_copy
+        </span>
+       Api Secret: "7f453dd1b6c12eb143ff59ac94f10df12dfdc24da08063e26e8b19092c528e01"</p>
+      <p mat-menu-item >
+      <span class="material-icons mr-2 text-primary" [cdkCopyToClipboard]="'5d9853aaeb074c20fa135b90080485b3f35d83566c23cf4f4fafc895e394d4a1'">
+        content_copy
+        </span>
+        Api Key: "5d9853aaeb074c20fa135b90080485b3f35d83566c23cf4f4fafc895e394d4a1"</p>
+    </mat-menu>
   </div>
 </div>

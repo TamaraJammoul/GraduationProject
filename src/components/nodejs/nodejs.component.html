@@ -1,7 +1,10 @@
 <div class="background-white documentation">
   <div class="">
     <h1 class="text-secondary title">Node.js</h1>
-    <h2 class="d-flex text-primary"><p class="cursor-pointer" [routerLink]="'/'">Documentation </p><p> / Node.js</p></h2>
+    <h2 class="d-flex text-primary">
+      <p class="cursor-pointer" [routerLink]="'/'">Documentation </p>
+      <p> / Node.js</p>
+    </h2>
   </div>
   <p class="section1">Sentry's Node SDK enables automatic reporting of errors, exceptions, and transactions.
     Our Node SDK supports all recent versions, and integrates well with a variety of popular frameworks and packages. It
@@ -12,9 +15,9 @@
     <p>Sentry captures data by using an SDK within your application’s runtime.</p>
     <div class="background-secondary text-white p8">
       <p># Using yarn</p>
-      <p><span class="install">yarn add</span> @sentry/node @sentry/tracing</p>
+      <p><span class="install">yarn add</span> ILogger</p>
       <p># Using npm</p>
-      <p><span class="install">npm install --save</span> @sentry/node @sentry/tracing</p>
+      <p><span class="install">npm install --save</span> ILogger</p>
     </div>
   </div>
 
@@ -23,17 +26,16 @@
     <p>Configuration should happen as early as possible in your application's lifecycle.</p>
     <p class="mt3">Once this is done, Sentry's Node SDK captures all transactions and unhandled exceptions.</p>
     <div class="background-secondary text-white p8">
-      <p class="code">import <span class="star">*</span> as <span class="text-white">Sentry </span>from <span
-          class="install">"@sentry/node";</span></p>
-      <p class="code">import <span class="star">*</span> as <span class="text-white">Tracing </span>from <span
-          class="install">"@sentry/tracing";</span></p>
-      <p><span class="install">Sentry</span>.init(<br />
-        dsn: <span class="install">"https://examplePublicKey@o0.ingest.sentry.io/0"</span>,
+      <p class="code">const <span class="star">{{'{ '}}ilogger {{'}'}}</span> = require <span class="install">("ILogger");</span></p>
+      <p class="code">const <span class="star">option</span> = {{'{'}} <span class="text-white"> <br />//some credentials
+          <br /> </span>{{'}'}}; </p>
+      <p><span class="install">try </span>{{'{ '}}<br />
+            <span class="pl12">//some code emmit an error</span>
         <br />
-        // We recommend adjusting this value in production, or using tracesSampler<br />
-        // for finer control<br />
-        tracesSampleRate:<span class="text-warning"> 1.0</span>,<br />
-        );
+        <span class="pl8">{{'}'}} catch (err) {{'{ '}}</span><br />
+        <span class="install pl12">ilogger({{'{'}} option, error: err {{'}'}});</span> <br />
+        <span class="pl8">{{'}'}}</span>
+        <br />
       </p>
     </div>
   </div>

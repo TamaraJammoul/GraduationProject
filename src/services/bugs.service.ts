@@ -9,6 +9,7 @@ import { Bug } from '../models/bug.model';
 export class BugsService {
 
     endpointUrl = `${environment.apiUrl}/Bugs`;
+    sessionId = localStorage.getItem('token');
 
     constructor(private httpClient: HttpClient) { }
     fetchBugs(projectId: string): Observable<Bug[]> {
@@ -17,7 +18,7 @@ export class BugsService {
                 'Content-Type': 'application/json'
             }),
             params: new HttpParams()
-                .set('sessionId', JSON.stringify(localStorage.getItem('token')))
+                .set('sessionId', this.sessionId?this.sessionId:'')
                 .set('projectId', projectId)
         };
         return this.httpClient.get<Bug[]>(this.endpointUrl, httpOptions).pipe(
@@ -31,7 +32,7 @@ export class BugsService {
                 'Content-Type': 'application/json'
             }),
             params: new HttpParams()
-                .set('sessionId', JSON.stringify(localStorage.getItem('token')))
+                .set('sessionId', this.sessionId?this.sessionId:'')
                 .set('bugId', bugId)
         };
         return this.httpClient.patch<any>(this.endpointUrl, null, httpOptions).pipe(

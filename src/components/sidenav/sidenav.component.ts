@@ -59,4 +59,5 @@ export class SidenavComponent implements OnInit {
       data: projectId
     });
   }
+
 }

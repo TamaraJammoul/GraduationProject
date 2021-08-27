@@ -9,6 +9,7 @@ import { Error } from '../models/error.model';
 export class ErrorsService {
 
     endpointUrl = `${environment.apiUrl}/Errors`;
+    sessionId = localStorage.getItem('token');
 
     constructor(private httpClient: HttpClient) { }
     fetchErrors(projectId: string): Observable<Error[]> {
@@ -17,7 +18,7 @@ export class ErrorsService {
                 'Content-Type': 'application/json'
             }),
             params: new HttpParams()
-                .set('sessionId', JSON.stringify(localStorage.getItem('token')))
+                .set('sessionId', this.sessionId?this.sessionId:'')
                 .set('projectId', projectId)
         };
         return this.httpClient.get<Error[]>(this.endpointUrl, httpOptions).pipe(
@@ -31,7 +32,7 @@ export class ErrorsService {
                 'Content-Type': 'application/json'
             }),
             params: new HttpParams()
-                .set('sessionId', JSON.stringify(localStorage.getItem('token')))
+                .set('sessionId', this.sessionId?this.sessionId:'')
                 .set('errorId', errorId)
         };
         return this.httpClient.delete<any>(this.endpointUrl, httpOptions).pipe(
@@ -45,7 +46,7 @@ export class ErrorsService {
                 'Content-Type': 'application/json'
             }),
             params: new HttpParams()
-                .set('sessionId', JSON.stringify(localStorage.getItem('token')))
+                .set('sessionId', this.sessionId?this.sessionId:'')
                 .set('errorId', errorId)
         };
         const body = {

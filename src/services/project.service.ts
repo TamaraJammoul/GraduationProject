@@ -10,7 +10,7 @@ import { User } from '../models/user.model';
 export class ProjectService {
 
     endpointUrl = `${environment.apiUrl}/Projects`;
-
+    sessionId = localStorage.getItem('token');
     constructor(private httpClient: HttpClient) { }
 
     getProjects(): Observable<Project[]> {
@@ -19,7 +19,7 @@ export class ProjectService {
                 'Content-Type': 'application/json'
             }),
             params: new HttpParams()
-                .set('sessionId', JSON.stringify(localStorage.getItem('token')))
+                .set('sessionId', this.sessionId?this.sessionId:'')
         };
         return this.httpClient.get<Project[]>(this.endpointUrl, httpOptions).pipe(
             map(data => data)
@@ -32,7 +32,7 @@ export class ProjectService {
                 'Content-Type': 'application/json'
             }),
             params: new HttpParams()
-                .set('sessionId', JSON.stringify(localStorage.getItem('token')))
+                .set('sessionId', this.sessionId?this.sessionId:'')
                 .set('name', name)
         };
         return this.httpClient.post<Project>(this.endpointUrl, null, httpOptions).pipe(
@@ -46,7 +46,7 @@ export class ProjectService {
                 'Content-Type': 'application/json'
             }),
             params: new HttpParams()
-                .set('sessionId', JSON.stringify(localStorage.getItem('token')))
+                .set('sessionId', this.sessionId?this.sessionId:'')
                 .set('projectId', projectId)
         };
         return this.httpClient.get<User[]>(`${this.endpointUrl}/users`, httpOptions).pipe(
@@ -60,7 +60,7 @@ export class ProjectService {
                 'Content-Type': 'application/json'
             }),
             params: new HttpParams()
-                .set('sessionId', JSON.stringify(localStorage.getItem('token')))
+                .set('sessionId', this.sessionId?this.sessionId:'')
                 .set('projectId', projectId)
         };
         return this.httpClient.delete<any>(this.endpointUrl, httpOptions).pipe(
@@ -74,11 +74,11 @@ export class ProjectService {
                 'Content-Type': 'application/json'
             }),
             params: new HttpParams()
-                .set('sessionId', JSON.stringify(localStorage.getItem('token')))
+                .set('sessionId', this.sessionId?this.sessionId:'')
                 .set('projectId', projectId)
                 .set('userId', userId)
         };
-        return this.httpClient.post<User>(`${this.endpointUrl}/users`,null, httpOptions).pipe(
+        return this.httpClient.post<User>(`${this.endpointUrl}/users`, null, httpOptions).pipe(
             map(data => data)
         );
     }
@@ -89,7 +89,7 @@ export class ProjectService {
                 'Content-Type': 'application/json'
             }),
             params: new HttpParams()
-                .set('sessionId', JSON.stringify(localStorage.getItem('token')))
+                .set('sessionId', this.sessionId?this.sessionId:'')
                 .set('userId', userId)
                 .set('projectId', projectId)
         };
@@ -105,7 +105,7 @@ export class ProjectService {
                 'Content-Type': 'application/json'
             }),
             params: new HttpParams()
-                .set('sessionId', JSON.stringify(localStorage.getItem('token')))
+                .set('sessionId', this.sessionId?this.sessionId:'')
                 .set('projectId', projectId)
                 .set('name', projectName)
         };
