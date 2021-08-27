@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from '../components/home-page/home-page.component';
 import { NodejsComponent } from '../components/nodejs/nodejs.component';
 import { AuthGuard } from '../services/authGuard.service';
+import { AndroidComponent } from '../components/android/android.component';
 
 
 const routes: Routes = [
@@ -42,7 +43,7 @@ const routes: Routes = [
       },
       {
         path: 'android',
-        component: NodejsComponent,
+        component: AndroidComponent,
       },
     ]
   }

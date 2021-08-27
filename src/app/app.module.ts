@@ -36,10 +36,12 @@ import { SnackBarNotificationService } from '../services/snackbar-notification.s
 import { ConfirmationDialogService } from '../services/dialog-confirmation.service';
 import { SnackbarNotificationComponent } from '../components/snack-bar-notification/snackbar-notification.component';
 import { ConfirmationDialogComponent } from '../components/dialog-confirmation/dialog-confirmation.component';
+import { AndroidComponent } from '../components/android/android.component';
 
 
 @NgModule({
   declarations: [
+    AndroidComponent,
     SnackbarNotificationComponent,
     NodejsComponent,
     AddProjectDialogComponent,

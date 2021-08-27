@@ -33,7 +33,7 @@
         better software, faster.</div>
       <div class="masthead-heading text-uppercase">Working Code, Happy Customers</div>
       <a class="text-white" href="#services">
-        <button class="btn-primary py4 px6 border-radius-xxxs text-uppercase">Tell Me More
+        <button class="btn-primary py8 px12 border-radius-xxxs text-uppercase">Tell Me More
         </button></a>
     </div>
   </header>
@@ -109,7 +109,7 @@
         </div>
         <div class="col-lg-4 col-sm-6 mb-4">
           <!-- Portfolio item 3-->
-          <div class="portfolio-item bg-white shadow">
+          <div class="portfolio-item bg-white shadow cursor-pointer" [routerLink]="'/documentation/node.js'">
             <div class="portfolio-link row">
               <div class="col-sm-12 d-flex justify-content-center"><img class="img-fluid"
                   src="assets/images/tech/nodejs.svg" alt="..." /></div>
@@ -119,11 +119,11 @@
         </div>
         <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
           <!-- Portfolio item 4-->
-          <div class="portfolio-item bg-white shadow">
+          <div class="portfolio-item bg-white shadow cursor-pointer" [routerLink]="'/documentation/android'">
             <div class="portfolio-link row ">
               <div class="col-sm-12 d-flex justify-content-center"><img class="img-fluid"
-                  src="assets/images/tech/reactNative.svg" alt="..." /></div>
-              <div class="col-sm-12 portfolio-caption-heading text-center">React Native</div>
+                  src="assets/images/tech/android.svg" alt="..." /></div>
+              <div class="col-sm-12 portfolio-caption-heading text-center">Android</div>
             </div>
           </div>
         </div>
@@ -318,7 +318,7 @@
   <!-- Contact-->
   <section class="page-section" id="contact">
     <div class="container">
-      <div class="text-center">
+      <div class="text-center mb12">
         <h2 class="section-heading text-uppercase">Contact Us</h2>
       </div>
 
@@ -372,7 +372,7 @@
           <div class="text-center text-danger mb-3">Error sending message!</div>
         </div>
         <!-- Submit Button-->
-        <div class="text-center"><button class="btn btn-secondary btn-xl text-uppercase disabled" id="submitButton"
+        <div class="text-center"><button class="background-primary border-radius-xxxs border-white text-white btn-xl text-uppercase" id="submitButton"
             type="button">Send Message</button></div>
       </form>
     </div>
