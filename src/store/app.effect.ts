@@ -26,8 +26,8 @@ export class AppEffects {
     fetchBugs$ = createEffect(() =>
         this.actions$.pipe(
             ofType(AppActions.fetchBugs),
-            switchMap(() =>
-                this.bugsService.fetchBugs().pipe(
+            switchMap((action) =>
+                this.bugsService.fetchBugs(action.projectId).pipe(
                     map((results) => AppActions.fetchBugsSuccess(results)),
                 )
             )
@@ -37,8 +37,8 @@ export class AppEffects {
     fetchErrors$ = createEffect(() =>
         this.actions$.pipe(
             ofType(AppActions.fetchErrors),
-            switchMap(() =>
-                this.errorsService.fetchErrors().pipe(
+            switchMap((action) =>
+                this.errorsService.fetchErrors(action.projectId).pipe(
                     map((results) => AppActions.fetchErrorsSuccess(results)),
                 )
             )
@@ -79,10 +79,12 @@ export class AppEffects {
             switchMap(action =>
                 this.authService.login(action.data).pipe(
                     map((res) => {
-                        localStorage.setItem('token', res.token);
+                        localStorage.setItem('token', res.token.sessionId);
+                        localStorage.setItem('isAdmin', res.token.isAdmin);
+                        localStorage.setItem('name', res.user.name);
+                        this.snackBarNotificationService.success({ message: 'login success', horizontalPosition: 'right', verticalPosition: 'top' });
                         this.router.navigate(['/dashboard']);
-                        this.snackBarNotificationService.success({ message: 'login success', horizontalPosition: 'right', verticalPosition: 'top' })
-                        return AppActions.loginSuccess()
+                        return AppActions.loginSuccess();
                     }),
                 )
             )
@@ -96,9 +98,11 @@ export class AppEffects {
                 this.authService.signUp(action.data).pipe(
                     map((res) => {
                         localStorage.setItem('token', res.token);
+                        localStorage.setItem('isAdmin', JSON.stringify(true));
+                        localStorage.setItem('name', res.user.name);
+                        this.snackBarNotificationService.success({ message: 'SignUp success', horizontalPosition: 'right', verticalPosition: 'top' });
                         this.router.navigate(['/dashboard']);
-                        this.snackBarNotificationService.success({ message: 'SignUp success', horizontalPosition: 'right', verticalPosition: 'top' })
-                        return AppActions.signUpSuccess()
+                        return AppActions.signUpSuccess();
                     }),
                 )
             )

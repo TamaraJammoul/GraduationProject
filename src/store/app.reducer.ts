@@ -70,7 +70,10 @@ export const ProjectUsersReducer = createReducer(
   on(AppActions.fetchProjectUsersSuccess, (_, { users }) => users)
 );
 
-
+export const SelectProjectReducer = createReducer(
+  '',
+  on(AppActions.selectProject, (_, { projectId }) => projectId)
+);
 
 export const reducers: ActionReducerMap<AppState> = {
   bugs: BugsReducer,
@@ -78,4 +81,5 @@ export const reducers: ActionReducerMap<AppState> = {
   members: MembersReducer,
   projects: ProjectReducer,
   projectUsers: ProjectUsersReducer,
+  selectedProject: SelectProjectReducer
 }

@@ -19,7 +19,7 @@ export class ProjectService {
                 'Content-Type': 'application/json'
             }),
             params: new HttpParams()
-                .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')
+                .set('sessionId', JSON.stringify(localStorage.getItem('token')))
         };
         return this.httpClient.get<Project[]>(this.endpointUrl, httpOptions).pipe(
             map(data => data)
@@ -32,7 +32,7 @@ export class ProjectService {
                 'Content-Type': 'application/json'
             }),
             params: new HttpParams()
-                .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')
+                .set('sessionId', JSON.stringify(localStorage.getItem('token')))
                 .set('name', name)
         };
         return this.httpClient.post<Project>(this.endpointUrl, null, httpOptions).pipe(
@@ -46,7 +46,7 @@ export class ProjectService {
                 'Content-Type': 'application/json'
             }),
             params: new HttpParams()
-                .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')
+                .set('sessionId', JSON.stringify(localStorage.getItem('token')))
                 .set('projectId', projectId)
         };
         return this.httpClient.get<User[]>(`${this.endpointUrl}/users`, httpOptions).pipe(
@@ -60,7 +60,7 @@ export class ProjectService {
                 'Content-Type': 'application/json'
             }),
             params: new HttpParams()
-                .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')
+                .set('sessionId', JSON.stringify(localStorage.getItem('token')))
                 .set('projectId', projectId)
         };
         return this.httpClient.delete<any>(this.endpointUrl, httpOptions).pipe(
@@ -74,7 +74,7 @@ export class ProjectService {
                 'Content-Type': 'application/json'
             }),
             params: new HttpParams()
-                .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')
+                .set('sessionId', JSON.stringify(localStorage.getItem('token')))
                 .set('projectId', projectId)
                 .set('userId', userId)
         };
@@ -89,7 +89,7 @@ export class ProjectService {
                 'Content-Type': 'application/json'
             }),
             params: new HttpParams()
-                .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')
+                .set('sessionId', JSON.stringify(localStorage.getItem('token')))
                 .set('userId', userId)
                 .set('projectId', projectId)
         };
@@ -105,7 +105,7 @@ export class ProjectService {
                 'Content-Type': 'application/json'
             }),
             params: new HttpParams()
-                .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')
+                .set('sessionId', JSON.stringify(localStorage.getItem('token')))
                 .set('projectId', projectId)
                 .set('name', projectName)
         };

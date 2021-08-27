@@ -17,6 +17,7 @@ const getTeamMembersSuccess = createAction(
 
 const fetchErrors = createAction(
     '[app] Fetch Errors',
+    (projectId: string) => ({ projectId })
 );
 
 const fetchErrorsSuccess = createAction(
@@ -24,8 +25,14 @@ const fetchErrorsSuccess = createAction(
     (error: Error[]) => ({ error })
 );
 
+const selectProject = createAction(
+    '[app] Select Project',
+    (projectId: string) => ({ projectId })
+);
+
 const fetchBugs = createAction(
     '[app] Fetch Bugs',
+    (projectId: string) => ({ projectId })
 );
 
 const fetchBugsSuccess = createAction(
@@ -202,5 +209,6 @@ export const AppActions = {
     getTeamMembers,
     getTeamMembersSuccess,
     convertErrorToBug,
-    convertErrorToBugSuccess
+    convertErrorToBugSuccess,
+    selectProject
 }

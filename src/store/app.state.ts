@@ -9,6 +9,7 @@ export interface AppState {
     members: User[],
     projects: Project[],
     projectUsers: User[],
+    selectedProject: string
 }
 
 export const STATE = 'state';

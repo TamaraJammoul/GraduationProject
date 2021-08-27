@@ -19,7 +19,7 @@ export class TeamService {
                 'Content-Type': 'application/json'
             }),
             params: new HttpParams()
-                .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')
+                .set('sessionId', JSON.stringify(localStorage.getItem('token')))
         };
         return this.httpClient.get<User[]>(this.endpointUrl, httpOptions).pipe(
             map(data => data)
@@ -33,7 +33,7 @@ export class TeamService {
             }),
         };
         const body = {
-            sessionId: '5d869d68-fbb9-4d07-83f9-9d0a4b487b51',
+            sessionId: JSON.stringify(localStorage.getItem('token')),
             email,
             name,
             phone: '09951516896',
@@ -50,7 +50,7 @@ export class TeamService {
                 'Content-Type': 'application/json'
             }),
             params: new HttpParams()
-                .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')
+                .set('sessionId', JSON.stringify(localStorage.getItem('token')))
                 .set('teamMemberId', userId)
         };
         return this.httpClient.delete<any>(`${this.authEndpointUrl}/deleteUser`, httpOptions).pipe(

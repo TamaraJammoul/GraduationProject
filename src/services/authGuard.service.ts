@@ -23,7 +23,7 @@ export class AuthGuard implements CanActivate, CanLoad{
         return this.store$.select(isUserAuth).pipe(
             tap(data => data),
             take(1),
-            switchMap((data: string) => {
+            switchMap((data: boolean) => {
                 if(!!data) {
                     return of(true);
                 }

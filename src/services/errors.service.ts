@@ -11,13 +11,14 @@ export class ErrorsService {
     endpointUrl = `${environment.apiUrl}/Errors`;
 
     constructor(private httpClient: HttpClient) { }
-    fetchErrors(): Observable<Error[]> {
+    fetchErrors(projectId: string): Observable<Error[]> {
         const httpOptions = {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json'
             }),
             params: new HttpParams()
-                .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')
+                .set('sessionId', JSON.stringify(localStorage.getItem('token')))
+                .set('projectId', projectId)
         };
         return this.httpClient.get<Error[]>(this.endpointUrl, httpOptions).pipe(
             map(data => data)
@@ -30,7 +31,7 @@ export class ErrorsService {
                 'Content-Type': 'application/json'
             }),
             params: new HttpParams()
-                .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')
+                .set('sessionId', JSON.stringify(localStorage.getItem('token')))
                 .set('errorId', errorId)
         };
         return this.httpClient.delete<any>(this.endpointUrl, httpOptions).pipe(
@@ -44,7 +45,7 @@ export class ErrorsService {
                 'Content-Type': 'application/json'
             }),
             params: new HttpParams()
-                .set('sessionId', '5d869d68-fbb9-4d07-83f9-9d0a4b487b51')
+                .set('sessionId', JSON.stringify(localStorage.getItem('token')))
                 .set('errorId', errorId)
         };
         const body = {

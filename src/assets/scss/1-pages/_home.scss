@@ -465,7 +465,7 @@ progress {
 
 @media (min-width: 1200px) {
   .display-2 {
-    font-size: 4.5rem;
+    font-size: 3rem;
   }
 }
 
@@ -3139,24 +3139,14 @@ fieldset:disabled .btn {
   opacity: 0.65;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: $primary;
-  border-color: $primary;
-}
 
-.btn-primary:hover {
-  color: #fff;
-  background-color: #d9aa00;
-  border-color: $primary;
-}
 
 .btn-check:focus+.btn-primary,
 .btn-primary:focus {
   color: #fff;
-  background-color: #d9aa00;
+  background-color: #53524e;
   border-color: $primary;
-  box-shadow: 0 0 0 0.25rem rgba(255, 208, 38, 0.5);
+  box-shadow: 0 0 0 0.25rem rgba(61, 61, 60, 0.5);
 }
 
 .btn-check:checked+.btn-primary,
@@ -11838,7 +11828,7 @@ header.masthead .masthead-subheading {
 }
 
 header.masthead .masthead-heading {
-  font-size: 3.25rem;
+  font-size: 3rem;
   font-weight: 700;
   line-height: 3.25rem;
   margin-bottom: 2rem;
@@ -11851,14 +11841,14 @@ header.masthead .masthead-heading {
   }
 
   header.masthead .masthead-subheading {
-    font-size: 2.25rem;
+    font-size: 2rem;
     font-style: italic;
     line-height: 2.25rem;
     margin-bottom: 2rem;
   }
 
   header.masthead .masthead-heading {
-    font-size: 4.5rem;
+    font-size: 3rem;
     font-weight: 700;
     line-height: 4.5rem;
     margin-bottom: 4rem;

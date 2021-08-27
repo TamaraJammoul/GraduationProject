@@ -31,6 +31,15 @@ export const getProjectUsersList = createSelector(
 
 export const isUserAuth = createSelector(
   featureSelector,
-  () => 'lkl'
+  () => localStorage.getItem('token') ? true : false
 );
 
+export const isAdmin = createSelector(
+  featureSelector,
+  () => localStorage.getItem('isAdmin') ? true : false
+);
+
+export const selectedProject = createSelector(
+  featureSelector,
+  (state) => state.selectedProject
+);

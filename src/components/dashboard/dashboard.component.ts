@@ -18,8 +18,8 @@ export class DashboardComponent implements OnInit {
   constructor(private store$: Store) { }
 
   ngOnInit(): void {
-    this.store$.dispatch(AppActions.fetchBugs());
-    this.store$.dispatch(AppActions.fetchErrors());
+    this.store$.dispatch(AppActions.fetchBugs(''));
+    this.store$.dispatch(AppActions.fetchErrors(''));
     this.store$.dispatch(AppActions.getProject());
 
     this.store$.select(getBugsList).subscribe(data => {
@@ -43,6 +43,6 @@ export class DashboardComponent implements OnInit {
 
   changeView() {
     this.isBugListView = !this.isBugListView;
-    this.store$.dispatch(AppActions.fetchBugs());
+    this.store$.dispatch(AppActions.fetchBugs(''));
   }
 }
