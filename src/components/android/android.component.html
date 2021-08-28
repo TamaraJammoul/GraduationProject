@@ -1,40 +1,76 @@
 <div class="background-white documentation">
   <div class="">
     <h1 class="text-secondary title">Android</h1>
-    <h2 class="d-flex text-primary"><p class="cursor-pointer" [routerLink]="'/'">Documentation </p><p> / Android</p></h2>
+    <h2 class="d-flex text-primary">
+      <p class="cursor-pointer" [routerLink]="'/'">Documentation </p>
+      <p> / Android</p>
+    </h2>
   </div>
-  <p class="section1">Sentry's Node SDK enables automatic reporting of errors, exceptions, and transactions.
-    Our Node SDK supports all recent versions, and integrates well with a variety of popular frameworks and packages. It
-    gives developers the ability to see Node source code at each frame instead and get proper asynchronous context
-    tracking in a way that fits Node’s concurrency model</p>
+  <p class="section1">A Kotlin library to convert the classic StackTrace to a better one and sending its valuable
+    information to a back-end server using Retrofit 2
+  </p>
   <div class="mt12">
-    <h2>Install</h2>
+    <h2>Usage</h2>
     <p>Sentry captures data by using an SDK within your application’s runtime.</p>
+    <p>Step 1. Add the JitPack repository to your build file</p><br />
+    <h2 class="text-secondary">For gradle:</h2>
+    <p>Add it in your root build.gradle at the end of repositories:</p>
     <div class="background-secondary text-white p8">
-      <p># Using yarn</p>
-      <p><span class="install">yarn add</span> @sentry/node @sentry/tracing</p>
-      <p># Using npm</p>
-      <p><span class="install">npm install --save</span> @sentry/node @sentry/tracing</p>
+      <p>allprojects {{'{'}}</p>
+      <p class="pl8">repositories {{'{'}}</p>
+      <p> ...</p>
+      <p class="pl8"> maven {{'{'}} url 'https://jitpack.io' {{'}'}}</p>
+      <p class="pl12">{{'}'}}</p>
+      {{'}'}}
+    </div>
+    <br>
+    <h2 class="text-secondary">for maven:</h2>
+    <div class="background-secondary text-white p8">
+      <p><span class="code">&#60; repositories></span></p>
+      <p class="pl8 ml8"><span class="star">&#60; repository></span></p>
+      <p class="pl12 ml12"><span class="install">&#60; id></span>jitpack.io<span class="install">&#60;/id></span></p>
+      <p class="pl12 ml12"><span class="install">&#60;url></span>https://jitpack.io<span
+          class="install">&#60;/url></span></p>
+      <p class="pl8 ml8"><span class="star">&#60;/repository></span></p>
+      <p><span class="code">&#60;/repositories></span></p>
     </div>
   </div>
 
   <div class="mt12">
-    <h2>Configure</h2>
-    <p>Configuration should happen as early as possible in your application's lifecycle.</p>
-    <p class="mt3">Once this is done, Sentry's Node SDK captures all transactions and unhandled exceptions.</p>
+    <p>Step 2. Add the dependecy</p>
+    <h2 class="text-secondary">For gradle:</h2>
     <div class="background-secondary text-white p8">
-      <p class="code">import <span class="star">*</span> as <span class="text-white">Sentry </span>from <span
-          class="install">"@sentry/node";</span></p>
-      <p class="code">import <span class="star">*</span> as <span class="text-white">Tracing </span>from <span
-          class="install">"@sentry/tracing";</span></p>
-      <p><span class="install">Sentry</span>.init(<br />
-        dsn: <span class="install">"https://examplePublicKey@o0.ingest.sentry.io/0"</span>,
-        <br />
-        // We recommend adjusting this value in production, or using tracesSampler<br />
-        // for finer control<br />
-        tracesSampleRate:<span class="text-warning"> 1.0</span>,<br />
-        );
+      <p><span class="code">dependencies</span> {{'{'}}
+        <span class="star"> 'com.github.Kamel-Q:cleanexception:1.0.0'</span>
+        {{'}'}}
       </p>
+    </div>
+
+    <h2 class="text-secondary mt4">for maven:</h2>
+    <div class="background-secondary text-white p8">
+      <p><span class="code">&#60; dependency></span></p>
+      <p class="pl12 ml12"><span class="install">&#60; groupId></span>com.github.Kamel-Q<span
+          class="install">&#60;/groupId></span></p>
+      <p class="pl12 ml12"><span class="install">&#60; artifactId></span>cleanexception<span
+          class="install">&#60;/artifactId></span></p>
+      <p class="pl12 ml12"><span class="install">&#60; version></span>1.0.0<span class="install">&#60;/version></span>
+      </p>
+      <p><span class="code">&#60;/dependency></span></p>
+    </div>
+    <p>Step 3. Add permission to the manifest file:</p>
+    <div class="background-secondary text-white p8">
+      <p class="pl12 ml12"><span class="install">&#60; uses-permission</span> <span
+          class="code">android:</span>name="android.permission.INTERNET" /></p>
+    </div>
+    <p>Step 4. Use the library inside your catch clause: </p>
+    <div class="background-secondary text-white p8">
+      <p> <span class="star">catch(ex:Exception){{'{'}}</span></p>
+        <p class="ml8"><span class="code">CleanException</span>.Init(apiKey,apiSecret,projectKey) <span class="install">// mandatory to link between the client
+          and the server</span></p>
+          <p class="ml8"><span class="code">CleanException</span>.setTitle("Example title")</p>
+          <p class="ml8"><span class="code">CleanException</span>.setDescription("Example description)</p>
+          <p class="ml8"><span class="code">CleanException</span>.sendExceptionError(ex,this)</p>
+        <p class="star">{{'}'}}</p>
     </div>
   </div>
 </div>

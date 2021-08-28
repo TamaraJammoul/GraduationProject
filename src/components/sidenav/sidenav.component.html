@@ -5,8 +5,8 @@
       add
     </span>
   </div>
-  <div class="full-width" *ngFor="let item of projects">
-    <div class="row full-width mb4">
+  <div class="full-width mb4 center" *ngFor="let item of projects" (click)="selectProject(item.id)">
+    <div class="row full-width px4 pt3 border-radius-xl" [ngClass]="{'background-light': isProjectSelected(item.id)}">
       <div class="col-sm-4">
         <h3>{{item.name}}</h3>
       </div>
@@ -34,17 +34,17 @@
         <span class="material-icons mr-2 text-primary" [cdkCopyToClipboard]="item.key">
           content_copy
           </span>
-        Project key: {{item.key}}</p>
+        <span class="text-primary">Project key:</span> {{item.key}}</p>
       <p mat-menu-item>
        <span class="material-icons mr-2 text-primary" [cdkCopyToClipboard]="'7f453dd1b6c12eb143ff59ac94f10df12dfdc24da08063e26e8b19092c528e01'">
         content_copy
         </span>
-       Api Secret: "7f453dd1b6c12eb143ff59ac94f10df12dfdc24da08063e26e8b19092c528e01"</p>
+        <span class="text-primary">Api Secret:</span> "7f453dd1b6c12eb143ff59ac94f10df12dfdc24da08063e26e8b19092c528e01"</p>
       <p mat-menu-item >
       <span class="material-icons mr-2 text-primary" [cdkCopyToClipboard]="'5d9853aaeb074c20fa135b90080485b3f35d83566c23cf4f4fafc895e394d4a1'">
         content_copy
         </span>
-        Api Key: "5d9853aaeb074c20fa135b90080485b3f35d83566c23cf4f4fafc895e394d4a1"</p>
+        <span class="text-primary">Api Key:</span> "5d9853aaeb074c20fa135b90080485b3f35d83566c23cf4f4fafc895e394d4a1"</p>
     </mat-menu>
   </div>
 </div>

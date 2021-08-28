@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppActions } from '../../store/app.action';
-import { getBugsList, getErrorsList, getProjectsList } from '../../store/app.selector';
+import { getBugsList, getErrorsList, getProjectsList, selectedProject } from '../../store/app.selector';
 import { Bug } from '../../models/bug.model';
 import { Error } from '../../models/error.model';
 import { Project } from '../../models/project.model';
@@ -15,16 +15,24 @@ export class DashboardComponent implements OnInit {
   errors: Error[] = [];
   projects: Project[] = [];
   isBugListView = false;
+  selectedProject = '';
+
   constructor(private store$: Store) { }
 
   ngOnInit(): void {
-    this.store$.dispatch(AppActions.fetchBugs(''));
-    this.store$.dispatch(AppActions.fetchErrors(''));
     this.store$.dispatch(AppActions.getProject());
 
     this.store$.select(getBugsList).subscribe(data => {
       if (data) {
         this.bugs = data;
+      }
+    });
+
+    this.store$.select(selectedProject).subscribe(data => {
+      if (data) {
+        this.selectedProject = data;
+        this.store$.dispatch(AppActions.fetchBugs(data));
+        this.store$.dispatch(AppActions.fetchErrors(data));
       }
     });
 
@@ -37,12 +45,14 @@ export class DashboardComponent implements OnInit {
     this.store$.select(getProjectsList).subscribe(data => {
       if (data) {
         this.projects = data;
+        this.store$.dispatch(AppActions.selectProject(data[0].id));
       }
     });
   }
 
   changeView() {
     this.isBugListView = !this.isBugListView;
-    this.store$.dispatch(AppActions.fetchBugs(''));
+    this.store$.dispatch(AppActions.fetchBugs(this.selectedProject));
   }
+
 }

@@ -24,7 +24,7 @@ export class AuthGuard implements CanActivate, CanLoad{
             tap(data => data),
             take(1),
             switchMap((data: boolean) => {
-                if(!!data) {
+                if(data) {
                     return of(true);
                 }
                 else {

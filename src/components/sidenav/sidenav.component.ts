@@ -7,7 +7,7 @@ import { DeleteProjectMemberDialogComponent } from '../delete-project-member-dia
 import { RenameProjectDialogComponent } from '../rename-project-dialog/rename-project-dialog.component';
 import { AddProjectDialogComponent } from '../add-project-dialog/add-project-dialog.component'
 import { Project } from '../../models/project.model';
-import { getProjectsList } from '../../store/app.selector';
+import { getProjectsList, selectedProject } from '../../store/app.selector';
 
 @Component({
   selector: 'app-sidenav',
@@ -17,6 +17,8 @@ import { getProjectsList } from '../../store/app.selector';
 })
 export class SidenavComponent implements OnInit {
   projects: Project[] = [];
+  selectedProject = '';
+
   constructor(private dialog: MatDialog,
     private cdr: ChangeDetectorRef,
     private store$: Store,) { }
@@ -24,8 +26,17 @@ export class SidenavComponent implements OnInit {
   ngOnInit(): void {
     this.store$.dispatch(AppActions.getProject());
     this.store$.select(getProjectsList).subscribe(data => {
-      this.projects = data
+      this.projects = data;
+      if (data.length>0) {
+        this.store$.dispatch(AppActions.selectProject(data[0].id));
+      }
       this.cdr.detectChanges();
+    });
+
+    this.store$.select(selectedProject).subscribe(data => {
+      if (data) {
+        this.selectedProject = data;
+      }
     });
   }
 
@@ -53,6 +64,10 @@ export class SidenavComponent implements OnInit {
     this.store$.dispatch(AppActions.deleteProject(projectId));
   }
 
+  selectProject(projectId: string) {
+    this.store$.dispatch(AppActions.selectProject(projectId));
+  }
+
   renameProject(projectId: string) {
     this.dialog.open(RenameProjectDialogComponent, {
       width: '40%',
@@ -60,4 +75,7 @@ export class SidenavComponent implements OnInit {
     });
   }
 
+  isProjectSelected(projectId: string) {
+    return projectId === this.selectedProject;
+  }
 }
