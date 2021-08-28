@@ -5,7 +5,7 @@
       add
     </span>
   </div>
-  <div class="full-width mb4 center" *ngFor="let item of projects" (click)="selectProject(item.id)">
+  <div class="full-width mb4 center" *ngFor="let item of projects" (click)="selectProject(item)">
     <div class="row full-width px4 pt3 border-radius-xl" [ngClass]="{'background-light': isProjectSelected(item.id)}">
       <div class="col-sm-4">
         <h3>{{item.name}}</h3>

@@ -71,8 +71,8 @@ export const ProjectUsersReducer = createReducer(
 );
 
 export const SelectProjectReducer = createReducer(
-  '',
-  on(AppActions.selectProject, (_, { projectId }) => projectId)
+  {} as Project,
+  on(AppActions.selectProject, (_, { project }) => project)
 );
 
 export const reducers: ActionReducerMap<AppState> = {

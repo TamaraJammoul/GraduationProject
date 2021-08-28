@@ -27,7 +27,7 @@ const fetchErrorsSuccess = createAction(
 
 const selectProject = createAction(
     '[app] Select Project',
-    (projectId: string) => ({ projectId })
+    (project: Project) => ({ project })
 );
 
 const fetchBugs = createAction(

@@ -15,6 +15,7 @@
       <p class="card-address flex-nowrap card-subtitle">
         <span>{{bug.description}} </span>
       </p>
+      <span>Submission Time: {{bug.submissionTime}}</span>
     </mat-card-content>
     <mat-card-actions *ngIf="!(isAdmin$|async)">
       <div class="row">

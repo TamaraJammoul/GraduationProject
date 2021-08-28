@@ -17,7 +17,7 @@ import { getProjectsList, selectedProject } from '../../store/app.selector';
 })
 export class SidenavComponent implements OnInit {
   projects: Project[] = [];
-  selectedProject = '';
+  selectedProject: Project = { } as Project;
 
   constructor(private dialog: MatDialog,
     private cdr: ChangeDetectorRef,
@@ -27,8 +27,8 @@ export class SidenavComponent implements OnInit {
     this.store$.dispatch(AppActions.getProject());
     this.store$.select(getProjectsList).subscribe(data => {
       this.projects = data;
-      if (data.length>0) {
-        this.store$.dispatch(AppActions.selectProject(data[0].id));
+      if (data.length > 0) {
+        this.store$.dispatch(AppActions.selectProject(data[0]));
       }
       this.cdr.detectChanges();
     });
@@ -64,8 +64,8 @@ export class SidenavComponent implements OnInit {
     this.store$.dispatch(AppActions.deleteProject(projectId));
   }
 
-  selectProject(projectId: string) {
-    this.store$.dispatch(AppActions.selectProject(projectId));
+  selectProject(project: Project) {
+    this.store$.dispatch(AppActions.selectProject(project));
   }
 
   renameProject(projectId: string) {
@@ -76,6 +76,6 @@ export class SidenavComponent implements OnInit {
   }
 
   isProjectSelected(projectId: string) {
-    return projectId === this.selectedProject;
+    return projectId === this.selectedProject.id;
   }
 }

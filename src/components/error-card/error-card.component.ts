@@ -3,7 +3,7 @@ import { Error } from '../../models/error.model';
 import { Store } from '@ngrx/store';
 import { AppActions } from '../../store/app.action';
 import { User } from '../../models/user.model';
-import { getProjectUsersList, isAdmin } from '../../store/app.selector';
+import { selectedProject, isAdmin } from '../../store/app.selector';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -18,8 +18,8 @@ export class ErrorCardComponent implements OnInit {
   constructor(private store$: Store) { }
 
   ngOnInit(): void {
-    this.store$.select(getProjectUsersList).subscribe(data => {
-      this.users = data
+    this.store$.select(selectedProject).subscribe(data => {
+      this.users = data.users;
     });
     this.isAdmin$ = this.store$.select(isAdmin);
   }

@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
   errors: Error[] = [];
   projects: Project[] = [];
   isBugListView = false;
-  selectedProject = '';
+  selectedProject: Project = { } as Project;
 
   constructor(private store$: Store) { }
 
@@ -31,8 +31,8 @@ export class DashboardComponent implements OnInit {
     this.store$.select(selectedProject).subscribe(data => {
       if (data) {
         this.selectedProject = data;
-        this.store$.dispatch(AppActions.fetchBugs(data));
-        this.store$.dispatch(AppActions.fetchErrors(data));
+        this.store$.dispatch(AppActions.fetchBugs(data.id));
+        this.store$.dispatch(AppActions.fetchErrors(data.id));
       }
     });
 
@@ -45,14 +45,14 @@ export class DashboardComponent implements OnInit {
     this.store$.select(getProjectsList).subscribe(data => {
       if (data) {
         this.projects = data;
-        this.store$.dispatch(AppActions.selectProject(data[0].id));
+        this.store$.dispatch(AppActions.selectProject(data[0]));
       }
     });
   }
 
   changeView() {
     this.isBugListView = !this.isBugListView;
-    this.store$.dispatch(AppActions.fetchBugs(this.selectedProject));
+    this.store$.dispatch(AppActions.fetchBugs(this.selectedProject.id));
   }
 
 }
