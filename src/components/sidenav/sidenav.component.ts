@@ -7,7 +7,8 @@ import { DeleteProjectMemberDialogComponent } from '../delete-project-member-dia
 import { RenameProjectDialogComponent } from '../rename-project-dialog/rename-project-dialog.component';
 import { AddProjectDialogComponent } from '../add-project-dialog/add-project-dialog.component'
 import { Project } from '../../models/project.model';
-import { getProjectsList, selectedProject } from '../../store/app.selector';
+import { getProjectsList, selectedProject, isAdmin } from '../../store/app.selector';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-sidenav',
@@ -18,7 +19,7 @@ import { getProjectsList, selectedProject } from '../../store/app.selector';
 export class SidenavComponent implements OnInit {
   projects: Project[] = [];
   selectedProject: Project = { } as Project;
-
+  isAdmin$!: Observable<boolean>; 
   constructor(private dialog: MatDialog,
     private cdr: ChangeDetectorRef,
     private store$: Store,) { }
@@ -32,7 +33,7 @@ export class SidenavComponent implements OnInit {
       }
       this.cdr.detectChanges();
     });
-
+    this.isAdmin$ = this.store$.select(isAdmin);
     this.store$.select(selectedProject).subscribe(data => {
       if (data) {
         this.selectedProject = data;

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppActions } from '../../store/app.action';
-import { getBugsList, getErrorsList, getProjectsList, selectedProject } from '../../store/app.selector';
+import { getBugsList, getErrorsList, getProjectsList, selectedProject, isAdmin } from '../../store/app.selector';
 import { Bug } from '../../models/bug.model';
 import { Error } from '../../models/error.model';
 import { Project } from '../../models/project.model';
@@ -16,7 +16,6 @@ export class DashboardComponent implements OnInit {
   projects: Project[] = [];
   isBugListView = false;
   selectedProject: Project = { } as Project;
-
   constructor(private store$: Store) { }
 
   ngOnInit(): void {
@@ -41,6 +40,12 @@ export class DashboardComponent implements OnInit {
         this.errors = data;
       }
     });
+
+    this.store$.select(isAdmin).subscribe(data => {
+      if (data === false) {
+        this.isBugListView = true;
+      }
+    })
 
     this.store$.select(getProjectsList).subscribe(data => {
       if (data) {

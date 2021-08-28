@@ -1,7 +1,7 @@
 <div class="container sidenav-container">
   <div class="d-flex text-primary mt7">
     <h1 class="projects">Projects</h1>
-    <span class="material-icons ml-3 cursor-pointer" (click)="addProject()">
+    <span *ngIf="isAdmin$|async" class="material-icons ml-3 cursor-pointer" (click)="addProject()">
       add
     </span>
   </div>
@@ -10,19 +10,19 @@
       <div class="col-sm-4">
         <h3>{{item.name}}</h3>
       </div>
-      <span class="material-icons text-silver col-sm-1 mr-2 cursor-pointer" (click)="addProjectTeamMember(item.id)">
+      <span *ngIf="isAdmin$|async" class="material-icons text-silver col-sm-1 mr-2 cursor-pointer" (click)="addProjectTeamMember(item.id)">
         person_add
-      </span>
+      </span> 
 
-      <span class="material-icons text-silver col-sm-1 mr-2 cursor-pointer" (click)="deleteProjectTeamMember(item)">
+      <span *ngIf="isAdmin$|async" class="material-icons text-silver col-sm-1 mr-2 cursor-pointer" (click)="deleteProjectTeamMember(item)">
         person_remove
       </span>
 
-      <span class="material-icons col-sm-1 mr-2 cursor-pointer text-warning" (click)="renameProject(item.id)">
+      <span *ngIf="isAdmin$|async" class="material-icons col-sm-1 mr-2 cursor-pointer text-warning" (click)="renameProject(item.id)">
         drive_file_rename_outline
       </span>
 
-      <span class="material-icons col-sm-1 mr-2 cursor-pointer text-danger" (click)="deleteProject(item.id)">
+      <span *ngIf="isAdmin$|async" class="material-icons col-sm-1 mr-2 cursor-pointer text-danger" (click)="deleteProject(item.id)">
         delete
       </span>
       <span class="material-icons col-sm-1 cursor-pointer text-primary" mat-button [matMenuTriggerFor]="menu">
