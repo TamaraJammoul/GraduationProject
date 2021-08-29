@@ -5,7 +5,9 @@ import { getBugsList, getErrorsList, getProjectsList, selectedProject, isAdmin }
 import { Bug } from '../../models/bug.model';
 import { Error } from '../../models/error.model';
 import { Project } from '../../models/project.model';
-
+import { MatDialog } from '@angular/material/dialog';
+import { ResetPasswordDialogComponent } from '../reset-password-dialog/reset-password-dialog.component';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -16,11 +18,10 @@ export class DashboardComponent implements OnInit {
   projects: Project[] = [];
   isBugListView = false;
   selectedProject: Project = { } as Project;
-  constructor(private store$: Store) { }
+  constructor(private store$: Store, private dialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
     this.store$.dispatch(AppActions.getProject());
-
     this.store$.select(getBugsList).subscribe(data => {
       if (data) {
         this.bugs = data;
@@ -60,4 +61,14 @@ export class DashboardComponent implements OnInit {
     this.store$.dispatch(AppActions.fetchBugs(this.selectedProject.id));
   }
 
+  resetPassword() {
+    this.dialog.open(ResetPasswordDialogComponent, {
+      width: '40%',
+    });
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigateByUrl(`/login`);
+  }
 }

@@ -8,21 +8,31 @@
     </div>
   
     <mat-card-content class="mat-typography no-margin">
-      <div class="card-title">
+      <div class="card-title hide-long-text">
         {{bug.name}}
       </div>
   
       <p class="card-address flex-nowrap card-subtitle">
         <span>{{bug.description}} </span>
       </p>
-      <span>Submission Time: {{bug.submissionTime}}</span>
+      <span class="mat-caption">Submission Time: {{bug.submissionTime}}</span><br/>
+      <span class="mat-caption mt4">Submission Date: {{bug.submissionDate}}</span><br/>
+      <span class="mat-caption mt4 hide-long-text">Developer: {{bug.user.name}}</span><br/>
+
+      <span class="mat-caption mt4"><span class="text-primary">Column:</span> {{bug.column}}   <span class="text-primary">Row:</span> {{bug.row}}</span>
+
     </mat-card-content>
     <mat-card-actions *ngIf="!(isAdmin$|async)">
-      <div class="row">
-        <span class="col-xs-12 no-padding theme-dark-blue-light-grey">
+      <div class="d-flex">
+        <span class="col-xs-6 no-padding theme-dark-blue-light-grey">
           <button mat-raised-button color="warning" class="text-white" (click)="onResolve(bug.id)" >
             <span class="mat-caption" >Resolve</span>
             <mat-icon class="ml5">delete_outline</mat-icon>
+          </button>
+        </span>
+        <span class="col-xs-6 no-padding theme-dark-blue-light-grey">
+          <button mat-raised-button color="warning" class="text-white" (click)="declineBug(bug.id)" >
+            <span class="mat-caption" >Decline</span>
           </button>
         </span>
       </div>

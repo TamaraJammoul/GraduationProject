@@ -8,6 +8,7 @@ import {
     map,
     switchMap, catchError
 } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
 import { Router } from "@angular/router"
 import { EMPTY } from 'rxjs';
 import { AuthService } from '../services/auth.service';
@@ -16,6 +17,7 @@ import { BugsService } from '../services/bugs.service';
 import { ErrorsService } from '../services/errors.service';
 import { ProjectService } from '../services/project.service';
 import { TeamService } from '../services/team.service';
+import { ProfileService } from '../services/profile.service';
 import { SnackBarNotificationService } from '../services/snackbar-notification.service';
 
 
@@ -82,6 +84,7 @@ export class AppEffects {
                         localStorage.setItem('token', res.token.sessionId);
                         localStorage.setItem('isAdmin', res.token.isAdmin);
                         localStorage.setItem('name', res.user.name);
+                        localStorage.setItem('id', res.user.id);
                         this.snackBarNotificationService.success({ message: 'login success', horizontalPosition: 'right', verticalPosition: 'top' });
                         this.router.navigate(['/dashboard']);
                         return AppActions.loginSuccess();
@@ -97,9 +100,10 @@ export class AppEffects {
             switchMap(action =>
                 this.authService.signUp(action.data).pipe(
                     map((res) => {
-                        localStorage.setItem('token', res.token);
+                        localStorage.setItem('token', res.token.sessionId);
                         localStorage.setItem('isAdmin', JSON.stringify(true));
                         localStorage.setItem('name', res.user.name);
+                        localStorage.setItem('id', res.user.id);
                         this.snackBarNotificationService.success({ message: 'SignUp success', horizontalPosition: 'right', verticalPosition: 'top' });
                         this.router.navigate(['/dashboard']);
                         return AppActions.signUpSuccess();
@@ -231,6 +235,35 @@ export class AppEffects {
         )
     );
 
+    resetPassword$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(AppActions.resetPassword),
+            switchMap(action =>
+                this.profileService.changePassword(action.password).pipe(
+                    map((res) => {
+                        this.snackBarNotificationService.success({ message: 'Reset PasswordSuccess', horizontalPosition: 'right', verticalPosition: 'top' })
+                        return AppActions.resetPasswordSuccess()
+                    }),
+                )
+            )
+        )
+    );
+
+
+    declineBug$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(AppActions.declineBug),
+            switchMap(action =>
+                this.bugsService.declineBug(action.bugId).pipe(
+                    map(() => {
+                        this.snackBarNotificationService.success({ message: 'Decline Bug Success', horizontalPosition: 'right', verticalPosition: 'top' })
+                        return AppActions.declineBugSuccess(action.bugId)
+                    }),
+                )
+            )
+        )
+    );
+
     deleteTeamMember$ = createEffect(() =>
         this.actions$.pipe(
             ofType(AppActions.deleteTeamMember),
@@ -259,11 +292,13 @@ export class AppEffects {
     constructor(
         private actions$: Actions,
         private router: Router,
+        private store$: Store,
         private authService: AuthService,
         private bugsService: BugsService,
         private errorsService: ErrorsService,
         private projectService: ProjectService,
         private teamService: TeamService,
+        private profileService: ProfileService,
         private snackBarNotificationService: SnackBarNotificationService,
     ) { }
 }

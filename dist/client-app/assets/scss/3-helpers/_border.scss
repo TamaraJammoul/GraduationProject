@@ -1,0 +1,30 @@
+@each $key,
+$val in $colors {
+  .border-#{$key} {
+    border: 1px solid #{$val} !important;
+  }
+}
+
+@each $key,
+$val in $notifications-theme {
+  .border-#{$key} {
+    border: 1px solid #{$val} !important;
+  }
+}
+
+
+$measurements : (
+  'xxxs':$spacing-xxxs,
+  'xs': $spacing-xs,
+  'sm': $spacing-sm,
+  'md': $spacing-md,
+  'lg': $spacing-lg,
+  'xl': $spacing-xl,
+);
+
+@each $key,
+$val in $measurements {
+  .border-radius-#{$key} {
+    border-radius: #{$val} !important;
+  }
+}

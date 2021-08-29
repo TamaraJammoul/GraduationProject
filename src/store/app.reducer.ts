@@ -9,7 +9,8 @@ import { User } from '../models/user.model';
 export const BugsReducer = createReducer(
   [] as Bug[],
   on(AppActions.fetchBugsSuccess, (_, { bugs }) => bugs),
-  on(AppActions.resolveBugSuccess, (state, { bugId }) => state.filter(e => e.id !== bugId))
+  on(AppActions.resolveBugSuccess, (state, { bugId }) => state.filter(e => e.id !== bugId)),
+  on(AppActions.declineBugSuccess, (state, { bugId }) => state.filter(e => e.id !== bugId))
 );
 
 export const ErrorsReducer = createReducer(

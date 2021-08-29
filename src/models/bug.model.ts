@@ -10,4 +10,9 @@ export interface Bug {
     description: string;
     title: string;
     submissionTime: string;
+    submissionDate: string;
+    user: {
+        id: string;
+        name: string;
+    };
 }

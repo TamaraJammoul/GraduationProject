@@ -3,19 +3,34 @@
     <app-sidenav></app-sidenav>
   </mat-drawer>
   <mat-drawer-content class="drawer-content">
-    <h1 class="dashboard">Dashboard</h1>
+    <div class="d-flex justify-content-between">
+      <h1 class="dashboard">Dashboard</h1>
+      <button mat-mini-fab [matMenuTriggerFor]="menu" class="mx12 my6 background-primary" >
+        <span class="material-icons">
+          account_box
+        </span>
+      </button>
+      <mat-menu #menu="matMenu" class="cursor-pointer">
+        <p mat-menu-item (click)="resetPassword()" >
+            reset password
+        </p>
+        <p mat-menu-item (click)="logout()" >
+          logout
+      </p>
+      </mat-menu>
+    </div>
     <div class="container">
       <app-navbar class="navbar-container" [label]="isBugListView?'Bugs':'Errors'" (changeView)="changeView()">
       </app-navbar>
       <div class="error-list-cards action-bar-container" *ngIf="!isBugListView">
         <div class="error-list-cards-wrapper row align-items-strech">
-          <error-card class="col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let item of errors" [error]="item">
+          <error-card class="col-lg-4 col-md-4 col-sm-6 col-xs-12" *ngFor="let item of errors" [error]="item">
           </error-card>
         </div>
       </div>
       <div class="error-list-cards action-bar-container" *ngIf="isBugListView">
         <div class="error-list-cards-wrapper row align-items-strech">
-          <bug-card class="col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let item of bugs" [bug]="item"></bug-card>
+          <bug-card class="col-lg-4 col-md-4 col-sm-6 col-xs-12" *ngFor="let item of bugs" [bug]="item"></bug-card>
         </div>
       </div>
     </div>

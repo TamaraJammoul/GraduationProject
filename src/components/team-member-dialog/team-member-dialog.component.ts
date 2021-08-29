@@ -32,6 +32,8 @@ export class AddMemberDialogComponent implements OnInit {
 
   onAdd() {
     this.store$.dispatch(AppActions.addTeamMember(this.email.value, this.name.value));
+    this.name.reset();
+    this.email.reset();
   }
 
   onDelete(id: string) {

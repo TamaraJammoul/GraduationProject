@@ -40,6 +40,13 @@ const fetchBugsSuccess = createAction(
     (bugs: Bug[]) => ({ bugs })
 );
 
+const resetPassword = createAction(
+    '[app] reset Password',
+    (password: string) => ({ password })
+);
+
+const resetPasswordSuccess = createAction('[app] reset Password Success');
+
 const login = createAction(
     '[app] Login',
     (data: Login) => ({ data })
@@ -85,6 +92,16 @@ const resolveBug = createAction(
 
 const resolveBugSuccess = createAction(
     '[app] resolve Bug Success',
+    (bugId: string) => ({ bugId })
+);
+
+const declineBug = createAction(
+    '[app] decline Bug',
+    (bugId: string) => ({ bugId })
+);
+
+const declineBugSuccess = createAction(
+    '[app] decline Bug Success',
     (bugId: string) => ({ bugId })
 );
 
@@ -176,6 +193,8 @@ const fetchProjectUsersSuccess = createAction(
 );
 
 export const AppActions = {
+    declineBug,
+    declineBugSuccess,
     fetchProjectUsers,
     fetchProjectUsersSuccess,
     fetchErrors,
@@ -210,5 +229,7 @@ export const AppActions = {
     getTeamMembersSuccess,
     convertErrorToBug,
     convertErrorToBugSuccess,
-    selectProject
+    selectProject,
+    resetPassword,
+    resetPasswordSuccess
 }

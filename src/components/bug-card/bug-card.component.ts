@@ -23,4 +23,8 @@ export class BugCardComponent implements OnInit {
   onResolve(id: string) {
     this.store$.dispatch(AppActions.resolveBug(id));
   }
+
+  declineBug(id: string) {
+    this.store$.dispatch(AppActions.declineBug(id));
+  }
 }

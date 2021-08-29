@@ -1,4 +1,4 @@
-<div class="container sidenav-container">
+<div class="container sidenav-container no-padding">
   <div class="d-flex text-primary mt7">
     <h1 class="projects">Projects</h1>
     <span *ngIf="isAdmin$|async" class="material-icons ml-3 cursor-pointer" (click)="addProject()">
@@ -12,7 +12,7 @@
       </div>
       <span *ngIf="isAdmin$|async" class="material-icons text-silver col-sm-1 mr-2 cursor-pointer" (click)="addProjectTeamMember(item.id)">
         person_add
-      </span> 
+      </span>
 
       <span *ngIf="isAdmin$|async" class="material-icons text-silver col-sm-1 mr-2 cursor-pointer" (click)="deleteProjectTeamMember(item)">
         person_remove
@@ -30,7 +30,7 @@
         </span>
     </div>
     <mat-menu #menu="matMenu" class="cursor-pointer">
-      <p mat-menu-item >
+      <p mat-menu-item > 
         <span class="material-icons mr-2 text-primary" [cdkCopyToClipboard]="item.key">
           content_copy
           </span>

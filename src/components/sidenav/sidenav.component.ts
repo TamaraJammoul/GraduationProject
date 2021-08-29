@@ -37,6 +37,7 @@ export class SidenavComponent implements OnInit {
     this.store$.select(selectedProject).subscribe(data => {
       if (data) {
         this.selectedProject = data;
+        this.cdr.detectChanges();
       }
     });
   }

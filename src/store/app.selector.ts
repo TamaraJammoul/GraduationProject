@@ -36,7 +36,7 @@ export const isUserAuth = createSelector(
 
 export const isAdmin = createSelector(
   featureSelector,
-  () => localStorage.getItem('isAdmin') ? true : false
+  () => localStorage.getItem('isAdmin') === 'true' ? true : false
 );
 
 export const selectedProject = createSelector(

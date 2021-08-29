@@ -37,11 +37,13 @@ import { ConfirmationDialogService } from '../services/dialog-confirmation.servi
 import { SnackbarNotificationComponent } from '../components/snack-bar-notification/snackbar-notification.component';
 import { ConfirmationDialogComponent } from '../components/dialog-confirmation/dialog-confirmation.component';
 import { AndroidComponent } from '../components/android/android.component';
+import { ResetPasswordDialogComponent } from '../components/reset-password-dialog/reset-password-dialog.component';
 
 
 @NgModule({
   declarations: [
     AndroidComponent,
+    ResetPasswordDialogComponent,
     SnackbarNotificationComponent,
     NodejsComponent,
     AddProjectDialogComponent,
@@ -85,7 +87,8 @@ import { AndroidComponent } from '../components/android/android.component';
     AddProjectMemberDialogComponent,
     RenameProjectDialogComponent,
     AddProjectDialogComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    ResetPasswordDialogComponent
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

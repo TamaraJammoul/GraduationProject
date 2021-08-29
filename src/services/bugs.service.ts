@@ -39,4 +39,18 @@ export class BugsService {
             map(data => data)
         );
     }
+
+    declineBug(bugId: string): Observable<any> {
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json'
+            }),
+            params: new HttpParams()
+                .set('sessionId', this.sessionId?this.sessionId:'')
+                .set('bugId', bugId)
+        };
+        return this.httpClient.patch<any>(`${this.endpointUrl}/return`, null, httpOptions).pipe(
+            map(data => data)
+        );
+    }
 }
