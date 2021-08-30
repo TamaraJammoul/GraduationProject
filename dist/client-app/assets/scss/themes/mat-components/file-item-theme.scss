@@ -1,9 +1,0 @@
-@import '~@angular/material/theming';
-
-@mixin file-item-theme($theme, $typography) {
-  .file-item-container {
-    .file-name{
-      border-radius: $border-radius-xs;
-    }
-  }
-}
