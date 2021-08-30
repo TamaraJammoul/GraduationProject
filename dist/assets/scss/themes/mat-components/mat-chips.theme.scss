@@ -1,0 +1,31 @@
+@import '~@angular/material/theming';
+
+@mixin mat-chips-custom-theme($theme, $typography) {
+  // $config: mat-get-color-config(theme);
+  // @include mat-card-typography($typography);
+  .wizme-chip {
+    cursor: pointer !important;
+    background-color: $black-12-opacity !important;
+    color: $dark !important;
+  }
+
+  .wizme-active-chip {
+    background-color: $secondary !important;
+    color: $white !important;
+  }
+
+  .wizme-chip-icon {
+    margin-right: $border-radius-xs !important;
+    margin-left: -$border-radius-xs !important;
+  }
+
+  .wizme-chip-icon-empty {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-color: $black-12-opacity;
+    border-radius: 24px;
+    margin-right: $border-radius-xs !important;
+    margin-left: -$border-radius-xs !important;
+  }
+}

@@ -1,0 +1,51 @@
+$alignment : (
+    center: center,
+    left: left,
+    right: right,
+);
+
+// Generate colors for texts
+@each $key, $val in $alignment {
+    .text-#{$key} {
+        text-align: #{$val};
+    }
+}
+
+
+@each $key, $val in $colors {
+    .text-#{$key} {
+        color: #{$val} !important;
+    }
+}
+
+@each $key, $val in $notifications-theme {
+    .text-#{$key} {
+        color: $val;
+    }
+}
+.white-space-wrap {
+    white-space: pre-wrap;
+}
+
+.text-uppcase {
+    text-transform: uppercase;   
+}
+
+.text-capitalize {
+    text-transform: capitalize;   
+}
+
+.text-lowercase {
+    text-transform: lowercase;   
+}
+
+.translated-paragraph{
+    white-space: pre-wrap;
+}
+
+.hide-long-text {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  

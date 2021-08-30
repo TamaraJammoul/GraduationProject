@@ -1,0 +1,10 @@
+@import '~@angular/material/theming';
+
+@mixin uploader-theme($theme, $typography) {
+  .file-uploader-container {
+    cursor: pointer;
+    border: 1px dashed $secondary;
+    padding: 25px !important;
+    align-items: center;
+  }
+}

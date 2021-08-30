@@ -1,0 +1,94 @@
+.btn-outline-primary {
+  color: $primary !important;
+  border: 1px solid $primary !important;
+
+  &:hover {
+    color: $white !important;
+    background: $primary !important;
+  }
+}
+
+.btn-primary {
+  color: $white !important;
+  border: 1px solid $primary !important;
+  background: $primary !important;
+
+  &:hover {
+    color: $primary !important;
+    background: $white !important;
+    border: 1px solid $primary !important;
+  }
+}
+
+.btn {
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.07);
+  }
+}
+
+.btn-primary-gredient {
+  color: var(--color-white);
+  background-image: linear-gradient(90deg, var(--color-primary-calm) 0%, var(--color-primary) 100%);
+
+  &:hover {
+    background: var(--color-white);
+    background-image: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-calm) 100%);
+  }
+}
+
+.btn-outline-secondary {
+  color: $secondary;
+  border: 1px solid $secondary;
+  background-color: $white;
+  border-radius: $border-radius-xs;
+
+  &:hover {
+    color: $white;
+    background: $secondary;
+  }
+}
+
+.btn-secondary {
+  color: var(--color-white);
+  border: 1px solid var(--color-secondary2);
+  background: var(--color-secondary2);
+
+  &:hover {
+    color: var(--color-secondary2-tint);
+    background: var(--color-white);
+  }
+}
+
+.btn-secondary-light {
+  color: var(--color-dark2-tint);
+  border: 1px solid var(--color-light6);
+  background: var(--color-light6);
+
+  &:hover {
+    color: var(--color-light6);
+    background: var(--color-dark2-tint);
+  }
+}
+
+.btn-transparent {
+  background: transparent;
+  border: none;
+}
+
+.btn-secondary-danger {
+  color: $danger;
+  border: 1px solid $danger;
+  border-radius: $border-radius-xs;
+  background: $white;
+
+  &:hover {
+    color: $white;
+    background: $danger;
+  }
+}
+
+.add-btn {
+  width: 350px;
+}

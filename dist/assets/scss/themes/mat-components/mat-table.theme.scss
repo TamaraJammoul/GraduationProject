@@ -1,0 +1,88 @@
+@import '~@angular/material/theming';
+
+@mixin mat-table-custom-theme($theme, $typography) {
+  $config: mat-get-typography-config($typography);
+
+  .empty-table {
+    height: 300px;
+    background-color: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: $border-radius-xs;
+  }
+
+  .table {
+    @include screen(med, max) {
+      overflow-x: scroll;
+    }
+  }
+
+  .mat-table {
+    font-family: mat-font-family($config);
+    width: 100%;
+
+    thead {
+
+      // background-color: $secondary2;
+      .mat-header-cell {
+        text-transform: uppercase;
+        padding-left: $spacing-sm;
+        padding-right: $spacing-sm;
+        @include mat-typography-level-to-styles($config, body-1);
+        color: $black-87-opacity;
+
+        .mat-sort-header-arrow {
+          color: $black-87-opacity;
+        }
+
+        &:first-child {
+          border-top-left-radius: $border-radius-xs;
+        }
+
+        &:last-child {
+          border-top-right-radius: $border-radius-xs;
+        }
+
+        &.text-center {
+          text-align: center;
+
+          * {
+            justify-self: center;
+          }
+        }
+      }
+    }
+
+    .mat-cell {
+      @include mat-typography-level-to-styles($config, caption);
+      padding-left: $spacing-sm;
+      padding-right: $spacing-sm;
+
+      &.center {
+        text-align: center;
+      }
+    }
+
+    .action-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      >* {
+        margin: 0 $spacing-sm;
+        cursor: pointer;
+      }
+    }
+
+    .mat-form-field-appearance-outline .mat-form-field-flex {
+      margin-top: 0% !important;
+      height: 59px !important;
+    }
+  }
+
+  .table-action {
+    // display: flex;
+    // justify-content: space-between;
+  }
+}
