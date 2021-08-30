@@ -1,9 +1,0 @@
-@import "~@angular/material/theming";
-
-@mixin mat-checkbox-custom-theme($theme, $typography) {
-    .mat-checkbox {
-        .mat-checkbox-inner-container {
-            margin-inline-end: $spacing-xs;
-        }
-    }
-}
