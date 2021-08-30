@@ -80,7 +80,7 @@ import { ResetPasswordDialogComponent } from '../components/reset-password-dialo
   ],
   providers: [AuthGuard, SnackBarNotificationService, ConfirmationDialogService],
   exports: [MaterialModule],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent ],
   entryComponents: [
     AddMemberDialogComponent,
     DeleteProjectMemberDialogComponent,
