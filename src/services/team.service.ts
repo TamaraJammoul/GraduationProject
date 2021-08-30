@@ -37,7 +37,7 @@ export class TeamService {
             sessionId: this.sessionId?this.sessionId:'',
             email,
             name,
-            phone: '09951516896',
+            phone: '0995188888',
             password: 'p@$$word123'
         }
         return this.httpClient.post<any>(`${this.authEndpointUrl}/addUser`, body, httpOptions).pipe(

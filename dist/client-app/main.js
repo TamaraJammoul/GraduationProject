@@ -1552,7 +1552,7 @@ class TeamService {
             sessionId: this.sessionId ? this.sessionId : '',
             email,
             name,
-            phone: '09951516896',
+            phone: '0995188888',
             password: 'p@$$word123'
         };
         return this.httpClient.post(`${this.authEndpointUrl}/addUser`, body, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["map"])(data => data));
